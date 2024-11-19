@@ -23,7 +23,57 @@ This is the official document containing the functional specifications of the se
 
 ### Overview
 
+### Personas
 
+#### **Eco-Crazy Advocate**
+
+**Gaming Habits**: Plays strategy and simulation games that simulate real-world scenarios (e.g., _SimCity_, _Civilization_). Focuses on games with a strong narrative or cause.
+
+**Motivations**:
+
+- Passionate about the environment, eager to spread awareness and take action on ecological issues.
+- Sees gaming as a powerful tool for educating others and raising awareness.
+
+**Goals**:
+
+- Enjoys games that challenge players to think about and solve real-world problems, especially environmental ones.
+- Wants to inspire change through gameplay and storytelling.
+
+**Frustrations**:
+
+- Games that ignore or trivialize environmental issues.
+- Lack of depth in portraying ecological problems.
+
+**Preferred Features**:
+
+- Clear environmental impact in the game’s mechanics and story.
+- Educational elements that teach sustainability and climate action.
+
+---
+
+#### **Eco-Curious Gamer**
+
+**Gaming Habits**: Plays popular action/adventure and simulation games (e.g., _The Witcher 3_, _Minecraft_). Enjoys immersive worlds and engaging gameplay but rarely considers environmental themes.
+
+**Motivations**:
+
+- Enjoys games for entertainment but is open to learning new topics, including ecology, if introduced in an engaging way.
+- Curious about real-world issues, though not well-versed in ecological problems.
+
+**Goals**:
+
+- Wants to play fun, engaging games that subtly teach about global warming and sustainability.
+- Enjoys learning through games but doesn't want to feel lectured.
+
+**Frustrations**:
+
+- Overly complex or preachy games that focus too much on details and not enough on fun.
+- Lack of relatable or accessible environmental themes.
+
+**Preferred Features**:
+
+- Easy-to-understand mechanics with a natural integration of ecological themes.
+- Gameplay decisions that impact the environment in a visible way.
 
 ### Economy & green house gazes
 
