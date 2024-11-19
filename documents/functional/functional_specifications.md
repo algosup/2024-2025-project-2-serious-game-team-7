@@ -27,7 +27,17 @@ This is the official document containing the functional specifications of the se
 
 ### Economy & green house gazes
 
-The economic and green house gaz system
+The economic and green house gaz system works in nodes. The nodes represent aspect of the Economy of a country eg. example Transportation, Education, Income etc... 
+
+Each node has two values :
+- Monetary value
+- green house gaz pollution
+
+#### Monetary value
+
+
+
+#### Green house gaz pollution
 
 ### Diplomacy
 
