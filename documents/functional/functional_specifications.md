@@ -115,19 +115,29 @@ Diplomacy allows for two countries to make a number of agreements. These agreeme
 
 International agreement are accord between two countries. Those accord can concern trade, economic assistance, or research sharing.
 
-##### Trade agreements 
+##### => Trade agreements 
 
-Two countries can agree to a trade either resources or 
+Two countries can agree to a trade either resources or goods. Buying something that your country doesn't have enough off make that part of your economy grow slower but allows to satisfy demand for however many turns the agreement last.
+
+##### => economic assistance treaties
+
+Those treaties let you give money to a struggling country to help them catch up to the rest of the world. A country that struggle too much economically will also struggle to transition ecologically.
+
+The game is all about cooperation and it is up to the player to sacrifice some of their economy to help other less fortunate place if they can.
+
+##### => research sharing
+
+Research sharing allow two countries to pool their RnD progress together. In game terms this mean that their research progress add to one an other at the end of each turn. 
 
 #### UN Resolution
 
 Those are agreement between every nation to pass a particular law, to pool economic resources or to share technology.
 
-##### UN leader
+##### => UN leader
 
 At the beginning of a turn a country becomes the UN leader and can propose a resolution. The next turn a new UN leader is chosen at random but can't be the same as the previous one.
 
-##### Making a resolution 
+##### => Making a resolution 
 
 The UN leader propose a resolution and all the other countries can vote to accept or reject it. If the resolution is accepted it is enforced the following turn. Otherwise nothing happens.
 
