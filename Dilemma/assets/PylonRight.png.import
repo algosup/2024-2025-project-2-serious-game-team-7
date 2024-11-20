@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cclr33q033qwc"
-path="res://.godot/imported/Screenshot_2024-11-19_at_10.26.56-removebg-preview.png-1cfe8592fea9e38f2ad55bc83fb7f725.ctex"
+uid="uid://cl8tyaf6y4256"
+path="res://.godot/imported/PylonRight.png-142da78be5751beca9c3da7f60571929.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Screenshot_2024-11-19_at_10.26.56-removebg-preview.png"
-dest_files=["res://.godot/imported/Screenshot_2024-11-19_at_10.26.56-removebg-preview.png-1cfe8592fea9e38f2ad55bc83fb7f725.ctex"]
+source_file="res://assets/PylonRight.png"
+dest_files=["res://.godot/imported/PylonRight.png-142da78be5751beca9c3da7f60571929.ctex"]
 
 [params]
 

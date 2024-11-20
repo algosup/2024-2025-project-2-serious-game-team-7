@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cgfl8danmty0c" path="res://assets/hamburger-button-icon.svg" id="4_eqato"]
 [ext_resource type="Script" path="res://scenes/UI.gd" id="4_xwq6w"]
 [ext_resource type="Texture2D" uid="uid://bdpkllb08vp02" path="res://assets/close_button_icon.svg" id="5_arj15"]
-[ext_resource type="Texture2D" uid="uid://cl8tyaf6y4256" path="res://assets/DALL_E_2024-11-19_11.56.15_-_A_tall_and_sleek_futuristic_metallic_pylon_designed_for_a_high-tech_command_center._The_pylon_features_vertical_luminous_lines_running_along_its_surfa-removebg-preview (1).png" id="7_5uluf"]
+[ext_resource type="Texture2D" uid="uid://cl8tyaf6y4256" path="res://assets/PylonRight.png" id="7_5uluf"]
 [ext_resource type="Texture2D" uid="uid://47smvplboxtp" path="res://assets/Desk.png" id="7_6nynb"]
 [ext_resource type="Texture2D" uid="uid://dxefscnam7d7f" path="res://assets/dall.png" id="8_1qvvp"]
 [ext_resource type="Texture2D" uid="uid://d3w2qq428a7y7" path="res://assets/kheqbvfd-removebg-preview (2).png" id="8_rkbal"]
@@ -14,10 +14,10 @@
 [ext_resource type="Texture2D" uid="uid://vpt0j2btwbha" path="res://assets/left.png" id="9_7unsh"]
 [ext_resource type="Texture2D" uid="uid://dgt703dtyeyf" path="res://assets/mid.png" id="10_syfej"]
 [ext_resource type="Texture2D" uid="uid://b7aqvt06qypq6" path="res://assets/right.png" id="11_xbkvl"]
-[ext_resource type="Texture2D" uid="uid://dn2msmrgdi18t" path="res://assets/Screenshot_2024-11-19_at_10.27.13-removebg-preview.png" id="12_2hxtn"]
+[ext_resource type="Texture2D" uid="uid://dn2msmrgdi18t" path="res://assets/button3.png" id="12_2hxtn"]
 [ext_resource type="Script" path="res://scenes/Buttons.gd" id="13_xecds"]
-[ext_resource type="Texture2D" uid="uid://bdxu6umhrm8m6" path="res://assets/Screenshot_2024-11-19_at_10.27.08-removebg-preview.png" id="14_ry5gq"]
-[ext_resource type="Texture2D" uid="uid://cclr33q033qwc" path="res://assets/Screenshot_2024-11-19_at_10.26.56-removebg-preview.png" id="15_koypk"]
+[ext_resource type="Texture2D" uid="uid://bdxu6umhrm8m6" path="res://assets/button2.png" id="14_ry5gq"]
+[ext_resource type="Texture2D" uid="uid://cclr33q033qwc" path="res://assets/button1.png" id="15_koypk"]
 
 [sub_resource type="Environment" id="Environment_m7fte"]
 background_mode = 1
