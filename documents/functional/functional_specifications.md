@@ -79,15 +79,22 @@ This is the official document containing the functional specifications of the se
 
 The economic and green house gaz system works in nodes. The nodes represent aspect of the Economy of a country eg. example Transportation, Education, Income etc... 
 
-Each node has two values :
-- Monetary value
-- green house gaz pollution
+A node has two values. Money and pollution. The pollution value is proportional to the money, but the ratio between the two can change from laws.
 
-#### Monetary value
+#### Connection
 
+A connection tie two monetary values together. this can often work in both directions to represent supply and demand.
+eg. More money in `consumer good factory` means more money in `energy production` to represent factories increasing their energy consumption along with their output.
 
+The specific list of connections can be found in [this table]
 
-#### Green house gaz pollution
+#### Median Income
+
+A lot of Nodes are linked to the median income of the population. This is a unique node that doesn't directly generate pollution. Instead it leads and receive from a lot of different node and is the central element of the Game.
+
+#### Pollution
+
+Each node generate pollution proportionally to it's monetary value. The proportion can be changed by passing laws that reduce green house gases emissions in this node.
 
 ### Diplomacy
 
