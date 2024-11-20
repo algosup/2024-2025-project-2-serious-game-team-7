@@ -81,6 +81,15 @@ The economic and green house gaz system works in nodes. The nodes represent aspe
 
 A node has two values. Money and pollution. The pollution value is proportional to the money, but the ratio between the two can change from laws.
 
+#### Nodes 
+
+| Name |  |
+| --- | --- |
+| Energy | Electricity production in the country |
+| Transport | Personal and public transport |
+| Education | How much money is in the education sector |
+| Consumer Goods | |
+
 #### Connection
 
 A connection tie two monetary values together. this can often work in both directions to represent supply and demand.
@@ -94,10 +103,11 @@ A lot of Nodes are linked to the median income of the population. This is a uniq
 
 #### Pollution
 
-Each node generate pollution proportionally to it's monetary value. The proportion can be changed by passing laws that reduce green house gases emissions in this node.
+Each node generate pollution proportionally to it's monetary value. The proportion can be changed by passing laws that reduce green house gases emissions in one or multiple nodes.
 
 ### Diplomacy
 
 ### Law
 
 ### Research
+
