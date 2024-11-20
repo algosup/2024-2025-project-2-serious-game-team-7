@@ -88,7 +88,9 @@ A node has two values. Money and pollution. The pollution value is proportional 
 | Energy | Electricity production in the country |
 | Transport | Personal and public transport |
 | Education | How much money is in the education sector |
-| Consumer Goods | |
+| Consumer Goods | The industry that fulfill the every day needs of the population |
+| Raw Resources | All the materials and resources needed to make goods |
+| Fuel | Represent all Hydrocarbon fuel including both fossil and biofuel |
 
 #### Connection
 
@@ -106,6 +108,32 @@ A lot of Nodes are linked to the median income of the population. This is a uniq
 Each node generate pollution proportionally to it's monetary value. The proportion can be changed by passing laws that reduce green house gases emissions in one or multiple nodes.
 
 ### Diplomacy
+
+Diplomacy allows for two countries to make a number of agreements. These agreement can take two forms. UN resolution and International agreement.
+
+#### International agreement
+
+International agreement are accord between two countries. Those accord can concern trade, economic assistance, or research sharing.
+
+##### Trade agreements 
+
+Two countries can agree to a trade either resources or 
+
+#### UN Resolution
+
+Those are agreement between every nation to pass a particular law, to pool economic resources or to share technology.
+
+##### UN leader
+
+At the beginning of a turn a country becomes the UN leader and can propose a resolution. The next turn a new UN leader is chosen at random but can't be the same as the previous one.
+
+##### Making a resolution 
+
+The UN leader propose a resolution and all the other countries can vote to accept or reject it. If the resolution is accepted it is enforced the following turn. Otherwise nothing happens.
+
+#### Player income
+
+The main source of income for the player to spend in the game comes from taxing the different sector of the economy.
 
 ### Law
 
