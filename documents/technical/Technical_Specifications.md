@@ -47,17 +47,27 @@
 
 ## Document Evolution
 
-This section outlines changes and updates made to the document across iterations.
+| Author        | Paul NOWAK (Tech Lead) |
+|---------------|------------|
+| Created       | 11/21/2024 |
+| Last modified | 11/21/2024 |
+| Document deadline | 11/29/2024 |
 
 ## Document Validation
 
-Defines the approval process and key contributors validating this plan.
+| Role | Name | Signature | Date |
+|---|---|---|---|
+| Project Manager | Thomas PLANCHARD | TBD | TBD |
 
 ## 1. Overview
 
 ### 1.1. Document Purpose
 
-Clarifies the objective of this technical specifications plan for "Dilemma."
+The main goal of this document is to provide a detailed plan that outlines the technical requirements, objectives and constraints for our game.
+
+Indeed, it will be based on the Functionnal Specifications document, and will introduce the software architecture of Dilemma depending on several elements, such as the current Game Engine, Godot, or the specific libraries used to code certain features.
+
+Finally, this will ensure a proper communication between the Tech Lead and the Software Engineers, who will be guided through the future technical choices required.
 
 ### 1.2. Game Presentation
 
@@ -105,7 +115,14 @@ Defines performance, scalability, and maintainability criteria.
 
 ### 3.5. Risks & Assumptions
 
-Identifies potential risks and the assumptions made in planning.
+| Risks | Assumptions | 
+| ------| ----------- | 
+| TBD | TBD  |
+| TBD | TBD  |
+| TBD | TBD  |
+| TBD | TBD  |
+| TBD | TBD  |
+| TBD | TBD  |
 
 ### 3.6. Optimization Solutions
 
