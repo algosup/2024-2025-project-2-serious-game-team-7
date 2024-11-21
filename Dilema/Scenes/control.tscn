@@ -36,6 +36,7 @@ texture = ExtResource("1_quq0f")
 
 [node name="PylonLeft" type="Sprite2D" parent="."]
 position = Vector2(58, 264)
+rotation = 0.00112732
 scale = Vector2(1.364, 1.47886)
 texture = ExtResource("2_kavk5")
 
@@ -66,21 +67,27 @@ position = Vector2(317.625, 321.031)
 scale = Vector2(0.426327, 0.405929)
 texture = ExtResource("5_dsl8g")
 script = ExtResource("6_oh7ks")
+popup_scene_path = "res://Scenes/rnd.tscn"
 background_node = NodePath("../RightScreen")
+target_color = Color(0.690196, 0.745098, 0.772549, 1)
 
 [node name="MiddleButton" type="Sprite2D" parent="Desk" node_paths=PackedStringArray("background_node")]
 position = Vector2(18.5625, 321.65)
 scale = Vector2(0.430775, 0.458585)
 texture = ExtResource("7_py5dn")
 script = ExtResource("6_oh7ks")
+popup_scene_path = "res://Scenes/diplomacy.tscn"
 background_node = NodePath("../MiddleScreen")
+target_color = Color(0.690196, 0.745098, 0.772549, 1)
 
 [node name="LeftButton" type="Sprite2D" parent="Desk" node_paths=PackedStringArray("background_node")]
 position = Vector2(-299.578, 323.505)
 scale = Vector2(0.426538, 0.490388)
 texture = ExtResource("8_2jgvs")
 script = ExtResource("6_oh7ks")
+popup_scene_path = "res://Scenes/laws.tscn"
 background_node = NodePath("../LeftScreen")
+target_color = Color(0.690196, 0.745098, 0.772549, 1)
 
 [node name="MiddleScreen" type="Sprite2D" parent="Desk"]
 position = Vector2(16.5035, 229.929)

@@ -1,16 +1,20 @@
 extends Sprite2D
 
-# Distance to move down when the button is pressed
-@export var move_down_distance: float = 2.0
+@export var popup_scene_path: String  # Path to the popup scene
+@export var move_down_distance: float = 2.0  # Distance to move down when pressed
 
 # Store the original position to reset later
 var original_position: Vector2
+
+# Static reference to the currently active popup and its color
+static var active_popup_instance: Node = null
+static var active_popup_scene_path: String = ""
 
 # Reference to the node responsible for changing the background color
 @export var background_node: Node
 
 # Predefined colors for specific screens
-@export var target_color: Color = Color(0.6, 0.9, 0.6, 1.0)  # Default is white
+@export var target_color: Color = Color(0.6, 0.9, 0.6, 1.0)  # Default is green
 
 func _ready():
 	# Save the original position of the sprite
@@ -19,24 +23,45 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed and get_rect().has_point(to_local(event.position)):
-			# Button is pressed
-			on_button_pressed()
-		elif not event.pressed:
-			# Button is released
-			on_button_released()
+			toggle_popup_and_color()
 
-func on_button_pressed():
-	# Move the sprite down by the defined distance
-	position += Vector2(0, move_down_distance)
-	print("Button Pressed: %s" % self.name)
+func toggle_popup_and_color():
+	if active_popup_instance and is_instance_valid(active_popup_instance):
+		if active_popup_scene_path == popup_scene_path:
+			# If the same button is clicked, close the current popup
+			print("Closing popup: %s" % active_popup_instance.name)
+			active_popup_instance.call_deferred("queue_free")
+			active_popup_instance = null
+			active_popup_scene_path = ""
+		else:
+			# If a different button is clicked, close the current popup and open the new one
+			print("Switching popup from %s to %s" % [active_popup_scene_path, popup_scene_path])
+			active_popup_instance.call_deferred("queue_free")
+			active_popup_instance = null
+			active_popup_scene_path = ""
+			change_background_color()  # Change to the new button's color
+			open_popup_scene()
+	else:
+		# No active popup, open the new one and change color
+		change_background_color()
+		open_popup_scene()
 
-	# Change the screen color
-	change_background_color()
+func open_popup_scene():
+	print("Opening popup: %s" % popup_scene_path)
+	if ResourceLoader.exists(popup_scene_path):
+		var popup_scene = load(popup_scene_path).instantiate()
+		if popup_scene:
+			print("Popup scene loaded successfully!")
+			get_tree().root.add_child(popup_scene)  # Add popup to the root
+			popup_scene.z_index = 100  # Ensure the popup is on top
 
-func on_button_released():
-	# Reset the sprite to its original position
-	position = original_position
-	print("Button Released: %s" % self.name)
+			# Update the static variables
+			active_popup_instance = popup_scene
+			active_popup_scene_path = popup_scene_path
+		else:
+			print("Error: Failed to instantiate popup scene: %s" % popup_scene_path)
+	else:
+		print("Error: Popup scene not found: %s" % popup_scene_path)
 
 func change_background_color():
 	if background_node and background_node is CanvasItem:

@@ -1,16 +1,12 @@
 [gd_scene load_steps=2 format=3 uid="uid://cfc0eiykq7suv"]
 
-[ext_resource type="Texture2D" uid="uid://47smvplboxtp" path="res://Images/kheqbvfd-removebg-preview (4).png" id="1_7tavx"]
+[ext_resource type="Texture2D" uid="uid://cgo6bejddefdx" path="res://Images/icon.svg" id="10_qsa2n"]
 
 [node name="Diplomacy" type="Node2D"]
 
-[node name="Kheqbvfd-removebg-preview(4)" type="Sprite2D" parent="."]
-position = Vector2(579, 326)
-scale = Vector2(0.964646, 0.77619)
-texture = ExtResource("1_7tavx")
-
-[node name="Label" type="Label" parent="Kheqbvfd-removebg-preview(4)"]
-offset_right = 40.0
-offset_bottom = 23.0
-rotation = -0.344495
-text = "ckubceljcbveriufbjnwef"
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(597, 265)
+rotation = -0.0318825
+scale = Vector2(0.969481, 0.808592)
+skew = -0.0139831
+texture = ExtResource("10_qsa2n")
