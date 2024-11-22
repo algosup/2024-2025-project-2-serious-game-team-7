@@ -73,6 +73,19 @@ Finally, this will ensure a proper communication between the Tech Lead and the S
 
 Details the game type, core rules, and key mechanics and systems.
 
+Dilemma is a point-and-click serious and strategy game where the player acts as the leader of a nation, and his goal is to balance the economy of his country and the pollution it creates.
+
+Aimed to raise awareness on global warming through a dystopic gameplay, the player must find the best choices to either avoid bankrupcy or a cataclysmic pollution disaster.
+
+Here are the different important mechanics and systems to know:
+- The player starts in an office with an access to a world map. He must choose a country and control its economy and pollution.
+- There are 2 main game economies: Economy and Pollution. The player must balance the two through strategic choices.
+- The game progresses through a system of turns, representing the years. After all available choices made, the player must click the "Next Turn" button to go to the next year and see how the world are evolving. 
+- He has access to the global amount of economy and pollution throughout the world, so he needs to collaborate with other countries to balance these 2 economies.
+-
+-
+-
+
 ### 1.3. System Overview
 
 Provides a system structure diagram for an at-a-glance understanding.
@@ -327,6 +340,7 @@ Displays and categorizes visual assets used in the game.
 | <span id="C#">C#</span> | Def     |
 | <span id="Climate Change">Climate Change</span> | Def     |
 | <span id="Controls">Controls</span> | Def     |
+| <span id="Event">Event</span> | Def     |
 | <span id="Game Economy">Game Economy</span> | Def     |
 | <span id="Game Engine">Game Engine</span> | Def     |
 | <span id="Game Manager">Game Manager</span> | Def     |
@@ -337,7 +351,7 @@ Displays and categorizes visual assets used in the game.
 | <span id="Mechanics">Mechanics</span> | Def     |
 | <span id="Node">Node</span> | Def     |
 | <span id="Platform">Platform</span> | Def     |
-| <span id="Point & Click">Point & Click</span> | Def     |
+| <span id="point-and-click">point-and-click</span> | Def     |
 | <span id="Prototype">Prototype</span> | Def     |
 | <span id="RnD">R.n.D.</span> | Def     |
 | <span id="Scene">Scene</span> | Def     |
