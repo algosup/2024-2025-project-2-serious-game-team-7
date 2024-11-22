@@ -286,15 +286,32 @@ To faciciliate the organization of the team while using Github, several rules we
 
 ### 6.3. Game Prototype
 
-Analyzes the pros and cons of the initial prototype.
+On the date of ####, we managed to build a prototype for our game to showcase its main features.
+
+Here's the link to open the .zip file and test the prototype:
+
+[Insert ZIP FILE]// Need zip file
+
+After we let people testing it, certain technical issues were noticed:
+-
 
 ### 6.4. Beta Version
 
-Evaluates the pros and cons of the beta version.
+A Beta Version of our game has been created on ####: it added important features such as ### and ###.
+
+[Insert ZIP FILE]// Need zip file.
+
+We corrected some of the bugs from the prototype, and we had to make key changes compared to the prototype:
+-
+-
 
 ### 6.5. Full Version
 
-Summarizes the final game release.
+The finalized version of our game, which has been completed on ###.
+
+Test the game with this .zip file:
+
+[Insert ZIP FILE] // Need zip file
 
 ## 7. Sprites Gallery
 
@@ -302,4 +319,29 @@ Displays and categorizes visual assets used in the game.
 
 ## 8. Glossary
 
-Defines technical terms and acronyms used throughout the document.
+| Terms | Definitions |
+| ----- | ----------- |
+| <span id=".gd">.gd</span> | Def     |
+| <span id=".tscn">.tscn</span> | Def     |
+| <span id="Asset">Asset</span> | Def     |
+| <span id="C#">C#</span> | Def     |
+| <span id="Climate Change">Climate Change</span> | Def     |
+| <span id="Controls">Controls</span> | Def     |
+| <span id="Game Economy">Game Economy</span> | Def     |
+| <span id="Game Engine">Game Engine</span> | Def     |
+| <span id="Game Manager">Game Manager</span> | Def     |
+| <span id="GdScript">GdScript</span> | Def    |
+| <span id="Github">Github</span> | Def     |
+| <span id="Godot">Godot</span> | Def     |
+| <span id="Graphics">Graphics</span> | Def     |
+| <span id="Mechanics">Mechanics</span> | Def     |
+| <span id="Node">Node</span> | Def     |
+| <span id="Platform">Platform</span> | Def     |
+| <span id="Point & Click">Point & Click</span> | Def     |
+| <span id="Prototype">Prototype</span> | Def     |
+| <span id="RnD">R.n.D.</span> | Def     |
+| <span id="Scene">Scene</span> | Def     |
+| <span id="Script">Script</span> | Def     |
+| <span id="Sound Design">Sound Design</span> | Def     |
+| <span id="Systems">Systems</span> | Def     |
+
