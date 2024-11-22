@@ -28,9 +28,16 @@
       - [UN Resolution](#un-resolution)
         - [=\> UN leader](#-un-leader)
         - [=\> Making a resolution](#-making-a-resolution)
-      - [Player income](#player-income)
-    - [Law](#law)
+    - [Player income](#player-income)
+      - [Taxes](#taxes)
+      - [State Owned Enterprises (SOE)](#state-owned-enterprises-soe)
+    - [Laws](#laws)
+      - [Monetary laws](#monetary-laws)
+      - [Ecological laws](#ecological-laws)
     - [Research](#research)
+      - [Energy Research](#energy-research)
+      - [Transport Research](#transport-research)
+      - [Mechanic Interplay](#mechanic-interplay)
 
 </details>
 
@@ -229,10 +236,72 @@ At the beginning of a turn a country becomes the UN leader and can propose a res
 
 The UN leader propose a resolution and all the other countries can vote to accept or reject it. If the resolution is accepted it is enforced the following turn. Otherwise nothing happens.
 
-#### Player income
+### Player income
 
-The main source of income for the player to spend in the game comes from taxing the different sector of the economy.
+The player needs money to spend on laws, trade and research.
 
-### Law
+The main source of income for the player to spend in the game comes from taxing the different sector of the economy. The other source of income are trade and international aids and State Owned Enterprises (SOE)
+
+#### Taxes
+
+At the beginning of each turn the player receive money from the different economic sectors. The income is calculated by taking the monetary value of the node(M) with a multiplier determined by the tax law.
+
+#### State Owned Enterprises (SOE)
+
+There are two SOE in the game. Public transport and energy. These company give income
+
+### Laws
+
+Laws can be two of types. Monetary laws which are taxes and subsidies, and Ecological laws.
+
+#### Monetary laws
+
+#### Ecological laws
 
 ### Research
+
+The **Research** mechanic serves as the game's upgrade system, allowing players to advance their country's ecological transition through focused technological progress. Research is divided into two key areas: **Energy** and **Transport**, each offering a pathway to unlock more sustainable practices and infrastructure. Additionally, each level can be further upgraded in the future for enhanced benefits.
+
+#### Energy Research
+
+The **Energy Research** track focuses on developing cleaner, renewable energy sources to replace fossil fuels. Each step progresses toward reducing greenhouse gas emissions while maintaining or increasing energy production.
+
+- **Level 1: Solar Panels**  
+  Introduction of solar energy as a supplemental power source. Generates clean energy but requires investment in infrastructure.
+
+- **Level 2: Wind Turbines**  
+  Large-scale wind farms are established, significantly increasing the share of renewable energy in the grid.
+
+- **Level 3: Hydropower Expansion**  
+  Rivers are tapped for hydropower generation, offering a steady, low-emission energy source while considering ecological impacts.
+
+- **Level 4: Advanced Energy Storage Systems**  
+  Revolutionizes energy efficiency by integrating cutting-edge storage solutions, ensuring surplus renewable energy can be stored and distributed seamlessly.
+
+- **Level 5: Fusion Reactors**  
+  Research culminates in fusion technology, providing nearly limitless, clean energy and marking the pinnacle of renewable energy research.
+
+#### Transport Research
+
+The **Transport Research** track emphasizes reducing emissions from personal and public transport systems. Players can transition their country toward cleaner, more efficient modes of transportation.
+
+- **Level 1: Electric Vehicles**  
+  Incentivizes the adoption of electric cars, reducing emissions from personal transport.
+
+- **Level 2: Public Transport Electrification**  
+  Expands electric public transport, such as buses and trains, reducing reliance on fossil fuels for urban mobility.
+
+- **Level 3: High-Speed Rail Networks**  
+  Builds national high-speed rail systems, offering a low-emission alternative for long-distance travel.
+
+- **Level 4: Autonomous Public Transport**  
+  Integrates AI-driven systems into public transport, optimizing routes, reducing energy waste, and further lowering emissions.
+
+- **Level 5: Hyperloop Systems**  
+  Introduces cutting-edge hyperloop technology, drastically improving transport efficiency with near-zero emissions.
+
+#### Mechanic Interplay
+
+Players can choose to specialize in one research area or progress both simultaneously, balancing their country’s energy production and transportation needs. Upgrading in one track can also synergize with the other, such as electric vehicles benefiting from advancements in renewable energy.
+
+This system ensures players have a strategic tool to guide their country toward ecological sustainability while managing resources and prioritizing goals effectively.
