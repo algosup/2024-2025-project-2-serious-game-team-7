@@ -28,8 +28,12 @@
       - [UN Resolution](#un-resolution)
         - [=\> UN leader](#-un-leader)
         - [=\> Making a resolution](#-making-a-resolution)
-      - [Player income](#player-income)
-    - [Law](#law)
+    - [Player income](#player-income)
+      - [Taxes](#taxes)
+      - [State Owned Enterprises (SOE)](#state-owned-enterprises-soe)
+    - [Laws](#laws)
+      - [Monetary laws](#monetary-laws)
+      - [Ecological laws](#ecological-laws)
     - [Research](#research)
 
 </details>
@@ -229,10 +233,28 @@ At the beginning of a turn a country becomes the UN leader and can propose a res
 
 The UN leader propose a resolution and all the other countries can vote to accept or reject it. If the resolution is accepted it is enforced the following turn. Otherwise nothing happens.
 
-#### Player income
+### Player income
 
-The main source of income for the player to spend in the game comes from taxing the different sector of the economy.
+The player needs money to spend on laws, trade and research.
 
-### Law
+The main source of income for the player to spend in the game comes from taxing the different sector of the economy. The other source of income are trade and international aids and State Owned Enterprises (SOE)
+
+#### Taxes
+
+At the beginning of each turn the player receive money from the different economic sectors. The income is calculated by taking the monetary value of the node(M) with a multiplier determined by the tax law.
+
+#### State Owned Enterprises (SOE)
+
+There are two SOE in the game. Public transport and energy. These company give income 
+
+### Laws
+
+Laws can be two of types. Monetary laws which are taxes and subsidies, and Ecological laws.
+
+#### Monetary laws
+
+
+
+#### Ecological laws
 
 ### Research
