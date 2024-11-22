@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://0b77mfc58hk1"]
+[gd_scene load_steps=15 format=3 uid="uid://0b77mfc58hk1"]
 
 [ext_resource type="Texture2D" uid="uid://4sgahldinw3q" path="res://Images/photo-1704910059653-041d5a17717e.jpeg" id="1_quq0f"]
 [ext_resource type="Texture2D" uid="uid://dxefscnam7d7f" path="res://Images/dall.png" id="2_kavk5"]
 [ext_resource type="Texture2D" uid="uid://cl8tyaf6y4256" path="res://Images/pylon.png" id="3_p7k8r"]
-[ext_resource type="Texture2D" uid="uid://47smvplboxtp" path="res://Images/kheqbvfd-removebg-preview (4).png" id="4_cbpht"]
+[ext_resource type="Texture2D" uid="uid://bj5cigyxul137" path="res://Images/Desk_HD_BGLess.png" id="4_k4bic"]
 [ext_resource type="Texture2D" uid="uid://dn2msmrgdi18t" path="res://Images/Screenshot_2024-11-19_at_10.27.13-removebg-preview.png" id="5_dsl8g"]
+[ext_resource type="Script" path="res://Scripts/Navigation.cs" id="6_0og6m"]
 [ext_resource type="Script" path="res://Scripts/Buttons.gd" id="6_oh7ks"]
 [ext_resource type="Texture2D" uid="uid://bdxu6umhrm8m6" path="res://Images/Screenshot_2024-11-19_at_10.27.08-removebg-preview.png" id="7_py5dn"]
 [ext_resource type="Texture2D" uid="uid://cclr33q033qwc" path="res://Images/Screenshot_2024-11-19_at_10.26.56-removebg-preview.png" id="8_2jgvs"]
@@ -30,83 +31,86 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(573, 312)
-scale = Vector2(0.391, 0.222)
+position = Vector2(578, 263)
+scale = Vector2(0.338667, 0.189333)
 texture = ExtResource("1_quq0f")
 
 [node name="PylonLeft" type="Sprite2D" parent="."]
-position = Vector2(58, 264)
+position = Vector2(60.6007, 267.014)
 rotation = 0.00112732
-scale = Vector2(1.364, 1.47886)
+scale = Vector2(1.3136, 1.47886)
 texture = ExtResource("2_kavk5")
 
 [node name="PylonRight" type="Sprite2D" parent="."]
-position = Vector2(1086, 271)
+position = Vector2(1088, 275)
 scale = Vector2(1.314, 1.488)
 texture = ExtResource("3_p7k8r")
 
 [node name="Temperature" type="Line2D" parent="."]
-position = Vector2(735.109, -4.36274)
+position = Vector2(736.109, -4.36274)
 scale = Vector2(4.33157, 1.02451)
 points = PackedVector2Array(80.2424, 372, 80.2424, 334, 80.2424, 295, 80.2424, 257, 80.2424, 218, 80.2424, 185, 80.2424, 149, 80.2424, 113, 80.2424, 78, 80.2424, 33, 79.9265, -16)
 gradient = SubResource("Gradient_573mo")
 
 [node name="Money" type="Line2D" parent="."]
-position = Vector2(-271, 0)
-scale = Vector2(4.125, 1)
+position = Vector2(-266, 0.516434)
+scale = Vector2(4.125, 1.01174)
 points = PackedVector2Array(80.2424, 372, 80.2424, 334, 80.2424, 295, 80.2424, 257, 80.2424, 218, 80.2424, 185, 80.2424, 149, 80.2424, 113, 80.2424, 78, 80.2424, 33, 80.4848, -34)
 gradient = SubResource("Gradient_573mo")
 
 [node name="Desk" type="Sprite2D" parent="."]
-position = Vector2(574, 303.5)
-scale = Vector2(0.969697, 0.808333)
-texture = ExtResource("4_cbpht")
+position = Vector2(552.5, 317)
+scale = Vector2(0.344977, 0.333333)
+texture = ExtResource("4_k4bic")
 
-[node name="RightButton" type="Sprite2D" parent="Desk" node_paths=PackedStringArray("background_node")]
-position = Vector2(317.625, 321.031)
-scale = Vector2(0.426327, 0.405929)
+[node name="RightButton" type="Sprite2D" parent="Desk"]
+position = Vector2(929.146, 731.991)
+scale = Vector2(1.2431, 1.01404)
 texture = ExtResource("5_dsl8g")
-script = ExtResource("6_oh7ks")
-popup_scene_path = "res://Scenes/rnd.tscn"
-background_node = NodePath("../RightScreen")
-target_color = Color(0.690196, 0.745098, 0.772549, 1)
+script = ExtResource("6_0og6m")
+PopupScenePath = "res://Scenes/rnd.tscn"
+BackgroundNodePath = NodePath("../RightScreen")
+TargetColor = Color(0.690196, 0.745098, 0.772549, 1)
 
-[node name="MiddleButton" type="Sprite2D" parent="Desk" node_paths=PackedStringArray("background_node")]
-position = Vector2(18.5625, 321.65)
-scale = Vector2(0.430775, 0.458585)
+[node name="MiddleButton" type="Sprite2D" parent="Desk"]
+position = Vector2(57.132, 731.991)
+scale = Vector2(1.25607, 1.11893)
 texture = ExtResource("7_py5dn")
-script = ExtResource("6_oh7ks")
-popup_scene_path = "res://Scenes/diplomacy.tscn"
-background_node = NodePath("../MiddleScreen")
-target_color = Color(0.690196, 0.745098, 0.772549, 1)
+script = ExtResource("6_0og6m")
+PopupScenePath = "res://Scenes/diplomacy.tscn"
+BackgroundNodePath = NodePath("../MiddleScreen")
+TargetColor = Color(0.690196, 0.745098, 0.772549, 1)
 
-[node name="LeftButton" type="Sprite2D" parent="Desk" node_paths=PackedStringArray("background_node")]
-position = Vector2(-299.578, 323.505)
-scale = Vector2(0.426538, 0.490388)
+[node name="LeftButton" type="Sprite2D" parent="Desk"]
+position = Vector2(-873.517, 738.028)
+scale = Vector2(1.24371, 1.16934)
 texture = ExtResource("8_2jgvs")
-script = ExtResource("6_oh7ks")
-popup_scene_path = "res://Scenes/laws.tscn"
-background_node = NodePath("../LeftScreen")
-target_color = Color(0.690196, 0.745098, 0.772549, 1)
+script = ExtResource("6_0og6m")
+PopupScenePath = "res://Scenes/laws.tscn"
+BackgroundNodePath = NodePath("../LeftScreen")
+TargetColor = Color(0.690196, 0.745098, 0.772549, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Desk/LeftButton"]
+root_node = NodePath("../../..")
 
 [node name="MiddleScreen" type="Sprite2D" parent="Desk"]
-position = Vector2(16.5035, 229.929)
-scale = Vector2(0.507361, 0.510607)
+position = Vector2(49.6145, 516.167)
+scale = Vector2(1.4734, 1.25336)
 texture = ExtResource("9_an7xd")
 
 [node name="RightScreen" type="Sprite2D" parent="Desk"]
-position = Vector2(274.323, 236.571)
-scale = Vector2(0.484018, 0.485445)
+position = Vector2(802.854, 529.75)
+scale = Vector2(1.42206, 1.20944)
 texture = ExtResource("10_48w8e")
 
 [node name="LeftScreen" type="Sprite2D" parent="Desk"]
-position = Vector2(-258.844, 225.155)
-scale = Vector2(0.471221, 0.473302)
+position = Vector2(-751.736, 504.092)
+scale = Vector2(1.374, 1.14688)
 texture = ExtResource("11_tofxr")
 
 [node name="PassButton" type="Sprite2D" parent="." node_paths=PackedStringArray("background_node")]
-position = Vector2(602, 628)
-scale = Vector2(1.06034, 1.07692)
+position = Vector2(575, 629)
+scale = Vector2(1.31035, 1.07692)
 texture = ExtResource("12_1iby2")
 script = ExtResource("6_oh7ks")
 background_node = NodePath("../Background")

@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cfc0eiykq7suv"]
+
+[node name="Diplomacy" type="Node2D"]
+
+[node name="RightProj" type="Polygon2D" parent="."]
+position = Vector2(-41.1428, 0)
+scale = Vector2(1.07143, 1)
+color = Color(0, 0.0980392, 0.92549, 0.392157)
+polygon = PackedVector2Array(1024, 16, 1024, 448, 576, 392)
+
+[node name="LeftProj" type="Polygon2D" parent="."]
+position = Vector2(-41.1429, 0)
+scale = Vector2(1.07143, 1)
+color = Color(0, 0.0980392, 0.92549, 0.392157)
+polygon = PackedVector2Array(128, 16, 128, 448, 576, 392)
+
+[node name="Proj" type="ColorRect" parent="."]
+offset_left = 96.0
+offset_top = 16.0
+offset_right = 1056.0
+offset_bottom = 448.0
+color = Color(0, 0.0980392, 0.92549, 0.392157)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 448.0
+offset_top = 24.0
+offset_right = 704.0
+offset_bottom = 80.0
+theme_override_colors/font_shadow_color = Color(0.403922, 0.705882, 0.870588, 0.737255)
+theme_override_font_sizes/font_size = 30
+text = "DIPLOMACY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Line2D2" type="Line2D" parent="."]
+position = Vector2(272, 120)
+scale = Vector2(0.25, 0.786941)
+points = PackedVector2Array(2112, -50.8297, 2112, 406.638)
+width = 4.0
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(223.5, 64.8871)
+scale = Vector2(0.5, 0.887097)
+points = PackedVector2Array(257, 17.0364, 257, 422.855)
+width = 3.0
+
+[node name="Polygon2D5" type="Polygon2D" parent="."]
+position = Vector2(374.857, -1770.67)
+scale = Vector2(0.958996, 13.6667)
+color = Color(1, 1, 1, 0.784314)
+polygon = PackedVector2Array(476.689, 136, 476.689, 160, 685.241, 160, 685.241, 136, 685.241, 136)
+
+[node name="Polygon2D4" type="Polygon2D" parent="."]
+position = Vector2(-192, -8)
+scale = Vector2(1.33333, 1)
+color = Color(1, 1, 1, 0.784314)
+polygon = PackedVector2Array(480, 136, 480, 160, 672, 160, 672, 136)
+
+[node name="Polygon2D8" type="Polygon2D" parent="."]
+position = Vector2(-265.333, -8)
+scale = Vector2(0.847222, 1)
+color = Color(1, 1, 1, 0.784314)
+polygon = PackedVector2Array(483.147, 136, 483.147, 160, 672, 160, 672, 136)
+
+[node name="Polygon2D7" type="Polygon2D" parent="."]
+position = Vector2(-256, -48)
+scale = Vector2(0.833333, 1)
+color = Color(1, 1, 1, 0.784314)
+polygon = PackedVector2Array(480, 136, 480, 160, 672, 160, 672, 136)
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+position = Vector2(-192, -48)
+scale = Vector2(1.33333, 1)
+color = Color(1, 1, 1, 0.784314)
+polygon = PackedVector2Array(480, 136, 480, 160, 672, 160, 672, 136)
+
+[node name="Polygon2D6" type="Polygon2D" parent="."]
