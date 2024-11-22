@@ -1,4 +1,4 @@
-# Technical Specifications Plan: Version 3 (Dilemma)
+# Technical Specifications Plan
 
 ## Table of Contents
 
@@ -50,7 +50,7 @@
 | Author        | Paul NOWAK (Tech Lead) |
 |---------------|------------|
 | Created       | 11/21/2024 |
-| Last modified | 11/21/2024 |
+| Last modified | 11/22/2024 |
 | Document deadline | 11/29/2024 |
 
 ## Document Validation
@@ -93,7 +93,105 @@ Specifies external tools required for development and deployment.
 
 ### 2.4. Files Organization
 
-Explains how project files are structured and managed.
+At first, we need to organize our files in github:
+
+```  
+origin  
+│
+├── documents
+│    │
+│    ├── Management
+│    │    ├── data
+│    │    ├── Weekly_report.md
+│    │    └── Project_planning.md
+│    │
+│    ├── Functional_specifications
+│    │    ├── data
+│    │    └── Functional_specifications.md
+│    │
+│    ├── Quality_assurance
+│    │    ├── data
+│    │    └── Test_plan.md
+│    │
+│    ├── User_manual
+│    │    └── User_manual.pdf
+│    │
+│    └── Technical_specifications
+│         ├── data
+│         └── Technical_specifications.md
+│
+├── src
+│    │
+│    ├── game_project_root
+│         ├── core/
+│         └── features/
+│         └── ... (other modules) 
+│
+└── README.md
+```
+
+Then, here's how we plan to structure the different files of our game in the Godot Game Engine:
+
+```  
+/game_project_root
+├── core/                   # Core systems and global logic
+│   ├── GameManager.gd       # Main game logic singleton
+│   ├── InputHandler.gd      # Centralized input handling
+│   ├── DataLoader.gd        # JSON or data handling scripts
+│   ├── Global.gd            # Global variables or constants
+│   └── autoload/            # Singleton scenes or nodes
+│       ├── GameManager.tscn 
+│       └── Settings.tscn
+├── features/               # Game feature implementations
+│   ├── homeCountry/              # homeCountry-specific assets and logic 
+│   │   ├── homeCountry.tscn
+│   │   ├── homeCountry.gd
+│   │   ├── installations/       # the institutes (nuclear plants, green houses, etc..) built by the player
+│   │   └── ui/               # homeCountry-related UI elements
+│   ├── worldMap/           # worldMap-specific assets and logic 
+│   │   ├── worldMap.tscn
+│   │   ├── worldMap.gd
+│   │   ├── countries/       # list of other countries with their specific assets and logic 
+│   ├── Management game-specific logic 
+│   │   ├── systems/          # Resource, task, or economy systems
+│   │   ├── ui/               # UI specific to the management gameplay
+│   │   └── managers/         # Task, worker, or building managers
+│   ├── EventManager/              #Manage game events (like natural disasters, or conflicts)
+│   │   ├── EventManager.gd 
+│   │   ├── Events/ #List of events 
+│   │   └── progression/         # Check the gameplay evolution when time flies
+│   └── ui/                  # General UI for the game
+│       ├── MainMenu.tscn     # Main menu
+│       ├── SettingsMenu.tscn # Settings menu
+│       └── WorldMapMenu.tscn    # World Map Menumenu
+│       ├── RNDMenu.tscn     
+│       ├── LawsMenu.tscn  
+│       └── DiplomacyMenu.tscn    
+├── resources/              # All reusable assets
+│   ├── images/              # Textures, sprites, and icons
+│   │   ├── environments/     # Backgrounds and scenery
+│   │   ├── ui/               # UI elements like buttons, panels
+│   │   └── installations/            # Icons of buildable installations in-game
+│   ├── sounds/              # Sound effects
+│   ├── music/               # Background music
+│   ├── fonts/               # Game fonts for UI  
+├── data/                   # External configuration and data
+│   ├── config.json          # Game configuration data
+│   ├── levels.json          # Level-specific configurations
+│   ├── dialogues.json       # NPC dialogues and text
+├── tools/                  # Plugins, shaders, and utility tools
+│   ├── shaders/             # Custom shaders
+│   │   ├── lighting.shader
+│   │   ├── worldMap.shader 
+│   │   └── ui.shader
+│   ├── plugins/             # Godot editor plugins or third-party tools
+│   │   ├── dialogue_system/
+│   │   └── input_customizer/
+│   └── testing/             # Debugging and test tools
+│       ├── test_scripts.gd
+│       └── mock_data/       # Mock data for test cases
+└── project.godot           # Godot project configuration file
+```  
 
 ## 3. Technologies Used
 
