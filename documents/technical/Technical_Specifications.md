@@ -93,7 +93,7 @@ Specifies external tools required for development and deployment.
 
 ### 2.4. Files Organization
 
-At first, we need to organize our files in github:
+At first, we need to organize our files in github in a tree-like structure:
 
 ```  
 origin  
@@ -102,8 +102,8 @@ origin
 │    │
 │    ├── Management
 │    │    ├── data
-│    │    ├── Weekly_report.md
-│    │    └── Project_planning.md
+│    │    ├── Weekly_reports/
+│    │    └── Project_charter.md
 │    │
 │    ├── Functional_specifications
 │    │    ├── data
@@ -111,6 +111,7 @@ origin
 │    │
 │    ├── Quality_assurance
 │    │    ├── data
+│    │    ├── Bug_Tracker.md
 │    │    └── Test_plan.md
 │    │
 │    ├── User_manual
@@ -120,9 +121,9 @@ origin
 │         ├── data
 │         └── Technical_specifications.md
 │
-├── src
+├── Dilemma/
 │    │
-│    ├── game_project_root
+│    ├── game_project_root/
 │         ├── core/
 │         └── features/
 │         └── ... (other modules) 
@@ -267,6 +268,21 @@ Outlines server specifications and requirements.
 ### 6.2. Release Schedule
 
 Describes version control practices and collaboration rules (e.g., GitHub).
+
+
+To faciciliate the organization of the team while using Github, several rules were decided:
+
+- No work on the main branches must be applied by other team members other than the Project Manager. In fact, other branches containing a finished work (like a finalized document or a finished code) can be merged into the main with the Project Manager's authorization.
+
+- Before merging a branch into the main one, the user must create a Pull Request and collaborate with the other team members before validating the merge. 
+
+- "Dev" is main code branch where the code is being built by the senior SE, and any important feature will require another branch which the junior SE will work on. 
+
+- The Software Engineers and the Tech Lead will have to agree to merge the target feature branch to the dev branch once it's finished, and any merge with the dev branch will be considered as an updated version of the game. The Q.A. must perform his tests at each version of the game. 
+
+- When reviewing an important document, the reviewer must create GitHub issues to detail the errors in order to assist the writer. 
+
+- A branch name must start with a capital letter, and written this way "Branch_Name".
 
 ### 6.3. Game Prototype
 
