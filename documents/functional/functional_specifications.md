@@ -30,7 +30,9 @@
         - [=\> Making a resolution](#-making-a-resolution)
     - [Player income](#player-income)
       - [Taxes](#taxes)
-      - [State Owned Enterprises (SOE)](#state-owned-enterprises-soe)
+        - [=\> Total Tax Income Calculation:](#-total-tax-income-calculation)
+      - [International Aid](#international-aid)
+        - [=\> Aid Income Calculation:](#-aid-income-calculation)
     - [Laws](#laws)
       - [Monetary laws](#monetary-laws)
       - [Ecological laws](#ecological-laws)
@@ -240,21 +242,57 @@ The UN leader propose a resolution and all the other countries can vote to accep
 
 The player needs money to spend on laws, trade and research.
 
-The main source of income for the player to spend in the game comes from taxing the different sector of the economy. The other source of income are trade and international aids and State Owned Enterprises (SOE)
+The main source of income for the player to spend in the game comes from taxing the different sector of the economy. The other source of income are trade and international aids
 
 #### Taxes
 
-At the beginning of each turn the player receive money from the different economic sectors. The income is calculated by taking the monetary value of the node(M) with a multiplier determined by the tax law.
+At the beginning of each turn the player receive money from the different economic sectors. The income is calculated by taking the monetary value of the node with a multiplier determined by the tax law.
 
-#### State Owned Enterprises (SOE)
+##### => Total Tax Income Calculation:
+Let:
+- \( N \): the number of nodes.
+- \( V_i \): the value in the \( i \)-th node.
+- \( T_i \): the tax multiplier for the \( i \)-th node.
+- \( T_{income} \): the total tax income.
 
-There are two SOE in the game. Public transport and energy. These company give income
+The total tax income is given by:
+$$
+T_{income} = \sum_{i=1}^N \left( V_i \cdot T_i \right)
+$$
+
+#### International Aid
+
+If foreign nations are giving money to your country that money is split into three parts. Some of it goes toward developing a specific node chosen by the donator. Some of it goes to your Income and the rest is lost to simulate administrative inefficiency.
+
+
+##### => Aid Income Calculation:
+Let:
+- \( D_i \): the value of the \( i \)-th donation, sorted in descending order (\( D_1 \geq D_2 \geq \dots \)).
+- \( I_i \): the income derived from the \( i \)-th donation.
+- \( N \): the total number of donations.
+
+1. For the first donation (\( i = 1 \)):
+   $$
+   I_1 = \frac{D_1}{5}
+   $$
+
+2. For each subsequent donation (\( i \geq 2 \)):
+   $$
+   I_i = \frac{D_i}{5} \cdot (1 - 0.1(i - 1))
+   $$
+
+3. Total aid income (\( A_{income} \)):
+   $$
+   A = \sum_{i=1}^N I_i
+   $$
 
 ### Laws
 
 Laws can be two of types. Monetary laws which are taxes and subsidies, and Ecological laws.
 
 #### Monetary laws
+
+These laws
 
 #### Ecological laws
 
