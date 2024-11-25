@@ -75,16 +75,18 @@ Details the game type, core rules, and key mechanics and systems.
 
 Dilemma is a point-and-click serious and strategy game where the player acts as the leader of a nation, and his goal is to balance the economy of his country and the pollution it creates.
 
-Aimed to raise awareness on global warming through a dystopic gameplay, the player must find the best choices to either avoid bankrupcy or a cataclysmic pollution disaster.
+[Insert Dilemma Picture]
 
-Here are the different important mechanics and systems to know:
-- The player starts in an office with an access to a world map. He must choose a country and control its economy and pollution.
-- There are 2 main game economies: Economy and Pollution. The player must balance the two through strategic choices.
-- The game progresses through a system of turns, representing the years. After all available choices made, the player must click the "Next Turn" button to go to the next year and see how the world are evolving. 
-- He has access to the global amount of economy and pollution throughout the world, so he needs to collaborate with other countries to balance these 2 economies.
--
--
--
+Aimed to raise awareness on global warming through a dystopic environment, the player must find the best choices to either avoid bankrupcy or a cataclysmic pollution disaster. For that, he has access to an office with a giant screen showing a world map, and the gameplay will involve interactions with the different control panels.
+
+When starting the game, the player will have the possibility to select one country which he will manage among those presented on the map. Then, he will have to manage 2 important economies: Economy and Greenhouse Gazes; he will have to balance them not only for his own country, but also for the entire world, through strategic choices.
+
+Indeed, he will have to control the different aspects of his country, and spend wisely his money to select choices for research, laws and diplomacy with other countries.
+
+Furthermore, the game progresses through a system of turns, representing the years, and the player receive income at each turn from taxing each sector of his country's economy. After all available choices made, the player must click the "Next Turn" button to go to the next year and see how the world are evolving. 
+
+The final goal of the player is to improve his country's economy and collaborate with other countries to  while limiting the use of greenhouse gazes around the world.
+
 
 ### 1.3. System Overview
 
