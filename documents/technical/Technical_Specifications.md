@@ -50,7 +50,7 @@
 | Author        | Paul NOWAK (Tech Lead) |
 |---------------|------------|
 | Created       | 11/21/2024 |
-| Last modified | 11/22/2024 |
+| Last modified | 11/25/2024 |
 | Document deadline | 11/29/2024 |
 
 ## Document Validation
@@ -223,6 +223,8 @@ Details data storage and retrieval strategies.
 
 Discusses programming languages used, such as GDScript or C#.
 
+mostly programmed by macbook
+
 ### 3.4. Non-Functional Requirements
 
 Defines performance, scalability, and maintainability criteria.
@@ -231,12 +233,14 @@ Defines performance, scalability, and maintainability criteria.
 
 | Risks | Assumptions | 
 | ------| ----------- | 
-| TBD | TBD  |
-| TBD | TBD  |
-| TBD | TBD  |
-| TBD | TBD  |
-| TBD | TBD  |
-| TBD | TBD  |
+| Having several countries in active evolution can increase loading time and be problematic for such an important feature. Indeed, each transition to the next turn could trigger lags as it involve the calculations of several data from each country.| We should pre-program the evolution of such countries with algorithms that could allow them to evolve differently per game.  |
+| It could take a while to load dynamic data, such as a country's income, and display it on screen. | To use less space, we could decide to display the data only when the player select a certain country to retrieve information. Then we will have to click it again to stop displaying it.  |
+| Implementing music and sound effects can trigger lag during gameplay. | A single and simple background music, accompanied with a limited use of sounds, would be wiser.  |
+| Because of many mechanics (home country, other countries, Laws, Research, and diplomacy) being connected to a system of nodes (Economy and Greenhouse Gazes), an bug from one of the scripts could lead to many errors in the other connected scripts.| We have to build the global system management script piece by piece, testing it each time we connect it to a new script, and make sure it only call a certain script only if needed. Furthemore, we can implement a database to allow a better storage of certaine pieces of data. |
+| We could encounter issues while trying to export our game, and the chosen export templates might not be compatible with our game. | We have to study further which export template is necessary for Dilemma, and test the export as we are progressively creating the game.  |
+| When we go to another menue (Research, Laws, Diplomacy...) and we need to go back to the main scene, we should expect a long loading time to display all the assets of the world map.  | The other menus could be either pop-ups, or we should pre-program the reapparition of the world map assets.  |
+| The game could encounter retrocompatibility issues when the two Software Engineers are working with MacBook computers.| We should focus on the development phase with MacBook computers, and do the testing with the same operating system.|
+
 
 ### 3.6. Optimization Solutions
 
