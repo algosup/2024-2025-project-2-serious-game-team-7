@@ -71,8 +71,6 @@ Finally, this will ensure a proper communication between the Tech Lead and the S
 
 ### 1.2. Game Presentation
 
-Details the game type, core rules, and key mechanics and systems.
-
 Dilemma is a point-and-click serious and strategy game where the player acts as the leader of a nation, and his goal is to balance the economy of his country and the pollution it creates.
 
 [Insert Dilemma Picture]
@@ -219,6 +217,32 @@ Highlights the Godot engine and its capabilities.
 
 Details data storage and retrieval strategies.
 
+Due to the importance of the system of nodes involving Money and Pollution, we need a proper strategy to save and load game data efficiently.
+
+Subsequently, we have decided to use JSON, a text format whose conventions are familiar to the C-family of programming languages, like C# which is the programming language for our Godot Project. Indeed, JSON is simple to understand and allow to create objects written as Key/Value pairs.
+
+For example, we create a JSON format for storing the Money and Pollution value of each node from our home country:
+
+```json
+  {
+  "Energy": {"Money": 3000000, "Pollution": 0.4},
+  "Transport": {"Money": 2000000, "Pollution": 1.2},
+  "Education": {"Money": 3000000, "Pollution": 0.3},
+  "Consumer Good": {"Money": 2000000, "Pollution": 1.3},
+  "Raw Resources": {"Money": 3000000, "Pollution": 1.5},
+  "Fuel": {"Money": 2000000, "Pollution": 2.0}
+  }
+
+```
+
+With each country treated as single entity, which makes the data consistent and allow to simplify operations when updating the values at each turn.
+
+In fact, Godot uses a dictionnary to serialize with JSON thanks to its inbuilt tools, and use the System.IO library that allow to create a static path of your .json file no matter where the game is saved.
+
+[Insert picture of JSON Dictionnary code]
+
+In theory, a .json file from a game object is generated when we start playing, and when we go to the next turn, the game retrieve from the .json file the data required to change, update them, and update the .json file with the modified values.
+
 ### 3.3. Technical Choices
 
 Discusses programming languages used, such as GDScript or C#.
@@ -354,6 +378,7 @@ Displays and categorizes visual assets used in the game.
 | <span id="Github">Github</span> | Def     |
 | <span id="Godot">Godot</span> | Def     |
 | <span id="Graphics">Graphics</span> | Def     |
+| <span id="JSON">JSON</span> | Def     |
 | <span id="Mechanics">Mechanics</span> | Def     |
 | <span id="Node">Node</span> | Def     |
 | <span id="Platform">Platform</span> | Def     |
