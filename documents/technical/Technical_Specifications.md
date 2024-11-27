@@ -21,7 +21,7 @@
   - [3. Technologies Used](#3-technologies-used)
     - [3.1. Game Engine Presentation](#31-game-engine-presentation)
     - [3.2. Data Management](#32-data-management)
-    - [3.3. Technical Choices](#33-technical-choices)
+    - [3.3. Programming Language](#33-programming-language)
     - [3.4. Non-Functional Requirements](#34-non-functional-requirements)
     - [3.5. Risks & Assumptions](#35-risks--assumptions)
     - [3.6. Optimization Solutions](#36-optimization-solutions)
@@ -95,6 +95,9 @@ Provides a system structure diagram for an at-a-glance understanding.
 ### 2.1. Target Platform
 
 Identifies the platforms on which the game will run.
+
+
+mostly programmed by macbook
 
 ### 2.2. Modules and Components
 
@@ -243,11 +246,15 @@ In fact, Godot uses a dictionnary to serialize with JSON thanks to its inbuilt t
 
 In theory, a .json file from a game object is generated when we start playing, and when we go to the next turn, the game retrieve from the .json file the data required to change, update them, and update the .json file with the modified values.
 
-### 3.3. Technical Choices
+### 3.3. Programming Language
 
-Discusses programming languages used, such as GDScript or C#.
+First of all, we have decided to use C# as the main programming language of our game. Using the ### version, we chose this high-level programming language over the built-in language GDScript because it allow a faster runtime of our scripts, and most of our teammembers are familiar with it.
 
-mostly programmed by macbook
+In addition, some game elements like countries or game state would require interfaces, abstract classes and properties, and C# would provide a more structured code for this complex project.
+
+Furthermore, Dilemma would require a lot of optimization due to the load of multiple assets on screen, the data management with JSON files, and the progress of our games through different events and scenarios. SC# would provide the right amount of optimization required for the development of a serious game.
+
+
 
 ### 3.4. Non-Functional Requirements
 
