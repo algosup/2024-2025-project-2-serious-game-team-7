@@ -37,8 +37,7 @@
     - [6.2. Game Prototype](#62-game-prototype)
     - [6.3. Beta Version](#63-beta-version)
     - [6.4. Full Version](#64-full-version)
-  - [7. Sprites Gallery](#7-sprites-gallery)
-  - [8. Glossary](#8-glossary)
+  - [7. Glossary](#8-glossary)
 
 </details>
 
@@ -437,25 +436,43 @@ In fact, the game is attributed of several states:
 
 ### 4.4. Event Management
 
-Describes handling in-game events and triggers.
+Event management in the game ensures smooth transitions between states and triggers in-game events effectively. The system relies heavily on Godot's signal mechanism to decouple logic and maintain modularity between nodes.
+
+Events are classified into three main categories:
+
+- Time-based Events: These are events triggered after specific intervals or at predefined turn thresholds, such as progressing from one turn to the next or reaching the 50th turn to conclude the game.
+- Action-based Events: These respond to direct player inputs, such as selecting a country, clicking on buttons, or interacting with the map. These inputs invoke the appropriate responses, such as opening menus or transitioning game states.
+- Conditional Events: These occur when specific game conditions are met. For instance, if the pollution level surpasses a critical threshold, an alert event is triggered to inform the player of the consequences.
+
+The event management system orchestrates communication between the game manager, UI components, and gameplay elements. For example, signals are emitted to inform the game manager of key actions like completing the "Intro State" cutscene or confirming a country selection. This approach ensures that each node reacts only to the events it is subscribed to, creating a robust and scalable architecture.
 
 ## 5. Gameplay
 
 ### 5.1. Controls Handling
 
-Details point-and-click gameplay mechanics.
+The game implements point-and-click mechanics to create an intuitive and accessible user experience. Using Godot's InputEvent system, the player interacts with the game through the mouse or equivalent input devices. Clicking on buttons, selecting map regions, or navigating menus are core interactions supported by this system.
 
-Signals
+Mouse inputs trigger specific signals, such as gui_input for buttons or mouse_entered and mouse_exited for highlighting interactive elements like countries on the world map. The game manager processes these signals to execute the appropriate actions, such as transitioning to a new state or displaying a confirmation dialog.
+
+To ensure smooth interaction, all controls are designed with responsiveness in mind. Buttons provide visual feedback when hovered over or clicked, reinforcing player actions and reducing the likelihood of errors.
 
 ### 5.2. Graphics and Visuals
 
-Discusses visual elements, including graphics style and resolution.
+The game features a visually cohesive 2D art style designed for clarity and accessibility. All sprites and UI components are created with scalability in mind, ensuring they remain sharp and legible across different resolutions.
+
+The default resolution is set to Full HD (1920x1080), but the layout dynamically scales to adapt to various screen sizes. This is achieved using Godot's anchoring and margin systems, which maintain the relative positions and sizes of UI elements.
+
+Visual elements include animated transitions between game states, such as fade-ins and fade-outs during state changes. Interactive components, like countries on the map or menu buttons, use effects like glowing outlines or subtle animations to indicate their active status. These details enhance player immersion and provide clear guidance during gameplay.
 
 ### 5.3. Sound Design
 
-Covers the game's auditory experience, including music and effects.
+Sound design plays a crucial role in creating an engaging auditory experience for the player. The game incorporates dynamic background music that evolves with the game states. For instance, calm and contemplative tracks play during the "Select State," while more intense and dramatic music underscores critical moments in the "Play State."
 
-Signals
+Sound effects are carefully chosen to provide auditory feedback for player actions. Clicking on a button produces a satisfying click sound, while significant events, like confirming a country selection or reaching a critical pollution threshold, trigger distinctive audio cues to grab the player’s attention.
+
+The sound system is managed through Godot’s AudioStreamPlayer nodes, and signals are used to trigger sound effects. For example, when a button is pressed, the associated signal notifies the audio system to play the corresponding sound. Similarly, transitions between game states involve crossfading background tracks to maintain auditory continuity and immersion.
+
+By combining thoughtful event management, accessible controls, engaging visuals, and dynamic sound design, the game delivers a cohesive and enjoyable experience to the player.
 
 ## 6. Product Deployment
 
@@ -502,13 +519,8 @@ The finalized version of our game, which has been completed on ###.
 
 Test the game with this .zip file:
 
-[Insert ZIP FILE] // Need zip file
 
-## 7. Sprites Gallery
-
-Displays and categorizes visual assets used in the game.
-
-## 8. Glossary
+## 7. Glossary
 
 | Terms | Definitions |
 | ----- | ----------- |
