@@ -103,13 +103,13 @@ Lists the frameworks, libraries, and packages utilized.
 
 ### 2.3. Other External IT Tools
 
-Specifies external tools required for development and deployment.
+<img src="./Images/Slack-Logo.png" width="250">
 
-VS code
+Slack is a management and collaborative software that allow our teammembers to communicate efficiently. Allowing us to create projects for managing tasks through different channels, it's a useful tool to share valuable information such as code blocks or technical choices.
 
-Github
+<img src="./Images/github_logo.png" width="250">
 
-
+Github is a cloud-based platform that allow its users to create coding projects through repository and work together to store and share code. Indeed, it give us the feature to track and manage our changes over time.
 
 ### 2.4. Files Organization
 
