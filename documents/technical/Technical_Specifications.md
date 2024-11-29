@@ -35,11 +35,10 @@
     - [5.2. Graphics and Visuals](#52-graphics-and-visuals)
     - [5.3. Sound Design](#53-sound-design)
   - [6. Product Deployment](#6-product-deployment)
-    - [6.1. Deployment Environment](#61-deployment-environment)
-    - [6.2. Release Schedule](#62-release-schedule)
-    - [6.3. Game Prototype](#63-game-prototype)
-    - [6.4. Beta Version](#64-beta-version)
-    - [6.5. Full Version](#65-full-version)
+    - [6.1. Version Control](#61-version-control)
+    - [6.2. Game Prototype](#62-game-prototype)
+    - [6.3. Beta Version](#63-beta-version)
+    - [6.4. Full Version](#64-full-version)
   - [7. Sprites Gallery](#7-sprites-gallery)
   - [8. Glossary](#8-glossary)
 
@@ -97,7 +96,7 @@ Provides a system structure diagram for an at-a-glance understanding.
 Identifies the platforms on which the game will run.
 
 
-mostly programmed by macbook
+The godot editor supports many platforms like Windows, macOs or Linux, but we have decided to release our game on macOs. Indeed, our software engineers are mostly working with macBook computers and the tests will also be performed with one of them to ensure Dilemma is functional and performant.
 
 ### 2.2. Modules and Components
 
@@ -106,6 +105,12 @@ Lists the frameworks, libraries, and packages utilized.
 ### 2.3. Other External IT Tools
 
 Specifies external tools required for development and deployment.
+
+VS code
+
+Github
+
+
 
 ### 2.4. Files Organization
 
@@ -216,6 +221,8 @@ Then, here's how we plan to structure the different files of our game in the God
 
 Highlights the Godot engine and its capabilities.
 
+
+
 ### 3.2. Data Management
 
 Details data storage and retrieval strategies.
@@ -240,6 +247,8 @@ For example, we create a JSON format for storing the Money and Pollution value o
 
 With each country treated as single entity, which makes the data consistent and allow to simplify operations when updating the values at each turn.
 
+The data is handled within the script DataLoader.gd, a child node of the Core Parent Node, and which controls the most of the storage of the game elements' variables.
+
 In fact, Godot uses a dictionnary to serialize with JSON thanks to its inbuilt tools, and use the System.IO library that allow to create a static path of your .json file no matter where the game is saved.
 
 [Insert picture of JSON Dictionnary code]
@@ -254,11 +263,11 @@ In addition, some game elements like countries or game state would require inter
 
 Furthermore, Dilemma would require a lot of optimization due to the load of multiple assets on screen, the data management with JSON files, and the progress of our games through different events and scenarios. SC# would provide the right amount of optimization required for the development of a serious game.
 
-
-
 ### 3.4. Non-Functional Requirements
 
 Defines performance, scalability, and maintainability criteria.
+
+
 
 ### 3.5. Risks & Assumptions
 
@@ -283,6 +292,27 @@ Proposes solutions for performance and resource optimization.
 
 Explains the setup of the central game manager system.
 
+As we create new nodes and scripts, the game grows more in complexity, and we need a more robust solution to handle properly Dilemma's main mechanics and systems.
+
+For that, we create a node named "Core" to handle the core elements, such as the data loading or the declaration of global variables. Here, we will create a GameManager.gd script to handles the main logic of our game.
+
+[Insert GameManager.gd picture]
+
+In fact, the game is attribuated of several states:
+ - Start state: the game has just been launched, showing the main Menu which incite the player to select "New game" to play. By default, the game manager has this state when it's launched through the _Ready() function.
+ - Intro state: after selecting "New Game", the game plays an initial cutscene showcasing the story and allowing the player to understand the plot. 
+ - Select state: once the first cutscene finished playing, the player will be introduced to the world map. Then, he will have to decide which home country he has to choose and confirm before starting to play the actual game.
+ - Play state: the main state of our game manager where most of the scripts are connected with. 
+ The player finds himself in his control room, obtain his initial amount of income, and has access the world map and the other menus allowing him to manage the Economy and the Pollution. 
+ He can decide to go to the next turn once he finished his limited actions, and the game progresses trough the different events and player's choices, but the game manager is still in "Player state" until the game reaches the 50th turn.
+ - Ending state: When the turn 50 is over, the game makes an analysis of the player's entire progress and calculate how well he managed to balance the Economy and Pollution's economies. Depending on the results, the game manager will either trigger a good or bad ending cutscene.
+
+ The reason to use states is to have a better control flow of our code. Indeed, certain functions like _Process() will behave differently depending on the game state. Each time it is called, this function will check the actual state of the game manager depdning on the conditions stated above before handling the other main functions.
+
+ In fact, the play state will have to check several features each time the _Process() function is called:
+ - the inputHandler.gd script, where the game manager will monitor the use of the player's interface and its point-and-click controls, a vital part of the gameplay.
+ - the dataLoader.gd script, 
+
 ### 4.2. Managing Game Economies
 
 Includes class diagrams illustrating the economy mechanics.
@@ -301,6 +331,8 @@ Describes handling in-game events and triggers.
 
 Details point-and-click gameplay mechanics.
 
+Signals
+
 ### 5.2. Graphics and Visuals
 
 Discusses visual elements, including graphics style and resolution.
@@ -309,16 +341,11 @@ Discusses visual elements, including graphics style and resolution.
 
 Covers the game's auditory experience, including music and effects.
 
+Signals
+
 ## 6. Product Deployment
 
-### 6.1. Deployment Environment
-
-Outlines server specifications and requirements.
-
-### 6.2. Release Schedule
-
-Describes version control practices and collaboration rules (e.g., GitHub).
-
+### 6.1. Version Control
 
 To faciciliate the organization of the team while using Github, several rules were decided:
 
@@ -334,7 +361,7 @@ To faciciliate the organization of the team while using Github, several rules we
 
 - A branch name must start with a capital letter, and written this way "Branch_Name".
 
-### 6.3. Game Prototype
+### 6.2. Game Prototype
 
 On the date of ####, we managed to build a prototype for our game to showcase its main features.
 
@@ -345,7 +372,7 @@ Here's the link to open the .zip file and test the prototype:
 After we let people testing it, certain technical issues were noticed:
 -
 
-### 6.4. Beta Version
+### 6.3. Beta Version
 
 A Beta Version of our game has been created on ####: it added important features such as ### and ###.
 
@@ -355,7 +382,7 @@ We corrected some of the bugs from the prototype, and we had to make key changes
 -
 -
 
-### 6.5. Full Version
+### 6.4. Full Version
 
 The finalized version of our game, which has been completed on ###.
 
@@ -380,7 +407,7 @@ Displays and categorizes visual assets used in the game.
 | <span id="Event">Event</span> | Def     |
 | <span id="Game Economy">Game Economy</span> | Def     |
 | <span id="Game Engine">Game Engine</span> | Def     |
-| <span id="Game Manager">Game Manager</span> | Def     |
+| <span id="Game Manager">Game Manager</span> | Global script of the game that handle the game objects' behaviors, the game logic and the state management.      |
 | <span id="GdScript">GdScript</span> | Def    |
 | <span id="Github">Github</span> | Def     |
 | <span id="Godot">Godot</span> | Def     |
