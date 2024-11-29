@@ -49,7 +49,7 @@
 | Author        | Paul NOWAK (Tech Lead) |
 |---------------|------------|
 | Created       | 11/21/2024 |
-| Last modified | 11/25/2024 |
+| Last modified | 11/29/2024 |
 | Document deadline | 11/29/2024 |
 
 ## Document Validation
@@ -176,8 +176,11 @@ Then, here's how we plan to structure the different files of our game in the God
 │   │   ├── countries/       # list of other countries with their specific assets and logic 
 │   ├── Management game-specific logic 
 │   │   ├── systems/          # Resource, task, or economy systems
+│   │   │      ├── Economy.tscn
+│   │   │      ├── Pollution.tscn
 │   │   ├── ui/               # UI specific to the management gameplay
 │   │   └── managers/         # Task, worker, or building managers
+│   │   │      ├── economiesManager.gd
 │   ├── EventManager/              #Manage game events (like natural disasters, or conflicts)
 │   │   ├── EventManager.gd 
 │   │   ├── Events/ #List of events 
@@ -186,14 +189,14 @@ Then, here's how we plan to structure the different files of our game in the God
 │       ├── MainMenu.tscn     # Main menu
 │       ├── SettingsMenu.tscn # Settings menu
 │       └── WorldMapMenu.tscn    # World Map Menumenu
-│       ├── RNDMenu.tscn     
+│       ├── RnDMenu.tscn     
 │       ├── LawsMenu.tscn  
 │       └── DiplomacyMenu.tscn    
 ├── resources/              # All reusable assets
 │   ├── images/              # Textures, sprites, and icons
 │   │   ├── environments/     # Backgrounds and scenery
 │   │   ├── ui/               # UI elements like buttons, panels
-│   │   └── installations/            # Icons of buildable installations in-game
+│   │   └── installations/    # Icons of buildable installations in-game
 │   ├── sounds/              # Sound effects
 │   ├── music/               # Background music
 │   ├── fonts/               # Game fonts for UI  
@@ -219,13 +222,20 @@ Then, here's how we plan to structure the different files of our game in the God
 
 ### 3.1. Game Engine Presentation
 
-Highlights the Godot engine and its capabilities.
+<img src="./Images/Godot.png" width="100">
+
+Godot is a free and open-source game engine designed to make all sort of 2D and 3D projects, especially centred around video games that can be released on PC, mobile or even consoles. Beginner-friendly, it has been initially developed in-house by an Argentian game studios until it has been rewritten and incredibly updated since its open source release in 2014.
+
+The app possesses a full-fledged game editor with integrated tools to control several needs, such as code, animation, tilemap or shader, while offering a consistent user experience with a rich user interface. 
+
+Its 2 main programming languages are GDScript, a Godot-specific and tightly integrated language with a lightweight syntax, or C#, which is very common in the video game industry. Indeed, the game engine relies on the object-oriented programming paradigm, introducing concepts such as classes and objects to help you run the code properly.
+
+In fact, Godot is well-known for its efficient rendering pipeline and flexible optimization options, allowing the user to tweak the required performance for the game.
+
 
 
 
 ### 3.2. Data Management
-
-Details data storage and retrieval strategies.
 
 Due to the importance of the system of nodes involving Money and Pollution, we need a proper strategy to save and load game data efficiently.
 
@@ -316,9 +326,10 @@ In fact, the game is attribuated of several states:
 
  The reason to use states is to have a better control flow of our code. Indeed, certain functions like _Process() will behave differently depending on the game state. Each time it is called, this function will check the actual state of the game manager depdning on the conditions stated above before handling the other main functions.
 
- In fact, the play state will have to check several features each time the _Process() function is called:
+ Furthermore, the play state will have to check several features each time the _Process() function is called:
  - the inputHandler.gd script, where the game manager will monitor the use of the player's interface and its point-and-click controls, a vital part of the gameplay.
- - the dataLoader.gd script, 
+ - the dataLoader.gd script, necessary each time the game update to the next turn to change the .json scripts values and the game economies.
+ - 
 
 ### 4.2. Managing Game Economies
 
@@ -422,6 +433,7 @@ Displays and categorizes visual assets used in the game.
 | <span id="JSON">JSON</span> | Def     |
 | <span id="Mechanics">Mechanics</span> | Def     |
 | <span id="Node">Node</span> | Def     |
+| <span id="Open Source">Open Source</span> | Def     |
 | <span id="Platform">Platform</span> | Def     |
 | <span id="point-and-click">point-and-click</span> | Def     |
 | <span id="Prototype">Prototype</span> | Def     |
