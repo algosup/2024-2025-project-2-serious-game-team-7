@@ -298,6 +298,13 @@ For that, we create a node named "Core" to handle the core elements, such as the
 
 [Insert GameManager.gd picture]
 
+To start with, we need to instantiate the most important scenes of our game:
+- gameManager.tscn: contains the core systems and logic of our games, including the gameManager.gd script itself.
+- homeCountry.tscn: contains the scripts and logic of the country selected by the player. It allows to set up a country to manage and follow its evolution when the game is progressing. It will become mostly active once the game enters in Play state. 
+- worldMap.tscn: contains the scripts and assets required for the entire world map. Setting it up will handle the gameplay by interacting with the interface, and also to set the the other countries of the world.
+
+Other scenes will also be instantiated, but they will be more focused on the different menus and the other countries which will complete the game depending on how far the player goes.
+
 In fact, the game is attribuated of several states:
  - Start state: the game has just been launched, showing the main Menu which incite the player to select "New game" to play. By default, the game manager has this state when it's launched through the _Ready() function.
  - Intro state: after selecting "New Game", the game plays an initial cutscene showcasing the story and allowing the player to understand the plot. 
