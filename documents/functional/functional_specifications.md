@@ -39,6 +39,7 @@
     - [Laws](#laws)
       - [Monetary laws](#monetary-laws)
       - [Ecological laws](#ecological-laws)
+      - [Chance to pass a law](#chance-to-pass-a-law)
     - [Research](#research)
       - [Energy Research](#energy-research)
       - [Transport Research](#transport-research)
@@ -327,13 +328,30 @@ Let:
 
 ### Laws
 
-Laws can be two of types. Monetary laws which are taxes and subsidies, and Ecological laws.
+Laws can be two of types. Monetary laws which are taxes and subsidies, and Ecological laws. A law has more or less chances to be approved. 
 
 #### Monetary laws
 
-These laws
+These laws are either about managing taxes or subsidies. They can be used to redistribute money around the economy.
+
+Economical laws have an affected area. This is one or several nodes upon which the law will apply. 
+
+The rate of growth \( r_{\text{final}} \) after applying the tax reduction can be expressed as:
+
+\[
+r_{\text{final}} = r \times \left( 1 - 2 \times \frac{t}{100} \right)
+\]
+
+Where:
+- \( r \) is the original rate of growth (in percentage),
+- \( t \) is the tax rate (in percentage).
+
 
 #### Ecological laws
+
+#### Chance to pass a law
+
+
 
 ### Research
 
