@@ -321,21 +321,12 @@ To start with, we need to instantiate the most important scenes of our game:
 
 Other scenes will also be instantiated, but they will be more focused on the different menus and the other countries which will complete the game depending on how far the player goes.
 
-In fact, the game is attribuated of several states:
- - Start state: the game has just been launched, showing the main Menu which incite the player to select "New game" to play. By default, the game manager has this state when it's launched through the _Ready() function.
- - Intro state: after selecting "New Game", the game plays an initial cutscene showcasing the story and allowing the player to understand the plot. 
- - Select state: once the first cutscene finished playing, the player will be introduced to the world map. Then, he will have to decide which home country he has to choose and confirm before starting to play the actual game.
- - Play state: the main state of our game manager where most of the scripts are connected with. 
- The player finds himself in his control room, obtain his initial amount of income, and has access the world map and the other menus allowing him to manage the Economy and the Pollution. 
- He can decide to go to the next turn once he finished his limited actions, and the game progresses trough the different events and player's choices, but the game manager is still in "Player state" until the game reaches the 50th turn.
- - Ending state: When the turn 50 is over, the game makes an analysis of the player's entire progress and calculate how well he managed to balance the Economy and Pollution's economies. Depending on the results, the game manager will either trigger a good or bad ending cutscene.
-
- The reason to use states is to have a better control flow of our code. Indeed, certain functions like _Process() will behave differently depending on the game state. Each time it is called, this function will check the actual state of the game manager depdning on the conditions stated above before handling the other main functions.
-
- Furthermore, the play state will have to check several features each time the _Process() function is called:
+Furthermore, the game manager will have to check several features each time the _Process() function is called:
  - the inputHandler.gd script, where the game manager will monitor the use of the player's interface and its point-and-click controls, a vital part of the gameplay.
  - the dataLoader.gd script, necessary each time the game update to the next turn to change the .json scripts values and the game economies.
- - 
+ - the homeCountry.gd script: monitor the actual state of the player's chosen country and its different economies.
+ - the worldMap.gd script: check the state of the world, the global economies and the other countries
+ - the eventManager.gd script: handle the different events performed by the player, such as the changes applied to the economy's nodes, and when he decide to go to the next turn and update most of the game's objects.
 
 ### 4.2. Managing Game Economies
 
@@ -431,7 +422,18 @@ Anyway, this money system diagram shows how the economy circulates through the d
 
 ### 4.3. Game Progression
 
-Features state diagrams to show progression through the game.
+In fact, the game is attributed of several states:
+ - Start state: the game has just been launched, showing the main Menu which incite the player to select "New game" to play. By default, the game manager has this state when it's launched through the _Ready() function.
+ - Intro state: after selecting "New Game", the game plays an initial cutscene showcasing the story and allowing the player to understand the plot. 
+ - Select state: once the first cutscene finished playing, the player will be introduced to the world map. Then, he will have to decide which home country he has to choose and confirm before starting to play the actual game.
+ - Play state: the main state of our game manager where most of the scripts are connected with. 
+ The player finds himself in his control room, obtain his initial amount of income, and has access the world map and the other menus allowing him to manage the Economy and the Pollution. 
+ He can decide to go to the next turn once he finished his limited actions, and the game progresses trough the different events and player's choices, but the game manager is still in "Player state" until the game reaches the 50th turn.
+ - Ending state: When the turn 50 is over, the game makes an analysis of the player's entire progress and calculate how well he managed to balance the Economy and Pollution's economies. Depending on the results, the game manager will either trigger a good or bad ending cutscene.
+
+
+ The reason to use states is to have a better control flow of our code. Indeed, certain functions like _Process() will behave differently depending on the game state. Each time it is called, this function will check the actual state of the game manager depdning on the conditions stated above before handling the other main functions.
+
 
 ### 4.4. Event Management
 
@@ -510,30 +512,31 @@ Displays and categorizes visual assets used in the game.
 
 | Terms | Definitions |
 | ----- | ----------- |
-| <span id=".gd">.gd</span> | Def     |
-| <span id=".tscn">.tscn</span> | Def     |
-| <span id="Asset">Asset</span> | Def     |
-| <span id="C#">C#</span> | Def     |
-| <span id="Climate Change">Climate Change</span> | Def     |
-| <span id="Controls">Controls</span> | Def     |
-| <span id="Event">Event</span> | Def     |
-| <span id="Game Economy">Game Economy</span> | Def     |
-| <span id="Game Engine">Game Engine</span> | Def     |
-| <span id="Game Manager">Game Manager</span> | Global script of the game that handle the game objects' behaviors, the game logic and the state management.      |
-| <span id="GdScript">GdScript</span> | Def    |
-| <span id="Github">Github</span> | Def     |
-| <span id="Godot">Godot</span> | Def     |
-| <span id="Graphics">Graphics</span> | Def     |
-| <span id="JSON">JSON</span> | Def     |
-| <span id="Mechanics">Mechanics</span> | Def     |
-| <span id="Node">Node</span> | Def     |
-| <span id="Open Source">Open Source</span> | Def     |
-| <span id="Platform">Platform</span> | Def     |
-| <span id="point-and-click">point-and-click</span> | Def     |
-| <span id="Prototype">Prototype</span> | Def     |
-| <span id="RnD">R.n.D.</span> | Def     |
-| <span id="Scene">Scene</span> | Def     |
-| <span id="Script">Script</span> | Def     |
-| <span id="Sound Design">Sound Design</span> | Def     |
-| <span id="Systems">Systems</span> | Def     |
+| <span id=".gd">.gd</span> | Godot's scripting file extension, used for scripts written in GDScript. |
+| <span id=".tscn">.tscn</span> | Godot's text-based scene file format, which stores information about a scene's nodes and their properties. |
+| <span id="Asset">Asset</span> | Any resource used in a game, such as textures, sound files, 3D models, or scripts. |
+| <span id="C#">C#</span> | A modern, object-oriented programming language often used in game development and supported by Godot. |
+| <span id="Climate Change">Climate Change</span> | Long-term alterations in temperature, precipitation, wind patterns, and other elements of the Earth's climate system, often caused by human activities. |
+| <span id="Controls">Controls</span> | The input mechanisms players use to interact with a game, such as keyboard, mouse, or controller actions. |
+| <span id="Event">Event</span> | A specific action or occurrence in a game that triggers a response, such as player input or system changes. |
+| <span id="Game Economy">Game Economy</span> | The system of rules and mechanics that manage resources, such as money, goods, and trade, within a game. |
+| <span id="Game Engine">Game Engine</span> | A software framework used for game development, providing tools for rendering graphics, scripting, physics, and more. |
+| <span id="Game Manager">Game Manager</span> | Global script of the game that handles the game objects' behaviors, game logic, and state management. |
+| <span id="GdScript">GdScript</span> | A high-level, dynamically typed programming language used in Godot, optimized for game development. |
+| <span id="Github">Github</span> | A platform for version control and collaboration, enabling developers to manage and share code repositories. |
+| <span id="Godot">Godot</span> | An open-source game engine designed for 2D and 3D game development. |
+| <span id="Graphics">Graphics</span> | Visual elements in a game, including textures, models, and animations, which contribute to its visual appeal. |
+| <span id="JSON">JSON</span> | JavaScript Object Notation, a lightweight data-interchange format that is easy to read and write for humans and machines. |
+| <span id="Mechanics">Mechanics</span> | The rules and interactions that define how players engage with a game, such as movement, combat, or crafting systems. |
+| <span id="Node">Node</span> | A fundamental building block in Godot, representing a single object with a specific function in a game. |
+| <span id="Open Source">Open Source</span> | Software with source code that is freely available and can be modified and distributed by anyone. |
+| <span id="Platform">Platform</span> | The hardware or software environment on which a game runs, such as PC, console, or mobile. |
+| <span id="point-and-click">point-and-click</span> | A game genre where players interact with the environment and solve puzzles by clicking on objects and locations. |
+| <span id="Prototype">Prototype</span> | An early version of a game or feature created to test concepts and mechanics before full development. |
+| <span id="RnD">R.n.D.</span> | Research and Development, the process of exploring new ideas, technologies, and methods for innovation. |
+| <span id="Scene">Scene</span> | A collection of nodes organized in a tree structure, representing a portion of a game, such as a level or menu. |
+| <span id="Script">Script</span> | Code written to define the behavior and logic of game objects and systems. |
+| <span id="Sound Design">Sound Design</span> | The creation and implementation of audio elements in a game, including music, sound effects, and voiceovers. |
+| <span id="Systems">Systems</span> | Interconnected mechanics and processes that govern the functionality and experience of a game. |
+
 
