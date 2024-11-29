@@ -281,12 +281,27 @@ For that, we will use Godot's built-in monitor to check FPS, memory usage, and G
 
 #### Responsiveness
 
+We want user interactions, such as mouse clicks or keyboard presses, to be registered within 0.1 seconds, and menu transitions to feel smooth and instantaneous.
+
+For that, we will use Godot's InputEvent system to handle inputs with low latency. We will offload heavy tasks to background processes using Coroutines (yield) or Threads to prevent interruptions in responsiveness. Input handling will be prioritized by processing events in the _input() function to minimize delays.
+
 #### Usability  
+
+We want to provide an intuitive user interface with features such as scalable text, subtitles, and accessibility options for colorblind players. All actions in the game should require no more than three steps to complete.
+
+For that, we will use Control Nodes in Godot (e.g., VBoxContainer) to ensure adaptive UI layouts that work across various screen sizes. We will implement DynamicFont for text scaling and use contrast analysis tools in Godot's Theme Editor to enhance readability. Colorblind-friendly options will be provided via shader effects, and visual/audio feedback will be added using Tween Nodes for click responses and transitions.
 
 #### Reliability   
 
+We want the game to remain stable, save player progress at key checkpoints, and recover seamlessly after crashes.
+
+For that, we will implement an autosave system using Godot's File API to save game states in JSON format during key events. Crash recovery will be supported by logging errors using Godot's Logger, which will store detailed error reports in external log files. We will use Godot’s Debugger to trace issues during development and conduct rigorous testing to ensure stability.
+
 #### Maintainability   
 
+We want the code to be modular, enabling developers to update or replace individual components without affecting the entire system. 
+
+For that, we will design modular scenes using Godot’s Scene Tree to isolate different systems (e.g., UI, game mechanics). Signals will be used for event handling to ensure loose coupling between components. Version control will be managed through Git, with clear branching strategies and commit messages. 
 
 ### 3.5. Risks & Assumptions
 
