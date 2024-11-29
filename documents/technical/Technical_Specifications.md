@@ -12,7 +12,6 @@
   - [1. Overview](#1-overview)
     - [1.1. Document Purpose](#11-document-purpose)
     - [1.2. Game Presentation](#12-game-presentation)
-    - [1.3. System Overview](#13-system-overview)
   - [2. Game Architecture](#2-game-architecture)
     - [2.1. Target Platform](#21-target-platform)
     - [2.2. Modules and Components](#22-modules-and-components)
@@ -80,23 +79,23 @@ When starting the game, the player will have the possibility to select one count
 
 Indeed, he will have to control the different aspects of his country, and spend wisely his money to select choices for research, laws and diplomacy with other countries.
 
-Furthermore, the game progresses through a system of turns, representing the years, and the player receive income at each turn from taxing each sector of his country's economy. After all available choices made, the player must click the "Next Turn" button to go to the next year and see how the world are evolving. 
+Furthermore, the game progresses through a system of turns, representing the years, and the player receive income at each turn from taxing each sector of his country's economy. After all available choices made, the player must click the "Next Turn" button to go to the next year and see how the world is evolving. 
 
 The final goal of the player is to improve his country's economy and collaborate with other countries to  while limiting the use of greenhouse gazes around the world.
-
-
-### 1.3. System Overview
-
-Provides a system structure diagram for an at-a-glance understanding.
 
 ## 2. Game Architecture
 
 ### 2.1. Target Platform
 
-Identifies the platforms on which the game will run.
-
-
 The godot editor supports many platforms like Windows, macOs or Linux, but we have decided to release our game on macOs. Indeed, our software engineers are mostly working with macBook computers and the tests will also be performed with one of them to ensure Dilemma is functional and performant.
+
+Once we selected our target platform and that we finish the development of our game, we will need to export the project. Effectively, the developers would need to compile the proper binaries and build the package required for the macOs platform.
+
+For that, we go to the Project menu, we select export and we will have to select an export preset related to our target OS:
+
+<img src="./Images/export_preset.png" width="250">
+
+We choose the macOS preset, by making sure we installed the required additional tools to be able to export. Following the preset selection, we can either click on "Export Project", as a playable build, or export the project resources as a PCK or ZIP package without a playable build nor a godot executable but with only the project data.
 
 ### 2.2. Modules and Components
 
@@ -232,12 +231,11 @@ Its 2 main programming languages are GDScript, a Godot-specific and tightly inte
 
 In fact, Godot is well-known for its efficient rendering pipeline and flexible optimization options, allowing the user to tweak the required performance for the game.
 
-
-
-
 ### 3.2. Data Management
 
 Due to the importance of the system of nodes involving Money and Pollution, we need a proper strategy to save and load game data efficiently.
+
+<img src="./Images/json-logo.png" width="100">
 
 Subsequently, we have decided to use JSON, a text format whose conventions are familiar to the C-family of programming languages, like C# which is the programming language for our Godot Project. Indeed, JSON is simple to understand and allow to create objects written as Key/Value pairs.
 
