@@ -15,10 +15,13 @@
       - [**Eco-Crazy Advocate**](#eco-crazy-advocate)
       - [**Eco-Curious Gamer**](#eco-curious-gamer)
     - [Use cases](#use-cases)
+  - [Game Mechanics](#game-mechanics)
     - [Economy \& green house gazes](#economy--green-house-gazes)
       - [Nodes](#nodes)
-      - [Connection](#connection)
       - [Median Income](#median-income)
+      - [Supply and demand](#supply-and-demand)
+        - [=\> General Case:](#-general-case)
+        - [=\> Stopping Condition:](#-stopping-condition)
       - [Pollution](#pollution)
     - [Diplomacy](#diplomacy)
       - [International agreement](#international-agreement)
@@ -30,7 +33,9 @@
         - [=\> Making a resolution](#-making-a-resolution)
     - [Player income](#player-income)
       - [Taxes](#taxes)
-      - [State Owned Enterprises (SOE)](#state-owned-enterprises-soe)
+        - [=\> Total Tax Income Calculation:](#-total-tax-income-calculation)
+      - [International Aid](#international-aid)
+        - [=\> Aid Income Calculation:](#-aid-income-calculation)
     - [Laws](#laws)
       - [Monetary laws](#monetary-laws)
       - [Ecological laws](#ecological-laws)
@@ -165,13 +170,14 @@ immersive worlds and engaging gameplay but rarely considers environmental themes
 3. After completing their turns, the gamers compare results based on the ecological health and economic growth of their countries, enjoying the challenge of balancing both.
 4. The players discuss strategies, sharing insights into how to best tackle the game's complexities while competing for the most successful ecological transition.
 
+## Game Mechanics
+
 ### Economy & green house gazes
 
 The economic and green house gaz system works in nodes. The nodes represent aspect of the Economy of a country eg.
-example Transportation, Education, Income etc...
+example Transportation, Education, etc...
 
-A node has two values. Money and pollution. The pollution value is proportional to the money, but the ratio between the
-two can change from laws.
+nodes have two values. Money and pollution. The pollution value is proportional to the money, but the ratio between the two can change with laws and technologies.
 
 #### Nodes
 
@@ -184,23 +190,58 @@ two can change from laws.
 | Raw Resources  | All the materials and resources needed to make goods             |
 | Fuel           | Represent all Hydrocarbon fuel including both fossil and biofuel |
 
-#### Connection
+The nodes are connected together and can grow and shrink to represent supply and demand.
 
-A connection tie two monetary values together. this can often work in both directions to represent supply and demand.
-eg. More money in `consumer good factory` means more money in `energy production` to represent factories increasing
-their energy consumption along with their output.
+***eg.*** *More money in `consumer good factory` means more money in `energy production` to represent factories increasing their energy consumption along with their output.*
 
-The specific list of connections can be found in [this table]
+This [spreadSheet](https://docs.google.com/spreadsheets/d/1nBxIMelLl4439p4A0lBnOFLjVdy7G12d8wt_ZIThWdA/edit?usp=sharing) details the interaction between the different nodes.
 
 #### Median Income
 
-A lot of Nodes are linked to the median income of the population. This is a unique node that doesn't directly generate
-pollution. Instead it leads and receive from a lot of different node and is the central element of the Game.
+A lot of Nodes are linked to the median income of the population. This is a unique node that doesn't directly generate pollution. Instead it leads and receive from a lot of different node and is one of the central element of the Game.
+
+#### Supply and demand
+
+When a sector grow or shrink, so does it's need.
+
+***eg.*** *10% of Transport value comes from energy. if transport's value double, it's need in energy also does. So transport goes from draining 5M energy to draining 10M energy. but it's still 10% of the value of transport.*
+
+The equation for how long it take supply to catch up to demand. 
+
+1. The growth rate is 6% per turn, but if that 6% would cause the value to overshoot the supply, the growth rate reduces to 3%.
+2. The growth continues until the value reaches the demand, meaning it will stop growing once the value equals or exceeds the demand.
+
+Let the value be \( V_t \), the demand be \( D \), and the growth rate at time \( t \) be \( r_t \). The value at the next turn is \( V_{t+1} \).
+
+##### => General Case:
+- **If** \( V_t + 6\% \times V_t \leq D \), the growth rate is 6%, so:
+  \[
+  V_{t+1} = V_t + 0.06 \times V_t = V_t (1 + 0.06)
+  \]
+  
+- **If** \( V_t + 6\% \times V_t > D \), then the growth rate reduces to 3% to avoid overshooting the demand, so:
+  \[
+  V_{t+1} = V_t + 0.03 \times V_t = V_t (1 + 0.03)
+  \]
+
+##### => Stopping Condition:
+- The growth stops when \( V_t \geq D \), i.e., when the value reaches or exceeds the demand.
+
+\[
+V_{t+1} = \begin{cases} 
+V_t (1 + 0.06) & \text{if } V_t + 0.06 \times V_t \leq D \\
+V_t (1 + 0.03) & \text{if } V_t + 0.06 \times V_t > D \\
+\end{cases}
+\]
+\[
+\text{Stop when } V_t \geq D
+\]
 
 #### Pollution
 
-Each node generate pollution proportionally to it's monetary value. The proportion can be changed by passing laws that
-reduce green house gases emissions in one or multiple nodes.
+Each node generate pollution proportionally to it's monetary value. The proportion can be changed by passing laws that reduce green house gases emissions in one or multiple nodes.
+
+[Pollution per Value on this spreadsheet](https://docs.google.com/spreadsheets/d/1nBxIMelLl4439p4A0lBnOFLjVdy7G12d8wt_ZIThWdA/edit?usp=sharing) is the baseline for how much CO2 is created relative to the value of a node.
 
 ### Diplomacy
 
@@ -240,21 +281,57 @@ The UN leader propose a resolution and all the other countries can vote to accep
 
 The player needs money to spend on laws, trade and research.
 
-The main source of income for the player to spend in the game comes from taxing the different sector of the economy. The other source of income are trade and international aids and State Owned Enterprises (SOE)
+The main source of income for the player to spend in the game comes from taxing the different sector of the economy. The other source of income are trade and international aids
 
 #### Taxes
 
-At the beginning of each turn the player receive money from the different economic sectors. The income is calculated by taking the monetary value of the node(M) with a multiplier determined by the tax law.
+At the beginning of each turn the player receive money from the different economic sectors. The income is calculated by taking the monetary value of the node with a multiplier determined by the tax law.
 
-#### State Owned Enterprises (SOE)
+##### => Total Tax Income Calculation:
+Let:
+- \( N \): the number of nodes.
+- \( V_i \): the value in the \( i \)-th node.
+- \( T_i \): the tax multiplier for the \( i \)-th node.
+- \( T_{income} \): the total tax income.
 
-There are two SOE in the game. Public transport and energy. These company give income
+The total tax income is given by:
+$$
+T_{income} = \sum_{i=1}^N \left( V_i \cdot T_i \right)
+$$
+
+#### International Aid
+
+If foreign nations are giving money to your country that money is split into three parts. Some of it goes toward developing a specific node chosen by the donator. Some of it goes to your Income and the rest is lost to simulate administrative inefficiency.
+
+
+##### => Aid Income Calculation:
+Let:
+- \( D_i \): the value of the \( i \)-th donation, sorted in descending order (\( D_1 \geq D_2 \geq \dots \)).
+- \( I_i \): the income derived from the \( i \)-th donation.
+- \( N \): the total number of donations.
+
+1. For the first donation (\( i = 1 \)):
+   $$
+   I_1 = \frac{D_1}{5}
+   $$
+
+2. For each subsequent donation (\( i \geq 2 \)):
+   $$
+   I_i = \frac{D_i}{5} \cdot (1 - 0.1(i - 1))
+   $$
+
+3. Total aid income (\( A_{income} \)):
+   $$
+   A = \sum_{i=1}^N I_i
+   $$
 
 ### Laws
 
 Laws can be two of types. Monetary laws which are taxes and subsidies, and Ecological laws.
 
 #### Monetary laws
+
+These laws
 
 #### Ecological laws
 
@@ -266,14 +343,14 @@ The **Research** mechanic serves as the game's upgrade system, allowing players 
 
 The **Energy Research** track focuses on developing cleaner, renewable energy sources to replace fossil fuels. Each step progresses toward reducing greenhouse gas emissions while maintaining or increasing energy production.
 
-- **Level 1: Solar Panels**  
-  Introduction of solar energy as a supplemental power source. Generates clean energy but requires investment in infrastructure.
+- **Level 1: Hydropower Expansion**  
+  Rivers are tapped for hydropower generation, offering a steady, low-emission energy source while considering ecological impacts.
 
 - **Level 2: Wind Turbines**  
   Large-scale wind farms are established, significantly increasing the share of renewable energy in the grid.
 
-- **Level 3: Hydropower Expansion**  
-  Rivers are tapped for hydropower generation, offering a steady, low-emission energy source while considering ecological impacts.
+- **Level 3: Solar Panels**  
+  Introduction of solar energy as a supplemental power source. Generates clean energy but requires investment in infrastructure.
 
 - **Level 4: Advanced Energy Storage Systems**  
   Revolutionizes energy efficiency by integrating cutting-edge storage solutions, ensuring surplus renewable energy can be stored and distributed seamlessly.
@@ -285,11 +362,11 @@ The **Energy Research** track focuses on developing cleaner, renewable energy so
 
 The **Transport Research** track emphasizes reducing emissions from personal and public transport systems. Players can transition their country toward cleaner, more efficient modes of transportation.
 
-- **Level 1: Electric Vehicles**  
-  Incentivizes the adoption of electric cars, reducing emissions from personal transport.
-
-- **Level 2: Public Transport Electrification**  
+- **Level 1: Public Transport Electrification**  
   Expands electric public transport, such as buses and trains, reducing reliance on fossil fuels for urban mobility.
+
+- **Level 2: Electric Vehicles**  
+  Incentivizes the adoption of electric cars, reducing emissions from personal transport.
 
 - **Level 3: High-Speed Rail Networks**  
   Builds national high-speed rail systems, offering a low-emission alternative for long-distance travel.
