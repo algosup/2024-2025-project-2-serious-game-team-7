@@ -6,13 +6,13 @@
 position = Vector2(-41.1428, 0)
 scale = Vector2(1.07143, 1)
 color = Color(0, 0.0980392, 0.92549, 0.392157)
-polygon = PackedVector2Array(1024, 16, 1024, 448, 576, 392)
+polygon = PackedVector2Array(1024, 16, 1024, 448, 575.999, 392)
 
 [node name="LeftProj" type="Polygon2D" parent="."]
 position = Vector2(-41.1429, 0)
 scale = Vector2(1.07143, 1)
 color = Color(0, 0.0980392, 0.92549, 0.392157)
-polygon = PackedVector2Array(128, 16, 128, 448, 576, 392)
+polygon = PackedVector2Array(128, 16, 128, 448, 575.999, 392)
 
 [node name="Proj" type="ColorRect" parent="."]
 offset_left = 96.0
@@ -44,31 +44,31 @@ scale = Vector2(0.5, 0.887097)
 points = PackedVector2Array(257, 17.0364, 257, 422.855)
 width = 3.0
 
-[node name="Polygon2D5" type="Polygon2D" parent="."]
+[node name="Details" type="Polygon2D" parent="."]
 position = Vector2(374.857, -1770.67)
 scale = Vector2(0.958996, 13.6667)
 color = Color(1, 1, 1, 0.784314)
 polygon = PackedVector2Array(476.689, 136, 476.689, 160, 685.241, 160, 685.241, 136, 685.241, 136)
 
-[node name="Polygon2D4" type="Polygon2D" parent="."]
+[node name="Option 2" type="Polygon2D" parent="."]
 position = Vector2(-192, -8)
 scale = Vector2(1.33333, 1)
 color = Color(1, 1, 1, 0.784314)
 polygon = PackedVector2Array(480, 136, 480, 160, 672, 160, 672, 136)
 
-[node name="Polygon2D8" type="Polygon2D" parent="."]
+[node name="Pst 2" type="Polygon2D" parent="."]
 position = Vector2(-265.333, -8)
 scale = Vector2(0.847222, 1)
 color = Color(1, 1, 1, 0.784314)
 polygon = PackedVector2Array(483.147, 136, 483.147, 160, 672, 160, 672, 136)
 
-[node name="Polygon2D7" type="Polygon2D" parent="."]
+[node name="Pst 1" type="Polygon2D" parent="."]
 position = Vector2(-256, -48)
 scale = Vector2(0.833333, 1)
 color = Color(1, 1, 1, 0.784314)
 polygon = PackedVector2Array(480, 136, 480, 160, 672, 160, 672, 136)
 
-[node name="Polygon2D3" type="Polygon2D" parent="."]
+[node name="Option 1" type="Polygon2D" parent="."]
 position = Vector2(-192, -48)
 scale = Vector2(1.33333, 1)
 color = Color(1, 1, 1, 0.784314)

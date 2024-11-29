@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://beice551y1wvc"
-path="res://.godot/imported/rond blanc.png-1e0f64eb5fede29c3eaeeefb27bb099b.ctex"
+uid="uid://bok2m2hbrnqf6"
+path="res://.godot/imported/DeskHD_Symetrical.png-415ba96a5fe2442169a49ca9232ca64e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/rond blanc.png"
-dest_files=["res://.godot/imported/rond blanc.png-1e0f64eb5fede29c3eaeeefb27bb099b.ctex"]
+source_file="res://Images/DeskHD_Symetrical.png"
+dest_files=["res://.godot/imported/DeskHD_Symetrical.png-415ba96a5fe2442169a49ca9232ca64e.ctex"]
 
 [params]
 
