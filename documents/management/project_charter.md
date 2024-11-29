@@ -33,7 +33,7 @@ The game will be deemed successful if, by the end of gameplay, players report le
 **Out-of-Scope:**
 
 - Cinematic cutscenes or animations due to time constraints.
-- Multiplayer features or controlling multiple countries, as the focus  will solely be on France to ensure relevance and depth.
+- Multiplayer features or controlling multiple countries, as the focus will solely be on France to ensure relevance and depth.
 
 ## 4. Project Deliverables
 
