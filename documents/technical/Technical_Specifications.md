@@ -5,7 +5,7 @@
 <details>
 <summary>Click to expand</summary>
 
-- [Technical Specifications Plan](#technical-specifications-plan)
+- [Technical Specifications Plan: Version 3 (Dilemma)](#technical-specifications-plan-version-3-dilemma)
   - [Table of Contents](#table-of-contents)
   - [Document Evolution](#document-evolution)
   - [Document Validation](#document-validation)
@@ -22,18 +22,10 @@
     - [3.2. Data Management](#32-data-management)
     - [3.3. Programming Language](#33-programming-language)
     - [3.4. Non-Functional Requirements](#34-non-functional-requirements)
-    - [3.5. Risks \& Assumptions](#35-risks--assumptions)
-    - [3.6. Optimization Solutions](#36-optimization-solutions)
+    - [3.5. Risks & Assumptions](#35-risks--assumptions)
   - [4. Mechanics and Systems Details](#4-mechanics-and-systems-details)
     - [4.1. Setting up Game Manager](#41-setting-up-game-manager)
     - [4.2. Managing Game Economies](#42-managing-game-economies)
-      - [Total Tax Income Calculation:](#total-tax-income-calculation)
-      - [Aid Income Calculation:](#aid-income-calculation)
-      - [Nodes](#nodes)
-      - [Supply and demand](#supply-and-demand)
-        - [=\> General Case:](#-general-case)
-        - [=\> Stopping Condition:](#-stopping-condition)
-      - [Effect of Taxes](#effect-of-taxes)
     - [4.3. Game Progression](#43-game-progression)
     - [4.4. Event Management](#44-event-management)
   - [5. Gameplay](#5-gameplay)
@@ -43,9 +35,7 @@
   - [6. Product Deployment](#6-product-deployment)
     - [6.1. Version Control](#61-version-control)
     - [6.2. Game Prototype](#62-game-prototype)
-  - [After we let people testing it, certain technical issues were noticed:](#after-we-let-people-testing-it-certain-technical-issues-were-noticed)
     - [6.3. Beta Version](#63-beta-version)
-  - [We corrected some of the bugs from the prototype, and we had to make key changes compared to the prototype:](#we-corrected-some-of-the-bugs-from-the-prototype-and-we-had-to-make-key-changes-compared-to-the-prototype)
     - [6.4. Full Version](#64-full-version)
   - [7. Sprites Gallery](#7-sprites-gallery)
   - [8. Glossary](#8-glossary)
@@ -282,8 +272,21 @@ Furthermore, Dilemma would require a lot of optimization due to the load of mult
 
 ### 3.4. Non-Functional Requirements
 
-Defines performance, scalability, and maintainability criteria.
+Here are the different criterias for the non-functional requirements:
 
+#### Performance
+
+We want to maintain a smooth gameplay at 60 fps, to load pop-up menus under 3 seconds and limit memory usage below 2GB during peak loads.
+
+For that, we will use Godot's built-in monitor to check FPS, memory usage, and GPU/CPU load during gameplay. To optimize the different scenes, we can preload certain objects and assets to reduce loading time, and use compressed pictures for large pictures and images.
+
+#### Responsiveness
+
+#### Usability  
+
+#### Reliability   
+
+#### Maintainability   
 
 
 ### 3.5. Risks & Assumptions
@@ -298,10 +301,6 @@ Defines performance, scalability, and maintainability criteria.
 | When we go to another menue (Research, Laws, Diplomacy...) and we need to go back to the main scene, we should expect a long loading time to display all the assets of the world map.  | The other menus could be either pop-ups, or we should pre-program the reapparition of the world map assets.  |
 | The game could encounter retrocompatibility issues when the two Software Engineers are working with MacBook computers.| We should focus on the development phase with MacBook computers, and do the testing with the same operating system.|
 
-
-### 3.6. Optimization Solutions
-
-Proposes solutions for performance and resource optimization.
 
 ## 4. Mechanics and Systems Details
 
@@ -340,7 +339,9 @@ In fact, the game is attribuated of several states:
 
 ### 4.2. Managing Game Economies
 
-Includes class diagrams illustrating the economy mechanics.
+Managing the 2 main Game Economies, Economy and Pollution, is one of the most important points of the code. Indeed, it require a lot of calculations depending on the various aspects of the economy and the player's actions.
+
+The script economiesManager.md takes its importance here, as it perform the various calculations required depending on the value retrieved from the stored .json files and update them.
 
 #### Total Tax Income Calculation:
 Let:
@@ -349,12 +350,15 @@ Let:
 - \( T_i \): the tax multiplier for the \( i \)-th node.
 - \( T_{income} \): the total tax income.
 
-The total tax income is given by:
+The total tax income received by the player is given by:
 $$
 T_{income} = \sum_{i=1}^N \left( V_i \cdot T_i \right)
 $$
 
 #### Aid Income Calculation:
+
+When your country receive money from allied nations, it is split into three parts: one to develop a specific node chosen by the donator, one to your Income and the rest is lost to simulate administrative inefficiency.
+
 Let:
 - \( D_i \): the value of the \( i \)-th donation, sorted in descending order (\( D_1 \geq D_2 \geq \dots \)).
 - \( I_i \): the income derived from the \( i \)-th donation.
@@ -375,20 +379,13 @@ Let:
    A = \sum_{i=1}^N I_i
    $$
 
-#### Nodes
-
-| Name           |                                                                  |
-| -------------- | ---------------------------------------------------------------- |
-| Energy         | Electricity production in the country                            |
-| Transport      | Personal and public transport                                    |
-| Education      | How much money is in the education sector                        |
-| Consumer Goods | The industry that fulfill the every day needs of the population  |
-| Raw Resources  | All the materials and resources needed to make goods             |
-| Fuel           | Represent all Hydrocarbon fuel including both fossil and biofuel |
-
-This [spreadSheet](https://docs.google.com/spreadsheets/d/1nBxIMelLl4439p4A0lBnOFLjVdy7G12d8wt_ZIThWdA/edit?usp=sharing) details the interaction between the different nodes.
-
 #### Supply and demand
+
+When a sector grow or shrink, so does it's need.
+
+As a remind [spreadSheet](https://docs.google.com/spreadsheets/d/1nBxIMelLl4439p4A0lBnOFLjVdy7G12d8wt_ZIThWdA/edit?usp=sharing) details the interaction between the different nodes.
+
+We have an equation to show how long it take supply to catch up to demand.
 
 Let the value be \( V_t \), the demand be \( D \), and the growth rate at time \( t \) be \( r_t \). The value at the next turn is \( V_{t+1} \).
 
@@ -427,6 +424,10 @@ r_{\text{final}} = r \times \left( 1 - 2 \times \frac{t}{100} \right)
 Where:
 - \( r \) is the original rate of growth (in percentage),
 - \( t \) is the tax rate (in percentage).
+
+Anyway, this money system diagram shows how the economy circulates through the different nodes:
+
+<img src="./Images/economy_diagram.png" width="500">
 
 ### 4.3. Game Progression
 
