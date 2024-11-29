@@ -1,14 +1,13 @@
-# Technical Specifications Plan
+# Technical Specifications
 
 ## Table of Contents
 
 <details>
 <summary>Click to expand</summary>
 
-- [Technical Specifications Plan: Version 3 (Dilemma)](#technical-specifications-plan-version-3-dilemma)
+- [Technical Specifications](#technical-specifications)
   - [Table of Contents](#table-of-contents)
   - [Document Evolution](#document-evolution)
-  - [Document Validation](#document-validation)
   - [1. Overview](#1-overview)
     - [1.1. Document Purpose](#11-document-purpose)
     - [1.2. Game Presentation](#12-game-presentation)
@@ -49,12 +48,6 @@
 | Last modified | 11/29/2024 |
 | Document deadline | 11/29/2024 |
 
-## Document Validation
-
-| Role | Name | Signature | Date |
-|---|---|---|---|
-| Project Manager | Thomas PLANCHARD | TBD | TBD |
-
 ## 1. Overview
 
 ### 1.1. Document Purpose
@@ -85,15 +78,15 @@ The final goal of the player is to improve his country's economy and collaborate
 
 ### 2.1. Target Platform
 
-The godot editor supports many platforms like Windows, macOs or Linux, but we have decided to release our game on macOs. Indeed, our software engineers are mostly working with macBook computers and the tests will also be performed with one of them to ensure Dilemma is functional and performant.
+The Godot editor supports many platforms, including Windows, macOS, and Linux. While our software engineers primarily work on macOS using MacBook computers and will conduct testing on this platform to ensure Dilemma is functional and performant, we have decided to target both macOS and Windows for the release of our game. This decision allows us to leverage Godot's cross-platform capabilities and reach a broader audience.
 
-Once we selected our target platform and that we finish the development of our game, we will need to export the project. Effectively, the developers would need to compile the proper binaries and build the package required for the macOs platform.
+Once we have selected our target platforms and completed the development of our game, we will need to export the project. Developers will compile the appropriate binaries and build the required packages for each target platform.
 
-For that, we go to the Project menu, we select export and we will have to select an export preset related to our target OS:
+To export the project in Godot, we navigate to the Project menu and select Export. From there, we choose an export preset corresponding to our target OS:
 
 <img src="./Images/export_preset.png" width="250">
 
-We choose the macOS preset, by making sure we installed the required additional tools to be able to export. Following the preset selection, we can either click on "Export Project", as a playable build, or export the project resources as a PCK or ZIP package without a playable build nor a godot executable but with only the project data.
+For macOS, we select the macOS preset, ensuring that all required additional tools are installed for exporting. Similarly, for Windows, we choose the Windows Desktop preset. After selecting the desired preset, we can either click on Export Project to create a playable build or export the project resources as a PCK or ZIP package. The latter option includes only the project data without a playable build or Godot executable.
 
 ### 2.2. Modules and Components
 
@@ -154,22 +147,22 @@ Then, here's how we plan to structure the different files of our game in the God
 ```  
 /game_project_root
 ├── core/                   # Core systems and global logic
-│   ├── GameManager.gd       # Main game logic singleton
-│   ├── InputHandler.gd      # Centralized input handling
-│   ├── DataLoader.gd        # JSON or data handling scripts
-│   ├── Global.gd            # Global variables or constants
+│   ├── GameManager.cs       # Main game logic singleton
+│   ├── InputHandler.cs       # Centralized input handling
+│   ├── DataLoader.cs         # JSON or data handling scripts
+│   ├── Global.cs             # Global variables or constants
 │   └── autoload/            # Singleton scenes or nodes
 │       ├── GameManager.tscn 
 │       └── Settings.tscn
 ├── features/               # Game feature implementations
 │   ├── homeCountry/              # homeCountry-specific assets and logic 
 │   │   ├── homeCountry.tscn
-│   │   ├── homeCountry.gd
+│   │   ├── homeCountry.cs 
 │   │   ├── installations/       # the institutes (nuclear plants, green houses, etc..) built by the player
 │   │   └── ui/               # homeCountry-related UI elements
 │   ├── worldMap/           # worldMap-specific assets and logic 
 │   │   ├── worldMap.tscn
-│   │   ├── worldMap.gd
+│   │   ├── worldMap.cs 
 │   │   ├── countries/       # list of other countries with their specific assets and logic 
 │   ├── Management game-specific logic 
 │   │   ├── systems/          # Resource, task, or economy systems
@@ -177,9 +170,9 @@ Then, here's how we plan to structure the different files of our game in the God
 │   │   │      ├── Pollution.tscn
 │   │   ├── ui/               # UI specific to the management gameplay
 │   │   └── managers/         # Task, worker, or building managers
-│   │   │      ├── economiesManager.gd
+│   │   │      ├── economiesManager.cs 
 │   ├── EventManager/              #Manage game events (like natural disasters, or conflicts)
-│   │   ├── EventManager.gd 
+│   │   ├── EventManager.cs  
 │   │   ├── Events/ #List of events 
 │   │   └── progression/         # Check the gameplay evolution when time flies
 │   └── ui/                  # General UI for the game
@@ -210,7 +203,7 @@ Then, here's how we plan to structure the different files of our game in the God
 │   │   ├── dialogue_system/
 │   │   └── input_customizer/
 │   └── testing/             # Debugging and test tools
-│       ├── test_scripts.gd
+│       ├── test_scripts.cs 
 │       └── mock_data/       # Mock data for test cases
 └── project.godot           # Godot project configuration file
 ```  
@@ -253,7 +246,7 @@ For example, we create a JSON format for storing the Money and Pollution value o
 
 With each country treated as single entity, which makes the data consistent and allow to simplify operations when updating the values at each turn.
 
-The data is handled within the script DataLoader.gd, a child node of the Core Parent Node, and which controls the most of the storage of the game elements' variables.
+The data is handled within the script DataLoade.cs, a child node of the Core Parent Node, and which controls the most of the storage of the game elements' variables.
 
 In fact, Godot uses a dictionnary to serialize with JSON thanks to its inbuilt tools, and use the System.IO library that allow to create a static path of your .json file no matter where the game is saved.
 
@@ -324,23 +317,23 @@ Explains the setup of the central game manager system.
 
 As we create new nodes and scripts, the game grows more in complexity, and we need a more robust solution to handle properly Dilemma's main mechanics and systems.
 
-For that, we create a node named "Core" to handle the core elements, such as the data loading or the declaration of global variables. Here, we will create a GameManager.gd script to handles the main logic of our game.
+For that, we create a node named "Core" to handle the core elements, such as the data loading or the declaration of global variables. Here, we will create a GameManager.cs script to handles the main logic of our game.
 
-[Insert GameManager.gd picture]
+[Insert GameManager.cs picture]
 
 To start with, we need to instantiate the most important scenes of our game:
-- gameManager.tscn: contains the core systems and logic of our games, including the gameManager.gd script itself.
+- gameManager.tscn: contains the core systems and logic of our games, including the gameManager.cs script itself.
 - homeCountry.tscn: contains the scripts and logic of the country selected by the player. It allows to set up a country to manage and follow its evolution when the game is progressing. It will become mostly active once the game enters in Play state. 
 - worldMap.tscn: contains the scripts and assets required for the entire world map. Setting it up will handle the gameplay by interacting with the interface, and also to set the the other countries of the world.
 
 Other scenes will also be instantiated, but they will be more focused on the different menus and the other countries which will complete the game depending on how far the player goes.
 
 Furthermore, the game manager will have to check several features each time the _Process() function is called:
- - the inputHandler.gd script, where the game manager will monitor the use of the player's interface and its point-and-click controls, a vital part of the gameplay.
- - the dataLoader.gd script, necessary each time the game update to the next turn to change the .json scripts values and the game economies.
- - the homeCountry.gd script: monitor the actual state of the player's chosen country and its different economies.
- - the worldMap.gd script: check the state of the world, the global economies and the other countries
- - the eventManager.gd script: handle the different events performed by the player, such as the changes applied to the economy's nodes, and when he decide to go to the next turn and update most of the game's objects.
+ - the inputHandler.cs script, where the game manager will monitor the use of the player's interface and its point-and-click controls, a vital part of the gameplay.
+ - the dataLoader.cs script, necessary each time the game update to the next turn to change the .json scripts values and the game economies.
+ - the homeCountry.cs script: monitor the actual state of the player's chosen country and its different economies.
+ - the worldMap.cs script: check the state of the world, the global economies and the other countries
+ - the eventManager.cs script: handle the different events performed by the player, such as the changes applied to the economy's nodes, and when he decide to go to the next turn and update most of the game's objects.
 
 ### 4.2. Managing Game Economies
 
@@ -505,7 +498,7 @@ To faciciliate the organization of the team while using Github, several rules we
 
 - When reviewing an important document, the reviewer must create GitHub issues to detail the errors in order to assist the writer. 
 
-- A branch name must start with a capital letter, and written this way "Branch_Name".
+- A branch name must only be written in lower case latters, and written this way "branch_name".
 
 ### 6.2. Game Prototype
 
@@ -539,7 +532,7 @@ Test the game with this .zip file:
 
 | Terms | Definitions |
 | ----- | ----------- |
-| <span id=".gd">.gd</span> | Godot's scripting file extension, used for scripts written in GDScript. |
+| <span id=".cs">.cs</span> | The file extension for C# scripts in Godot, used to write game logic and behavior in C# rather than GDScript. |
 | <span id=".tscn">.tscn</span> | Godot's text-based scene file format, which stores information about a scene's nodes and their properties. |
 | <span id="Asset">Asset</span> | Any resource used in a game, such as textures, sound files, 3D models, or scripts. |
 | <span id="C#">C#</span> | A modern, object-oriented programming language often used in game development and supported by Godot. |
