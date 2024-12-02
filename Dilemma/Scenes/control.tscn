@@ -13,10 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c2qk2porml8et" path="res://Images/right.png" id="10_87jd4"]
 [ext_resource type="Texture2D" uid="uid://vpt0j2btwbha" path="res://Images/left.png" id="11_tofxr"]
 [ext_resource type="Texture2D" uid="uid://d3w2qq428a7y7" path="res://Images/kheqbvfd-removebg-preview (2).png" id="12_1iby2"]
-
-[sub_resource type="Gradient" id="Gradient_573mo"]
-offsets = PackedFloat32Array(0, 0.134897, 0.217009, 0.293255, 0.410557, 0.504399, 0.612903, 0.695015, 0.844575, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+[ext_resource type="Texture2D" uid="uid://bpkmov12h1mjd" path="res://Images/Meter.png" id="14_hghu1"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -45,18 +42,6 @@ texture = ExtResource("2_kavk5")
 position = Vector2(1088, 275)
 scale = Vector2(1.314, 1.488)
 texture = ExtResource("3_p7k8r")
-
-[node name="Temperature" type="Line2D" parent="."]
-position = Vector2(736.109, -4.36274)
-scale = Vector2(4.33157, 1.02451)
-points = PackedVector2Array(80.2424, 372, 80.2424, 334, 80.2424, 295, 80.2424, 257, 80.2424, 218, 80.2424, 185, 80.2424, 149, 80.2424, 113, 80.2424, 78, 80.2424, 33, 79.9265, -16)
-gradient = SubResource("Gradient_573mo")
-
-[node name="Money" type="Line2D" parent="."]
-position = Vector2(-266, 0.516434)
-scale = Vector2(4.125, 1.01174)
-points = PackedVector2Array(80.2424, 372, 80.2424, 334, 80.2424, 295, 80.2424, 257, 80.2424, 218, 80.2424, 185, 80.2424, 149, 80.2424, 113, 80.2424, 78, 80.2424, 33, 80.4848, -34)
-gradient = SubResource("Gradient_573mo")
 
 [node name="Desk" type="Sprite2D" parent="."]
 position = Vector2(574, 319)
@@ -112,3 +97,21 @@ texture = ExtResource("12_1iby2")
 script = ExtResource("6_oh7ks")
 background_node = NodePath("../Background")
 target_color = Color(1, 0, 0, 1)
+
+[node name="Money" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_top = -35.0
+offset_right = 84.0
+offset_bottom = 365.0
+texture_under = ExtResource("14_hghu1")
+texture_progress = ExtResource("14_hghu1")
+
+[node name="Temperature" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 1064.0
+offset_top = -35.0
+offset_right = 1106.0
+offset_bottom = 365.0
+texture_under = ExtResource("14_hghu1")
+texture_progress = ExtResource("14_hghu1")
