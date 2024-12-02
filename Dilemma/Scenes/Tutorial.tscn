@@ -1,0 +1,185 @@
+[gd_scene load_steps=19 format=3 uid="uid://b5b7b0wrssm7i"]
+
+[ext_resource type="Texture2D" uid="uid://4sgahldinw3q" path="res://Images/photo-1704910059653-041d5a17717e.jpeg" id="1_wogd5"]
+[ext_resource type="Texture2D" uid="uid://dxefscnam7d7f" path="res://Images/dall.png" id="2_43x7t"]
+[ext_resource type="Texture2D" uid="uid://cl8tyaf6y4256" path="res://Images/pylon.png" id="3_y5qsd"]
+[ext_resource type="Texture2D" uid="uid://bok2m2hbrnqf6" path="res://Images/DeskHD_Symetrical.png" id="4_c3l4r"]
+[ext_resource type="Texture2D" uid="uid://dn2msmrgdi18t" path="res://Images/Screenshot_2024-11-19_at_10.27.13-removebg-preview.png" id="5_i6b4y"]
+[ext_resource type="Script" path="res://Scripts/Navigation.cs" id="6_xvgya"]
+[ext_resource type="Texture2D" uid="uid://bdxu6umhrm8m6" path="res://Images/Screenshot_2024-11-19_at_10.27.08-removebg-preview.png" id="7_8cdfj"]
+[ext_resource type="Texture2D" uid="uid://cclr33q033qwc" path="res://Images/Screenshot_2024-11-19_at_10.26.56-removebg-preview.png" id="8_w2cpq"]
+[ext_resource type="Texture2D" uid="uid://dgt703dtyeyf" path="res://Images/mid.png" id="9_0sb1h"]
+[ext_resource type="Texture2D" uid="uid://c2qk2porml8et" path="res://Images/right.png" id="10_8qhnq"]
+[ext_resource type="Texture2D" uid="uid://vpt0j2btwbha" path="res://Images/left.png" id="11_vb7xy"]
+[ext_resource type="Texture2D" uid="uid://d3w2qq428a7y7" path="res://Images/kheqbvfd-removebg-preview (2).png" id="12_3m6gx"]
+[ext_resource type="Script" path="res://Scripts/Buttons.gd" id="13_7jlsb"]
+[ext_resource type="Script" path="res://Scripts/RoundButton.cs" id="14_k3f5v"]
+
+[sub_resource type="Gradient" id="Gradient_573mo"]
+offsets = PackedFloat32Array(0, 0.134897, 0.217009, 0.293255, 0.410557, 0.504399, 0.612903, 0.695015, 0.844575, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mubsp"]
+bg_color = Color(0.667172, 0.884367, 0.87273, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+anti_aliasing_size = 0.558
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kpe7o"]
+bg_color = Color(0.207843, 0.243137, 0.933333, 1)
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+anti_aliasing_size = 0.558
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sf110"]
+bg_color = Color(0.383883, 0.656638, 0.642372, 1)
+border_color = Color(0.364706, 0.878431, 0.996078, 0)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 11
+shadow_color = Color(0.572549, 0.980392, 0.301961, 0)
+anti_aliasing_size = 0.452
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = 5.0
+offset_right = 2.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(578, 263)
+scale = Vector2(0.338667, 0.189333)
+texture = ExtResource("1_wogd5")
+
+[node name="PylonLeft" type="Sprite2D" parent="."]
+position = Vector2(60.6007, 267.014)
+rotation = 0.00112732
+scale = Vector2(1.3136, 1.47886)
+texture = ExtResource("2_43x7t")
+
+[node name="PylonRight" type="Sprite2D" parent="."]
+position = Vector2(1088, 275)
+scale = Vector2(1.314, 1.488)
+texture = ExtResource("3_y5qsd")
+
+[node name="Temperature" type="Line2D" parent="."]
+position = Vector2(736.109, -4.36274)
+scale = Vector2(4.33157, 1.02451)
+points = PackedVector2Array(80.2424, 372, 80.2424, 334, 80.2424, 295, 80.2424, 257, 80.2424, 218, 80.2424, 185, 80.2424, 149, 80.2424, 113, 80.2424, 78, 80.2424, 33, 79.9265, -16)
+gradient = SubResource("Gradient_573mo")
+
+[node name="Money" type="Line2D" parent="."]
+position = Vector2(-266, 0.516434)
+scale = Vector2(4.125, 1.01174)
+points = PackedVector2Array(80.2424, 372, 80.2424, 334, 80.2424, 295, 80.2424, 257, 80.2424, 218, 80.2424, 185, 80.2424, 149, 80.2424, 113, 80.2424, 78, 80.2424, 33, 80.4848, -34)
+gradient = SubResource("Gradient_573mo")
+
+[node name="Desk" type="Sprite2D" parent="."]
+position = Vector2(574, 319)
+scale = Vector2(0.332563, 0.331288)
+texture = ExtResource("4_c3l4r")
+
+[node name="RightButton" type="Sprite2D" parent="Desk"]
+position = Vector2(875.021, 736.519)
+scale = Vector2(1.39428, 1.24986)
+texture = ExtResource("5_i6b4y")
+script = ExtResource("6_xvgya")
+PopupScenePath = "res://Scenes/rnd.tscn"
+BackgroundNodePath = NodePath("../RightScreen")
+TargetColor = Color(0.690196, 0.745098, 0.772549, 1)
+
+[node name="MiddleButton" type="Sprite2D" parent="Desk"]
+position = Vector2(4.95911e-05, 760.667)
+scale = Vector2(1.25607, 1.11893)
+texture = ExtResource("7_8cdfj")
+script = ExtResource("6_xvgya")
+PopupScenePath = "res://Scenes/diplomacy.tscn"
+BackgroundNodePath = NodePath("../MiddleScreen")
+TargetColor = Color(0.690196, 0.745098, 0.772549, 1)
+
+[node name="LeftButton" type="Sprite2D" parent="Desk"]
+position = Vector2(-873.517, 738.028)
+scale = Vector2(1.24371, 1.16934)
+texture = ExtResource("8_w2cpq")
+script = ExtResource("6_xvgya")
+PopupScenePath = "res://Scenes/laws.tscn"
+BackgroundNodePath = NodePath("../LeftScreen")
+TargetColor = Color(0.690196, 0.745098, 0.772549, 1)
+
+[node name="MiddleScreen" type="Sprite2D" parent="Desk"]
+position = Vector2(1.50376, 514.657)
+scale = Vector2(1.2569, 1.24292)
+texture = ExtResource("9_0sb1h")
+
+[node name="RightScreen" type="Sprite2D" parent="Desk"]
+position = Vector2(691.597, 528.241)
+scale = Vector2(1.37743, 1.17925)
+texture = ExtResource("10_8qhnq")
+
+[node name="LeftScreen" type="Sprite2D" parent="Desk"]
+position = Vector2(-751.736, 504.092)
+scale = Vector2(1.374, 1.14688)
+texture = ExtResource("11_vb7xy")
+
+[node name="PassButton" type="Sprite2D" parent="." node_paths=PackedStringArray("background_node")]
+position = Vector2(574, 629)
+scale = Vector2(1.31035, 1.07692)
+texture = ExtResource("12_3m6gx")
+script = ExtResource("13_7jlsb")
+background_node = NodePath("../Background")
+target_color = Color(1, 0, 0, 1)
+
+[node name="2D_TutorialMenu" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="2D_TutorialMenu"]
+
+[node name="Proj" type="ColorRect" parent="2D_TutorialMenu/CanvasLayer"]
+offset_left = 95.0
+offset_top = 75.0
+offset_right = 1055.0
+offset_bottom = 507.0
+color = Color(0.188235, 0.352941, 0.341176, 0.882353)
+
+[node name="Control" type="Control" parent="2D_TutorialMenu/CanvasLayer/Proj"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RoundButton" type="Button" parent="2D_TutorialMenu/CanvasLayer/Proj/Control"]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 65.0
+offset_right = 140.0
+offset_bottom = 75.0
+scale = Vector2(9.72564, 9.72564)
+focus_mode = 0
+theme_override_styles/hover = SubResource("StyleBoxFlat_mubsp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kpe7o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_sf110")
+script = ExtResource("14_k3f5v")
+
+[node name="Label" type="Label" parent="2D_TutorialMenu/CanvasLayer/Proj/Control/RoundButton"]
+layout_mode = 0
+offset_left = 2.98181
+offset_top = 4.11284
+offset_right = 61.9818
+offset_bottom = 27.1128
+scale = Vector2(0.0792554, 0.0755504)
+text = "PINGAS
+"
