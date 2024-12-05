@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://dwjh8u704qub3"]
+[gd_scene load_steps=2 format=3 uid="uid://dwjh8u704qub3"]
+
+[ext_resource type="Script" path="res://Scripts/rndLines.gd" id="1_rkv8x"]
 
 [node name="Rnd" type="Node2D"]
+script = ExtResource("1_rkv8x")
 
 [node name="RightProj" type="Polygon2D" parent="."]
 position = Vector2(-41.1428, 0)
@@ -265,7 +268,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="RND" type="Label" parent="RND"]
+[node name="pourcentages" type="Label" parent="RND"]
 layout_mode = 0
 offset_left = 576.0
 offset_top = 8.0
@@ -278,69 +281,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Line2D" type="Line2D" parent="."]
+[node name="Middle" type="Line2D" parent="."]
 position = Vector2(223.5, 64.8871)
 scale = Vector2(0.5, 0.887097)
 points = PackedVector2Array(257, 17.0364, 257, 422.855)
-width = 3.0
-
-[node name="Line2D3" type="Line2D" parent="."]
-position = Vector2(-22.6469, -24)
-scale = Vector2(1.0551, 1)
-points = PackedVector2Array(416, 144, 901, 144)
-width = 5.0
-
-[node name="Line2D2" type="Line2D" parent="."]
-position = Vector2(0, 32)
-points = PackedVector2Array(416, 144, 928, 144)
-width = 5.0
-
-[node name="Line2D2" type="Line2D" parent="Line2D2"]
-position = Vector2(0, 56)
-points = PackedVector2Array(416, 144, 928, 144)
-width = 5.0
-
-[node name="Line2D2" type="Line2D" parent="Line2D2/Line2D2"]
-position = Vector2(0, 56)
-points = PackedVector2Array(416, 144, 928, 144)
-width = 5.0
-
-[node name="Line2D2" type="Line2D" parent="Line2D2/Line2D2/Line2D2"]
-position = Vector2(0, 56)
-points = PackedVector2Array(416, 144, 928, 144)
-width = 5.0
-
-[node name="Line2D2" type="Line2D" parent="Line2D2/Line2D2/Line2D2/Line2D2"]
-position = Vector2(0, 56)
-points = PackedVector2Array(416, 144, 928, 144)
-width = 5.0
-
-[node name="Line2D4" type="Line2D" parent="."]
-position = Vector2(0, 56)
-points = PackedVector2Array(448, 104, 448, 136)
-width = 3.0
-
-[node name="Line2D4" type="Line2D" parent="Line2D4"]
-position = Vector2(0, 56)
-points = PackedVector2Array(448, 104, 448, 136)
-width = 3.0
-
-[node name="Line2D4" type="Line2D" parent="Line2D4/Line2D4"]
-position = Vector2(0, 56)
-points = PackedVector2Array(448, 104, 448, 136)
-width = 3.0
-
-[node name="Line2D4" type="Line2D" parent="Line2D4/Line2D4/Line2D4"]
-position = Vector2(0, 56)
-points = PackedVector2Array(448, 104, 448, 136)
-width = 3.0
-
-[node name="Line2D4" type="Line2D" parent="Line2D4/Line2D4/Line2D4/Line2D4"]
-position = Vector2(0, 56)
-points = PackedVector2Array(448, 104, 448, 136)
-width = 3.0
-
-[node name="Line2D4" type="Line2D" parent="Line2D4/Line2D4/Line2D4/Line2D4/Line2D4"]
-position = Vector2(0, -280)
-points = PackedVector2Array(448, 104, 448, 136)
 width = 3.0
