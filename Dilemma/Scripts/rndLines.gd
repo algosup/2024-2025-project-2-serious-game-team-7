@@ -10,6 +10,12 @@ func _ready():
 	# Create multiple sliders dynamically
 	for i in range(SLIDER_COUNT):
 		create_slider(i)
+	
+	# Load saved positions
+	load_slider_positions()
+	
+	# Connect to the tree_exiting signal
+	get_tree().connect("tree_exiting", Callable(self, "save_slider_positions"))
 
 func create_slider(index):
 	# Create a new Line2D for the base line
@@ -74,10 +80,11 @@ func move_cursor_to(x_position, slider):
 	
 	# Calculate and update percentage
 	var cursor_value = (new_x - slider["line_start"].x) / slider["line_length"]
-	var percentage = cursor_value * 100
+	var percentage = round(cursor_value * 100)  # Round to nearest integer
 	slider["label"].text = "%d%%" % percentage
 	
 	print_all_cursor_positions()
+	save_slider_positions()  # Save after each move
 
 func is_point_on_line(point, slider):
 	var margin = 10.0  # Adjust this value to increase/decrease click tolerance
@@ -91,4 +98,25 @@ func print_all_cursor_positions():
 	for i in range(cursor_positions.size()):
 		var slider = cursor_positions[i]
 		var cursor_value = (slider["cursor"].position.x - slider["line_start"].x) / slider["line_length"]
-		print("Slider %d: %d%%" % [i, cursor_value * 100])
+		print("Slider %d: %d%%" % [i, round(cursor_value * 100)])  # Round in print as well
+
+func save_slider_positions():
+	var save_data = []
+	for slider in cursor_positions:
+		var cursor_value = (slider["cursor"].position.x - slider["line_start"].x) / slider["line_length"]
+		save_data.append(cursor_value)
+	
+	var save_file = FileAccess.open("user://slider_positions.save", FileAccess.WRITE)
+	save_file.store_var(save_data)
+
+func load_slider_positions():
+	if not FileAccess.file_exists("user://slider_positions.save"):
+		return  # No save file exists
+	
+	var save_file = FileAccess.open("user://slider_positions.save", FileAccess.READ)
+	var save_data = save_file.get_var()
+	
+	for i in range(min(save_data.size(), cursor_positions.size())):
+		var slider = cursor_positions[i]
+		var new_x = slider["line_start"].x + save_data[i] * slider["line_length"]
+		move_cursor_to(new_x, slider)
