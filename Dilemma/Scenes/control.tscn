@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://0b77mfc58hk1"]
+[gd_scene load_steps=17 format=3 uid="uid://0b77mfc58hk1"]
 
 [ext_resource type="Texture2D" uid="uid://4sgahldinw3q" path="res://Images/photo-1704910059653-041d5a17717e.jpeg" id="1_quq0f"]
 [ext_resource type="Texture2D" uid="uid://dxefscnam7d7f" path="res://Images/dall.png" id="2_kavk5"]
@@ -13,7 +13,15 @@
 [ext_resource type="Texture2D" uid="uid://c2qk2porml8et" path="res://Images/right.png" id="10_87jd4"]
 [ext_resource type="Texture2D" uid="uid://vpt0j2btwbha" path="res://Images/left.png" id="11_tofxr"]
 [ext_resource type="Texture2D" uid="uid://d3w2qq428a7y7" path="res://Images/kheqbvfd-removebg-preview (2).png" id="12_1iby2"]
+[ext_resource type="Script" path="res://Scenes/TurnSystem.cs" id="13_52esj"]
 [ext_resource type="Texture2D" uid="uid://bpkmov12h1mjd" path="res://Images/Meter.png" id="14_hghu1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c3cnf"]
+bg_color = Color(0.0509804, 0.6, 0.6, 0.462745)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -90,14 +98,6 @@ position = Vector2(-751.736, 504.092)
 scale = Vector2(1.374, 1.14688)
 texture = ExtResource("11_tofxr")
 
-[node name="PassButton" type="Sprite2D" parent="." node_paths=PackedStringArray("background_node")]
-position = Vector2(574, 629)
-scale = Vector2(1.31035, 1.07692)
-texture = ExtResource("12_1iby2")
-script = ExtResource("6_oh7ks")
-background_node = NodePath("../Background")
-target_color = Color(1, 0, 0, 1)
-
 [node name="Money" type="TextureProgressBar" parent="."]
 layout_mode = 0
 offset_left = 42.0
@@ -115,3 +115,27 @@ offset_right = 1106.0
 offset_bottom = 365.0
 texture_under = ExtResource("14_hghu1")
 texture_progress = ExtResource("14_hghu1")
+
+[node name="TurnSystem" type="Node" parent="."]
+
+[node name="TurnLabel" type="Label" parent="TurnSystem" node_paths=PackedStringArray("_passButton")]
+visible = false
+offset_left = 525.0
+offset_top = 229.0
+offset_right = 605.0
+offset_bottom = 309.0
+scale = Vector2(1.19954, 1.19954)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_c3cnf")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("13_52esj")
+_passButton = NodePath("../../PassButton")
+
+[node name="PassButton" type="Sprite2D" parent="." node_paths=PackedStringArray("background_node")]
+position = Vector2(574, 629)
+scale = Vector2(1.31035, 1.07692)
+texture = ExtResource("12_1iby2")
+script = ExtResource("6_oh7ks")
+background_node = NodePath("../Background")
+target_color = Color(1, 0, 0, 1)
