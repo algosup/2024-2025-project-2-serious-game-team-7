@@ -63,8 +63,8 @@ The following table contains the functional test cases for the Dilemma project. 
 
 
 
-| Test Case ID |      Test Case Name       |                              Test Case Description                               | Test Data |                        Expected Result                         | Actual Result |          Tested          |
-|:------------:|:-------------------------:|:--------------------------------------------------------------------------------:|:---------:|:--------------------------------------------------------------:|:-------------:|:------------------------:|
+| Test Case ID |      Test Case Name       |                              Test Case Description                               | Test Data |                        Expected Result                         | Actual Result |  Tested  |
+|:------------:|:-------------------------:|:--------------------------------------------------------------------------------:|:---------:|:--------------------------------------------------------------:|:-------------:|:--------:|
 |     1.1      |       Open The Game       |                    The user click on the game icon to open it                    |    --     |            The user is redirected to the main page             |      --       | &#x2610; |
 |     1.2      |        Play a Game        |              The user clicks on the play button to launch the game               |    --     |            The user is redirected to the game page             |      --       | &#x2610; |
 |     1.3      |    Click on RnD Button    |    The user clicks on the RnD button to see the research and development page    |    --     |                     The RnD page shows up                      |      --       | &#x2610; |
@@ -88,8 +88,8 @@ The following
  table contains the user interface test cases for the Dilemma project. As the category ID is `2`, the test cases will start with `2.x`.
 
 
-| Test Case ID |   Test Case Name    |               Test Case Description                | Test Data |                        Expected Result                        | Actual Result |          Tested          |
-|:------------:|:-------------------:|:--------------------------------------------------:|:---------:|:-------------------------------------------------------------:|:-------------:|:------------------------:|
+| Test Case ID |   Test Case Name    |               Test Case Description                | Test Data |                        Expected Result                        | Actual Result |  Tested  |
+|:------------:|:-------------------:|:--------------------------------------------------:|:---------:|:-------------------------------------------------------------:|:-------------:|:--------:|
 |     2.1      |  Clickable Buttons  |  The user can see that the buttons are clickable   |    --     | The buttons have a blinking filter when you can click on them |      --       | &#x2610; |
 |     2.2      |   Game Interface    |   The user can see the game interface correctly    |    --     |           The game interface is displayed correctly           |      --       | &#x2610; |
 |     2.3      |    RnD Interface    |    The user can see the RnD interface correctly    |    --     |           The RnD interface is displayed correctly            |      --       | &#x2610; |
@@ -116,8 +116,8 @@ The following
 The following table contains the compatibility test cases for the Dilemma project. As the category ID is `3`, the test cases will start with `3.x`.
 
 
-| Test Case ID |  Test Case Name   |                Test Case Description                 | Test Data |                   Expected Result                    | Actual Result |          Tested          |
-|:------------:|:-----------------:|:----------------------------------------------------:|:---------:|:----------------------------------------------------:|:-------------:|:------------------------:|
+| Test Case ID |  Test Case Name   |                Test Case Description                 | Test Data |                   Expected Result                    | Actual Result |  Tested  |
+|:------------:|:-----------------:|:----------------------------------------------------:|:---------:|:----------------------------------------------------:|:-------------:|:--------:|
 |     3.1      |       MacOS       |       The application works correctly on MacOS       |    --     |       The application works correctly on MacOS       |      --       | &#x2610; |
 |     3.2      |    Windows 10     |    The application works correctly on Windows 10     |    --     |    The application works correctly on Windows 10     |      --       | &#x2610; |
 |     3.3      |  Windows 11 Pro   |  The application works correctly on Windows 11 Pro   |    --     |  The application works correctly on Windows 11 Pro   |      --       | &#x2610; |
@@ -134,8 +134,8 @@ The following table contains the compatibility test cases for the Dilemma projec
 The following table contains the accessibility test cases for the Dilemma project. As the category ID is `4`, the test cases will start with `4.x`.
 
 
-| Test Case ID | Test Case Name |               Test Case Description                | Test Data |                   Expected Result                   | Actual Result |          Tested          |
-|:------------:|:--------------:|:--------------------------------------------------:|:---------:|:---------------------------------------------------:|:-------------:|:------------------------:|
+| Test Case ID | Test Case Name |               Test Case Description                | Test Data |                   Expected Result                   | Actual Result |  Tested  |
+|:------------:|:--------------:|:--------------------------------------------------:|:---------:|:---------------------------------------------------:|:-------------:|:--------:|
 |     4.1      | Colorblindness | Use a colorblindness simulator to check the colors |    --     | The colors are distinguishable for colorblind users |      --       | &#x2610; |
 
 
@@ -149,8 +149,8 @@ The following table contains the accessibility test cases for the Dilemma projec
 The following table contains the usability test cases for the Dilemma project. As the category ID is `5`, the test cases will start with `5.x`.
 
 
-| Test Case ID | Test Case Name |                     Test Case Description                      | Test Data |               Expected Result                | Actual Result |          Tested          |
-|:------------:|:--------------:|:--------------------------------------------------------------:|:---------:|:--------------------------------------------:|:-------------:|:------------------------:|
+| Test Case ID | Test Case Name |                     Test Case Description                      | Test Data |               Expected Result                | Actual Result |  Tested  |
+|:------------:|:--------------:|:--------------------------------------------------------------:|:---------:|:--------------------------------------------:|:-------------:|:--------:|
 |     5.1      |    Tutorial    | The user can follow the tutorial to learn how to play the game |    --     | The user can understand how to play the game |      --       | &#x2610; |
 |     5.2      |    Feedback    |  The user can provide feedback to improve the game experience  |    --     |  The user can provide feedback to the team   |      --       | &#x2610; |
 |     5.3      |    Support     |      The user can contact support if they have any issues      |    --     |    The user can contact support if needed    |      --       | &#x2610; |
@@ -170,6 +170,6 @@ The regression tests are special tests that are run to ensure that new changes d
 Each time a new version is released, we will run the tests that already passed in the previous version to make sure that they still pass in the new version. The percentage of passed tests will be calculated to determine the quality of the new version.
 
 
-     | Test Case ID | Previous Version | New Version | Previous Passed Tests | Actual Passed Tests | Percentage |          Tested          |
------|:------------:|:----------------:|:-----------:|:---------------------:|:-------------------:|:----------:|:------------------------:|----
+| Test Case ID | Previous Version | New Version | Previous Passed Tests | Actual Passed Tests | Percentage |  Tested  |
+|:------------:|:----------------:|:-----------:|:---------------------:|:-------------------:|:----------:|:--------:|
 <!-- |     6.1      |                  |             |                       |                     |            | &#x2610; | -->
