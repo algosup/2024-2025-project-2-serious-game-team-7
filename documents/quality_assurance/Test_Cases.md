@@ -63,15 +63,15 @@ The following table contains the functional test cases for the Dilemma project. 
 
 | Test Case ID |      Test Case Name       |                              Test Case Description                               | Test Data |                        Expected Result                         | Actual Result |          Tested          |
 |:------------:|:-------------------------:|:--------------------------------------------------------------------------------:|:---------:|:--------------------------------------------------------------:|:-------------:|:------------------------:|
-|     1.1      |       Open The Game       |                    The user click on the game icon to open it                    |    --     |            The user is redirected to the main page             |      --       | <input type="checkbox"/> |
-|     1.2      |        Play a Game        |              The user clicks on the play button to launch the game               |    --     |            The user is redirected to the game page             |      --       | <input type="checkbox"/> |
-|     1.3      |    Click on RnD Button    |    The user clicks on the RnD button to see the research and development page    |    --     |                     The RnD page shows up                      |      --       | <input type="checkbox"/> |
-|     1.4      |    Click on Law Button    |              The user clicks on the Law button to see the Law page               |    --     |                     The Law page shows up                      |      --       | <input type="checkbox"/> |
-|     1.5      | Click on Diplomacy Button |        The user clicks on the Diplomacy button to see the Diplomacy page         |    --     |                  The Diplomacy page shows up                   |      --       | <input type="checkbox"/> |
-|     1.6      |    Click on Next Turn     | The user clicks on the Next Turn button to advance to the next turn in the game  |    --     |               The game advances to the next turn               |      --       | <input type="checkbox"/> |
-|     1.7      |       Save the Game       |  The user clicks on the Save button to save the game and come back to it later   |    --     |           The game is saved and can be loaded later            |      --       | <input type="checkbox"/> |
-|     1.8      |       Load the Game       |   The user clicks on the Load button to load a saved game and continue playing   |    --     |           The saved game is loaded and can be played           |      --       | <input type="checkbox"/> |
-|     1.9      |   Click on Quit Button    | The user clicks on the Quit button to quit the game and go back to the main page |    --     | The game is closed and the user is redirected to the main page |      --       | <input type="checkbox"/> |
+|     1.1      |       Open The Game       |                    The user click on the game icon to open it                    |    --     |            The user is redirected to the main page             |      --       | [ ] |
+|     1.2      |        Play a Game        |              The user clicks on the play button to launch the game               |    --     |            The user is redirected to the game page             |      --       | [ ] |
+|     1.3      |    Click on RnD Button    |    The user clicks on the RnD button to see the research and development page    |    --     |                     The RnD page shows up                      |      --       | [ ] |
+|     1.4      |    Click on Law Button    |              The user clicks on the Law button to see the Law page               |    --     |                     The Law page shows up                      |      --       | [ ] |
+|     1.5      | Click on Diplomacy Button |        The user clicks on the Diplomacy button to see the Diplomacy page         |    --     |                  The Diplomacy page shows up                   |      --       | [ ] |
+|     1.6      |    Click on Next Turn     | The user clicks on the Next Turn button to advance to the next turn in the game  |    --     |               The game advances to the next turn               |      --       | [ ] |
+|     1.7      |       Save the Game       |  The user clicks on the Save button to save the game and come back to it later   |    --     |           The game is saved and can be loaded later            |      --       | [ ] |
+|     1.8      |       Load the Game       |   The user clicks on the Load button to load a saved game and continue playing   |    --     |           The saved game is loaded and can be played           |      --       | [ ] |
+|     1.9      |   Click on Quit Button    | The user clicks on the Quit button to quit the game and go back to the main page |    --     | The game is closed and the user is redirected to the main page |      --       | [ ] |
 
 
 
@@ -88,17 +88,17 @@ The following
 
 | Test Case ID |   Test Case Name    |               Test Case Description                | Test Data |                        Expected Result                        | Actual Result |          Tested          |
 |:------------:|:-------------------:|:--------------------------------------------------:|:---------:|:-------------------------------------------------------------:|:-------------:|:------------------------:|
-|     2.1      |  Clickable Buttons  |  The user can see that the buttons are clickable   |    --     | The buttons have a blinking filter when you can click on them |      --       | <input type="checkbox"/> |
-|     2.2      |   Game Interface    |   The user can see the game interface correctly    |    --     |           The game interface is displayed correctly           |      --       | <input type="checkbox"/> |
-|     2.3      |    RnD Interface    |    The user can see the RnD interface correctly    |    --     |           The RnD interface is displayed correctly            |      --       | <input type="checkbox"/> |
-|     2.4      |    Law Interface    |    The user can see the Law interface correctly    |    --     |           The Law interface is displayed correctly            |      --       | <input type="checkbox"/> |
-|     2.5      | Diplomacy Interface | The user can see the Diplomacy interface correctly |    --     |        The Diplomacy interface is displayed correctly         |      --       | <input type="checkbox"/> |
-|     2.6      |  Next Turn Button   |  The user can see the Next Turn button correctly   |    --     |          The Next Turn button is displayed correctly          |      --       | <input type="checkbox"/> |
-|     2.9      |  Save Game Button   |  The user can see the Save Game button correctly   |    --     |          The Save Game button is displayed correctly          |      --       | <input type="checkbox"/> |
-|     2.10     |  Load Game Button   |  The user can see the Load Game button correctly   |    --     |          The Load Game button is displayed correctly          |      --       | <input type="checkbox"/> |
-|     2.11     |  Quit Game Button   |  The user can see the Quit Game button correctly   |    --     |          The Quit Game button is displayed correctly          |      --       | <input type="checkbox"/> |
-|     2.12     |  Game Over Screen   |  The user can see the Game Over screen correctly   |    --     |          The Game Over screen is displayed correctly          |      --       | <input type="checkbox"/> |
-|     2.13     |   Game Won Screen   |   The user can see the Game Won screen correctly   |    --     |          The Game Won screen is displayed correctly           |      --       | <input type="checkbox"/> |
+|     2.1      |  Clickable Buttons  |  The user can see that the buttons are clickable   |    --     | The buttons have a blinking filter when you can click on them |      --       | [ ] |
+|     2.2      |   Game Interface    |   The user can see the game interface correctly    |    --     |           The game interface is displayed correctly           |      --       | [ ] |
+|     2.3      |    RnD Interface    |    The user can see the RnD interface correctly    |    --     |           The RnD interface is displayed correctly            |      --       | [ ] |
+|     2.4      |    Law Interface    |    The user can see the Law interface correctly    |    --     |           The Law interface is displayed correctly            |      --       | [ ] |
+|     2.5      | Diplomacy Interface | The user can see the Diplomacy interface correctly |    --     |        The Diplomacy interface is displayed correctly         |      --       | [ ] |
+|     2.6      |  Next Turn Button   |  The user can see the Next Turn button correctly   |    --     |          The Next Turn button is displayed correctly          |      --       | [ ] |
+|     2.9      |  Save Game Button   |  The user can see the Save Game button correctly   |    --     |          The Save Game button is displayed correctly          |      --       | [ ] |
+|     2.10     |  Load Game Button   |  The user can see the Load Game button correctly   |    --     |          The Load Game button is displayed correctly          |      --       | [ ] |
+|     2.11     |  Quit Game Button   |  The user can see the Quit Game button correctly   |    --     |          The Quit Game button is displayed correctly          |      --       | [ ] |
+|     2.12     |  Game Over Screen   |  The user can see the Game Over screen correctly   |    --     |          The Game Over screen is displayed correctly          |      --       | [ ] |
+|     2.13     |   Game Won Screen   |   The user can see the Game Won screen correctly   |    --     |          The Game Won screen is displayed correctly           |      --       | [ ] |
 
 
 
@@ -116,11 +116,11 @@ The following table contains the compatibility test cases for the Dilemma projec
 
 | Test Case ID |  Test Case Name   |                Test Case Description                 | Test Data |                   Expected Result                    | Actual Result |          Tested          |
 |:------------:|:-----------------:|:----------------------------------------------------:|:---------:|:----------------------------------------------------:|:-------------:|:------------------------:|
-|     3.1      |       MacOS       |       The application works correctly on MacOS       |    --     |       The application works correctly on MacOS       |      --       | <input type="checkbox"/> |
-|     3.2      |    Windows 10     |    The application works correctly on Windows 10     |    --     |    The application works correctly on Windows 10     |      --       | <input type="checkbox"/> |
-|     3.3      |  Windows 11 Pro   |  The application works correctly on Windows 11 Pro   |    --     |  The application works correctly on Windows 11 Pro   |      --       | <input type="checkbox"/> |
-|     3.4      | Windows 11 Family | The application works correctly on Windows 11 Family |    --     | The application works correctly on Windows 11 Family |      --       | <input type="checkbox"/> |
-|     3.5      |       Linux       |       The application works correctly on Linux       |    --     |       The application works correctly on Linux       |      --       | <input type="checkbox"/> |
+|     3.1      |       MacOS       |       The application works correctly on MacOS       |    --     |       The application works correctly on MacOS       |      --       | [ ] |
+|     3.2      |    Windows 10     |    The application works correctly on Windows 10     |    --     |    The application works correctly on Windows 10     |      --       | [ ] |
+|     3.3      |  Windows 11 Pro   |  The application works correctly on Windows 11 Pro   |    --     |  The application works correctly on Windows 11 Pro   |      --       | [ ] |
+|     3.4      | Windows 11 Family | The application works correctly on Windows 11 Family |    --     | The application works correctly on Windows 11 Family |      --       | [ ] |
+|     3.5      |       Linux       |       The application works correctly on Linux       |    --     |       The application works correctly on Linux       |      --       | [ ] |
 
 
 
@@ -134,7 +134,7 @@ The following table contains the accessibility test cases for the Dilemma projec
 
 | Test Case ID | Test Case Name |               Test Case Description                | Test Data |                   Expected Result                   | Actual Result |          Tested          |
 |:------------:|:--------------:|:--------------------------------------------------:|:---------:|:---------------------------------------------------:|:-------------:|:------------------------:|
-|     4.1      | Colorblindness | Use a colorblindness simulator to check the colors |    --     | The colors are distinguishable for colorblind users |      --       | <input type="checkbox"/> |
+|     4.1      | Colorblindness | Use a colorblindness simulator to check the colors |    --     | The colors are distinguishable for colorblind users |      --       | [ ] |
 
 
 
@@ -149,11 +149,11 @@ The following table contains the usability test cases for the Dilemma project. A
 
 | Test Case ID | Test Case Name |                     Test Case Description                      | Test Data |               Expected Result                | Actual Result |          Tested          |
 |:------------:|:--------------:|:--------------------------------------------------------------:|:---------:|:--------------------------------------------:|:-------------:|:------------------------:|
-|     5.1      |    Tutorial    | The user can follow the tutorial to learn how to play the game |    --     | The user can understand how to play the game |      --       | <input type="checkbox"/> |
-|     5.2      |    Feedback    |  The user can provide feedback to improve the game experience  |    --     |  The user can provide feedback to the team   |      --       | <input type="checkbox"/> |
-|     5.3      |    Support     |      The user can contact support if they have any issues      |    --     |    The user can contact support if needed    |      --       | <input type="checkbox"/> |
-|     5.4      |    Settings    |     The user can change the settings to customize the game     |    --     |   The user can customize the game settings   |      --       | <input type="checkbox"/> |
-|     5.5      |    Language    |   The user can change the language to fit their preferences    |    --     |  The user can change the language if needed  |      --       | <input type="checkbox"/> |
+|     5.1      |    Tutorial    | The user can follow the tutorial to learn how to play the game |    --     | The user can understand how to play the game |      --       | [ ] |
+|     5.2      |    Feedback    |  The user can provide feedback to improve the game experience  |    --     |  The user can provide feedback to the team   |      --       | [ ] |
+|     5.3      |    Support     |      The user can contact support if they have any issues      |    --     |    The user can contact support if needed    |      --       | [ ] |
+|     5.4      |    Settings    |     The user can change the settings to customize the game     |    --     |   The user can customize the game settings   |      --       | [ ] |
+|     5.5      |    Language    |   The user can change the language to fit their preferences    |    --     |  The user can change the language if needed  |      --       | [ ] |
 
 
 
@@ -170,4 +170,4 @@ Each time a new version is released, we will run the tests that already passed i
 
      | Test Case ID | Previous Version | New Version | Previous Passed Tests | Actual Passed Tests | Percentage |          Tested          |
 -----|:------------:|:----------------:|:-----------:|:---------------------:|:-------------------:|:----------:|:------------------------:|----
-<!-- |     6.1      |                  |             |                       |                     |            | <input type="checkbox"/> | -->
+<!-- |     6.1      |                  |             |                       |                     |            | [ ] | -->
