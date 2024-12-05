@@ -72,10 +72,10 @@ Their name are explicit to help us understand much quicker the importance of the
 To report issues, we will use a functionality of Github[^gh], called Github Issue[^ghi]. It helps us to do reports faster, and to have reports easier to read. We have decided to make two types templates for the reports, one for the documents and one for the program.
 
 The report template for the typographical errors tells which document is concerned, what are the errors and what is its priority. 
-![Document Error report template](data/Doc_Report.png)
+![Document Error report template](data/Doc_Report_Template.png)
 
 The report template for the bugs tells what happened during the testing, which operating system was used, and a way to tell which operating system was used if it was not in the selection box, the log outputs for more precise information and its priority.
-![Bug report template](data/Bug_Report.png)
+![Bug report template](data/Bug_Report_Template.png)
 
 
 ### 2.3. Test Criteria
