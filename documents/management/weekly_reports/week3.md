@@ -7,13 +7,13 @@ This week brought significant changes in our motivation and the project’s prog
 ## Accomplishments
 
 1. **Functional Specification**
-    - Finalized and delivered the functional specification document as planned by the end of the week.
+   - Finalized and delivered the functional specification document as planned by the end of the week.
 
 2.	**Prototype Completion**
-   - Completed the prototype, representing a significant advancement in the development phase. The prototype now includes core mechanics and foundational gameplay elements.
+     - Completed the prototype, representing a significant advancement in the development phase. The prototype now includes core mechanics and foundational gameplay elements.
   
 3.	**Technical Specifications**
-   - Made substantial progress on drafting the technical specifications, aligning with the conventions and constraints defined by the tech lead.
+     - Made substantial progress on drafting the technical specifications, aligning with the conventions and constraints defined by the tech lead.
 
 ## Challenges
 
