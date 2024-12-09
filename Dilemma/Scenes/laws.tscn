@@ -48,6 +48,7 @@ points = PackedVector2Array(257, 17.0364, 257, 422.855)
 width = 3.0
 
 [node name="Polygon2D5" type="Polygon2D" parent="."]
+visible = false
 position = Vector2(374.857, -1770.67)
 scale = Vector2(0.958996, 13.6667)
 color = Color(1, 1, 1, 0.784314)
