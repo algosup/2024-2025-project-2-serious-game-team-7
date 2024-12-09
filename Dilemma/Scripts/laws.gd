@@ -73,6 +73,7 @@ func create_new_rectangle(index):
 	var name_label = Label.new()
 	name_label.text = csv_data[index + 1][0]  # Name from CSV
 	name_label.add_theme_font_size_override("font_size", 20)
+	name_label.set_autowrap_mode(TextServer.AUTOWRAP_WORD_SMART)
 	name_label.add_theme_color_override("font_color", Color.BLACK)  # Set text color to black
 	name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(name_label)
