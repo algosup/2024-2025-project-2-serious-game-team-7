@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwjh8u704qub3"]
+[gd_scene load_steps=3 format=3 uid="uid://dwjh8u704qub3"]
 
 [ext_resource type="Script" path="res://Scripts/rndLines.gd" id="1_rkv8x"]
+[ext_resource type="Texture2D" uid="uid://c6yb720fb83dm" path="res://Images/star.png" id="2_hjq1w"]
 
 [node name="Rnd" type="Node2D"]
 script = ExtResource("1_rkv8x")
@@ -287,3 +288,36 @@ position = Vector2(223.5, 64.8871)
 scale = Vector2(0.5, 0.887097)
 points = PackedVector2Array(257, 17.0364, 257, 422.855)
 width = 3.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Sprite2D4" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(38.3704, 115.111)
+scale = Vector2(0.000771605, 0.000771605)
+texture = ExtResource("2_hjq1w")
+
+[node name="Sprite2D3" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(52, 116)
+scale = Vector2(0.0222222, 0.0222222)
+texture = ExtResource("2_hjq1w")
+
+[node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(24, 80)
+scale = Vector2(0.0277778, 0.0277778)
+texture = ExtResource("2_hjq1w")
+
+[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(72, 16)
+scale = Vector2(0.166667, 0.166667)
+texture = ExtResource("2_hjq1w")
+
+[node name="Sprite2D5" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(32, 176)
+scale = Vector2(0.166667, 0.166667)
+texture = ExtResource("2_hjq1w")
