@@ -95,8 +95,20 @@ func create_new_rectangle(index):
 	return new_rect
 
 func _on_accept_pressed(index):
-	print("Accepted law: ", csv_data[index + 1][0])
-	# Add your logic for accepting the law here
+	# Extract data from CSV
+	var law_name = csv_data[index + 1][0]  # Law name
+	var money_change = int(csv_data[index + 1][1])  # Money change
+	var temperature_change = float(csv_data[index + 1][2])  # Temperature change	
+	# Update GlobalVariables
+	GlobalVariables.currentMoney += money_change
+	GlobalVariables.currentTemperature += temperature_change	
+	# Clamp values to avoid exceeding limits
+	GlobalVariables.currentMoney = clamp(GlobalVariables.currentMoney, 0, 100)
+	GlobalVariables.currentTemperature = clamp(GlobalVariables.currentTemperature, -50, 50)	
+	# Print confirmation
+	print("Accepted law:", law_name)
+	print("Money change:", money_change, "-> Current Money:", GlobalVariables.currentMoney)
+	print("Temperature change:", temperature_change, "-> Current Temperature:", GlobalVariables.currentTemperature)
 
 # Function to retrieve the stored variable
 func get_stored_variable():

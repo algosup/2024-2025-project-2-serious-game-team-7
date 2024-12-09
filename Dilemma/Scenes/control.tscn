@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://0b77mfc58hk1"]
+[gd_scene load_steps=17 format=3 uid="uid://0b77mfc58hk1"]
 
 [ext_resource type="Texture2D" uid="uid://4sgahldinw3q" path="res://Images/photo-1704910059653-041d5a17717e.jpeg" id="1_quq0f"]
+[ext_resource type="Script" path="res://Scripts/control.gd" id="1_yog32"]
 [ext_resource type="Texture2D" uid="uid://dxefscnam7d7f" path="res://Images/dall.png" id="2_kavk5"]
 [ext_resource type="Texture2D" uid="uid://cl8tyaf6y4256" path="res://Images/pylon.png" id="3_p7k8r"]
 [ext_resource type="Texture2D" uid="uid://bok2m2hbrnqf6" path="res://Images/DeskHD_Symetrical.png" id="4_jaiep"]
@@ -13,7 +14,25 @@
 [ext_resource type="Texture2D" uid="uid://c2qk2porml8et" path="res://Images/right.png" id="10_87jd4"]
 [ext_resource type="Texture2D" uid="uid://vpt0j2btwbha" path="res://Images/left.png" id="11_tofxr"]
 [ext_resource type="Texture2D" uid="uid://d3w2qq428a7y7" path="res://Images/kheqbvfd-removebg-preview (2).png" id="12_1iby2"]
-[ext_resource type="Texture2D" uid="uid://bpkmov12h1mjd" path="res://Images/Meter.png" id="14_hghu1"]
+[ext_resource type="Texture2D" uid="uid://b3c6htiqn2ie6" path="res://Images/Meter.png" id="14_hghu1"]
+
+[sub_resource type="CSharpScript" id="CSharpScript_5kdd1"]
+script/source = "using Godot;
+using System;
+
+public partial class Money : TextureProgressBar
+{
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
+}
+"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -26,6 +45,7 @@ offset_right = 2.0
 offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_yog32")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(578, 263)
@@ -101,17 +121,22 @@ target_color = Color(1, 0, 0, 1)
 [node name="Money" type="TextureProgressBar" parent="."]
 layout_mode = 0
 offset_left = 42.0
-offset_top = -35.0
-offset_right = 84.0
-offset_bottom = 365.0
+offset_top = 13.0
+offset_right = 92.0
+offset_bottom = 363.0
+fill_mode = 3
 texture_under = ExtResource("14_hghu1")
 texture_progress = ExtResource("14_hghu1")
+tint_progress = Color(1, 0, 0, 1)
+script = SubResource("CSharpScript_5kdd1")
 
 [node name="Temperature" type="TextureProgressBar" parent="."]
 layout_mode = 0
-offset_left = 1064.0
-offset_top = -35.0
-offset_right = 1106.0
-offset_bottom = 365.0
+offset_left = 1057.0
+offset_top = 13.0
+offset_right = 1107.0
+offset_bottom = 363.0
+fill_mode = 3
 texture_under = ExtResource("14_hghu1")
 texture_progress = ExtResource("14_hghu1")
+tint_progress = Color(0, 1, 0, 1)
