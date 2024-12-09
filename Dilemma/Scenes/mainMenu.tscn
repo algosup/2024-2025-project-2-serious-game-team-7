@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo88m35wsq4cs"]
+[gd_scene load_steps=5 format=3 uid="uid://bo88m35wsq4cs"]
 
 [ext_resource type="Texture2D" uid="uid://cmoh16pivxket" path="res://Images/DILEMMA (2).png" id="1_c8k0e"]
 [ext_resource type="Script" path="res://Scripts/menu.gd" id="2_v5558"]
+[ext_resource type="Script" path="res://Scenes/GameManager.cs" id="3_bvhjt"]
+[ext_resource type="Script" path="res://Scenes/Global.cs" id="4_nnhjo"]
 
 [node name="MainMenu" type="Node2D"]
 
@@ -37,3 +39,11 @@ offset_bottom = 176.0
 theme_override_font_sizes/font_size = 28
 text = "Continue"
 script = ExtResource("2_v5558")
+
+[node name="Core" type="Node2D" parent="."]
+
+[node name="GameManager" type="Node2D" parent="Core"]
+script = ExtResource("3_bvhjt")
+
+[node name="Global" type="Node2D" parent="Core"]
+script = ExtResource("4_nnhjo")
