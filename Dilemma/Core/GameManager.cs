@@ -34,7 +34,7 @@ public partial class GameManager : Node2D
 	public override void _Process(double delta)
 	{
 		// Continuously monitor and process the current game state.
-		checkGameState(gameState);
+		//checkGameState(gameState);
 	}
 
 	// Increment the turn value by one, moving to the next turn.
