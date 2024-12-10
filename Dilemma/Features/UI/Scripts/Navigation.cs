@@ -14,6 +14,8 @@ public partial class Navigation : Sprite2D
 	// Static references to track the active popup
 	private static Node _activePopupInstance = null;
 	private static string _activePopupScenePath = "";
+	
+	private bool _escapeButtonPressed = false;
 
 	public override void _Ready()
 	{
@@ -40,6 +42,18 @@ public partial class Navigation : Sprite2D
 			{
 				ResetButtonPosition();
 			}
+		}
+		
+		else if(@event is InputEventKey EscapeKey && _escapeButtonPressed == false)
+		{	
+			// Check if the key is pressed and is not an echo
+			if (EscapeKey.Pressed && !EscapeKey.Echo)
+			{
+				EscapeKey.Echo = true;
+				_escapeButtonPressed = true;
+				GD.Print("ESCAPE");				
+			}
+					
 		}
 	}
 

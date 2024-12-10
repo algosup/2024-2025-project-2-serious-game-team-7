@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://0b77mfc58hk1"]
+[gd_scene load_steps=16 format=3 uid="uid://0b77mfc58hk1"]
 
 [ext_resource type="Texture2D" uid="uid://4sgahldinw3q" path="res://Resources/Images/Environments/photo-1704910059653-041d5a17717e.jpeg" id="1_kiucc"]
 [ext_resource type="Texture2D" uid="uid://dxefscnam7d7f" path="res://Resources/Images/Environments/dall.png" id="2_bvtty"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://d3w2qq428a7y7" path="res://Resources/Images/Environments/kheqbvfd-removebg-preview (2).png" id="12_8dmyp"]
 [ext_resource type="Script" path="res://Features/UI/Scripts/Buttons.gd" id="13_0lndd"]
 [ext_resource type="Texture2D" uid="uid://bpkmov12h1mjd" path="res://Resources/Images/Environments/Meter.png" id="14_2bf76"]
+[ext_resource type="PackedScene" uid="uid://bqjwl1kjmwhm6" path="res://Features/UI/Scenes/resume.tscn" id="15_g3aw0"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -115,3 +116,5 @@ offset_right = 1106.0
 offset_bottom = 365.0
 texture_under = ExtResource("14_2bf76")
 texture_progress = ExtResource("14_2bf76")
+
+[node name="Resume" parent="." instance=ExtResource("15_g3aw0")]

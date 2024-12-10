@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cmoh16pivxket" path="res://Resources/Images/Environments/DILEMMA (2).png" id="1_emd8c"]
 [ext_resource type="Script" path="res://Features/UI/Scripts/menu.gd" id="2_7fw7b"]
 [ext_resource type="PackedScene" uid="uid://0mdpid21yvxn" path="res://Core/Autoload/GameManager.tscn" id="3_450wt"]
-[ext_resource type="Script" path="res://Features/UI/Scenes/input_handler.gd" id="4_752to"]
+[ext_resource type="Script" path="res://Core/input_handler.gd" id="4_752to"]
 
 [node name="MainMenu" type="Node2D"]
 
