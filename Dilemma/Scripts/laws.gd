@@ -6,21 +6,24 @@ var active_rectangle = null
 var active_index = -1
 var stored_variable = -1
 var csv_data = []
-var vertical_offset = 0.13  # Adjust this value to change vertical position (0 to 1)
+var vertical_offset = 0.13  # Vertical position (0 to 1)
 
 const CSV_FILE_PATH = "res://data/laws.csv"
 
 func _ready():
 	create_rectangles()
 	load_and_assign_csv_data()
+	# Connect to window resize event to adjust positions
 	get_viewport().size_changed.connect(adjust_positions)
 
 func create_rectangles():
 	for i in range(RECTANGLE_COUNT):
+		# Create a new rectangle (ColorRect) for each law
 		var rectangle = ColorRect.new()
 		rectangle.custom_minimum_size = Vector2(300, 60)
 		rectangle.color = Color(1, 1, 1, 0.9)
 		
+		# Add a label to the rectangle
 		var label = Label.new()
 		label.text = "Label %d" % (i + 1)
 		label.add_theme_color_override("font_color", Color.BLACK)
@@ -30,6 +33,7 @@ func create_rectangles():
 		
 		rectangle.add_child(label)
 		
+		# Connect click event
 		rectangle.gui_input.connect(_on_rectangle_clicked.bind(i))
 		
 		add_child(rectangle)
@@ -38,41 +42,50 @@ func create_rectangles():
 	adjust_positions()
 
 func adjust_positions():
+	# Adjust positions of rectangles based on window size and vertical offset
 	var viewport_size = get_viewport_rect().size
 	var total_height = RECTANGLE_COUNT * 60 + (RECTANGLE_COUNT - 1) * 30  # Height of rectangles + spacing
 	var start_y = viewport_size.y * vertical_offset
 	
 	for i in range(RECTANGLE_COUNT):
 		var rectangle = rectangles[i]
+		# Center horizontally
 		rectangle.position.x = (viewport_size.x - rectangle.custom_minimum_size.x) / 2
+		# Position vertically
 		rectangle.position.y = start_y + i * (60 + 30)  # 60 is height, 30 is spacing
 
 func _on_rectangle_clicked(event, index):
+	# Handle click events on rectangles
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		if active_rectangle:
 			active_rectangle.queue_free()
 			if active_index == index:
+				# Deselect if clicking the same rectangle
 				active_rectangle = null
 				active_index = -1
 				stored_variable = -1
 				print("Deselected. Stored variable: ", stored_variable)
 				return
 		
+		# Create new rectangle for selected law
 		active_rectangle = create_new_rectangle(index)
 		active_index = index
 		stored_variable = index
 
 func create_new_rectangle(index):
+	# Create a new rectangle to display law details
 	var new_rect = ColorRect.new()
-	new_rect.size = Vector2(200, 330)
+	new_rect.size = Vector2(200, 332)
 	new_rect.position = rectangles[0].position + Vector2(406, -4)
 	new_rect.color = Color(1, 1, 1, 0.9)
 	
+	# Add VBoxContainer for layout
 	var vbox = VBoxContainer.new()
 	vbox.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	vbox.add_theme_constant_override("separation", 10)
 	new_rect.add_child(vbox)
 	
+	# Add name label
 	var name_label = Label.new()
 	name_label.text = csv_data[index + 1][0]
 	name_label.add_theme_font_size_override("font_size", 20)
@@ -81,6 +94,7 @@ func create_new_rectangle(index):
 	name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vbox.add_child(name_label)
 	
+	# Add description label
 	var description_label = Label.new()
 	description_label.text = csv_data[index + 1][3]
 	description_label.set_autowrap_mode(TextServer.AUTOWRAP_WORD_SMART)
@@ -88,6 +102,7 @@ func create_new_rectangle(index):
 	description_label.add_theme_color_override("font_color", Color.BLACK)
 	vbox.add_child(description_label)
 
+	# Add accept button
 	var accept_button = Button.new()
 	accept_button.text = "Accept"
 	accept_button.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
@@ -98,16 +113,20 @@ func create_new_rectangle(index):
 	return new_rect
 
 func _on_accept_pressed(index):
+	# Handle accepting a law
 	var law_name = csv_data[index + 1][0]
 	var money_change = int(csv_data[index + 1][1])
 	var temperature_change = float(csv_data[index + 1][2])
 	
+	# Update global variables
 	GlobalVariables.currentMoney += money_change
 	GlobalVariables.currentTemperature += temperature_change
 	
+	# Clamp values to avoid exceeding limits
 	GlobalVariables.currentMoney = clamp(GlobalVariables.currentMoney, 0, 100)
 	GlobalVariables.currentTemperature = clamp(GlobalVariables.currentTemperature, -50, 50)
 	
+	# Print confirmation
 	print("Accepted law:", law_name)
 	print("Money change:", money_change, "-> Current Money:", GlobalVariables.currentMoney)
 	print("Temperature change:", temperature_change, "-> Current Temperature:", GlobalVariables.currentTemperature)
@@ -116,6 +135,7 @@ func get_stored_variable():
 	return stored_variable
 
 func load_csv(file_path: String) -> Array:
+	# Load CSV file
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	if file:
 		var data = file.get_as_text()
@@ -133,6 +153,7 @@ func load_csv(file_path: String) -> Array:
 		return []
 
 func load_and_assign_csv_data():
+	# Load CSV data and assign to rectangles
 	csv_data = load_csv(CSV_FILE_PATH)
 	if csv_data.size() > 1:
 		for i in range(1, min(csv_data.size(), rectangles.size() + 1)):
