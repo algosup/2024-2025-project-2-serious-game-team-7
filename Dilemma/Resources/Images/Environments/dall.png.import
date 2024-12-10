@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdxu6umhrm8m6"
-path="res://.godot/imported/Screenshot_2024-11-19_at_10.27.08-removebg-preview.png-df6797b1f672c49eba9789ec15e56b30.ctex"
+uid="uid://dxefscnam7d7f"
+path="res://.godot/imported/dall.png-6abcdfa08d7c154ed689baacb1361685.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Screenshot_2024-11-19_at_10.27.08-removebg-preview.png"
-dest_files=["res://.godot/imported/Screenshot_2024-11-19_at_10.27.08-removebg-preview.png-df6797b1f672c49eba9789ec15e56b30.ctex"]
+source_file="res://Resources/Images/Environments/dall.png"
+dest_files=["res://.godot/imported/dall.png-6abcdfa08d7c154ed689baacb1361685.ctex"]
 
 [params]
 

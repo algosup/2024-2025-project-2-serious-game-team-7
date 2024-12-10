@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Dilemma"
-run/main_scene="res://Scenes/mainMenu.tscn"
+run/main_scene="res://Features/UI/control.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
-config/icon="res://Images/icon.svg"
+config/icon="res://Resources/Images/UI/icon.svg"
 
 [display]
 

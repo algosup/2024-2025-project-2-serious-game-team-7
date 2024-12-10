@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bok2m2hbrnqf6"
-path="res://.godot/imported/DeskHD_Symetrical.png-415ba96a5fe2442169a49ca9232ca64e.ctex"
+uid="uid://cclr33q033qwc"
+path="res://.godot/imported/Screenshot_2024-11-19_at_10.26.56-removebg-preview.png-0ade0d3c23f025d2c3a752b4897f284f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/DeskHD_Symetrical.png"
-dest_files=["res://.godot/imported/DeskHD_Symetrical.png-415ba96a5fe2442169a49ca9232ca64e.ctex"]
+source_file="res://Resources/Images/UI/Screenshot_2024-11-19_at_10.26.56-removebg-preview.png"
+dest_files=["res://.godot/imported/Screenshot_2024-11-19_at_10.26.56-removebg-preview.png-0ade0d3c23f025d2c3a752b4897f284f.ctex"]
 
 [params]
 

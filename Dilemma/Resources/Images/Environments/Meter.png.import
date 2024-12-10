@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgt703dtyeyf"
-path="res://.godot/imported/mid.png-e69a9775e7a084354b33960445b04945.ctex"
+uid="uid://bpkmov12h1mjd"
+path="res://.godot/imported/Meter.png-9fa16761222b600db2a29fc42e8686ad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/mid.png"
-dest_files=["res://.godot/imported/mid.png-e69a9775e7a084354b33960445b04945.ctex"]
+source_file="res://Resources/Images/Environments/Meter.png"
+dest_files=["res://.godot/imported/Meter.png-9fa16761222b600db2a29fc42e8686ad.ctex"]
 
 [params]
 
