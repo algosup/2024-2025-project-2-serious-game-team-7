@@ -86,7 +86,7 @@ func move_cursor_to(x_position, slider):
 	print_all_cursor_positions()
 	save_slider_positions()  # Save after each move
 
-	GlobalVariables.currentMoney = round(cursor_value * 100)  # Map 0-1 to 0-100
+	GlobalVariables.thisTurnMoney = round(cursor_value * 100)  # Map 0-1 to 0-100
 
 func is_point_on_line(point, slider):
 	var margin = 10.0  # Adjust this value to increase/decrease click tolerance

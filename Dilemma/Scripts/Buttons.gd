@@ -16,6 +16,8 @@ static var active_popup_scene_path: String = ""
 # Predefined colors for specific screens
 @export var target_color: Color = Color(0.6, 0.9, 0.6, 1.0)  # Default is green
 
+@export var next_turn_button: bool = false
+
 func _ready():
 	# Save the original position of the sprite
 	original_position = position
@@ -23,7 +25,10 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed and get_rect().has_point(to_local(event.position)):
-			toggle_popup_and_color()
+			if next_turn_button:
+				trigger_next_turn()
+			else:
+				toggle_popup_and_color()
 
 func toggle_popup_and_color():
 	if active_popup_instance and is_instance_valid(active_popup_instance):
@@ -70,3 +75,14 @@ func change_background_color():
 		print("%s color changed to: %s" % [background_node.name, target_color])
 	else:
 		print("Background node not set or invalid.")
+	
+func trigger_next_turn():
+	var label: Label
+	label = get_node("/root/Control/TurnCount")
+	
+	GlobalVariables.currentMoney = GlobalVariables.thisTurnMoney
+	GlobalVariables.currentTemperature = GlobalVariables.thisTurnTemperature
+	GlobalVariables.currentTurn += 1
+	
+	label.text = str(GlobalVariables.currentTurn)
+	print('next turn : ', GlobalVariables.currentTurn)
