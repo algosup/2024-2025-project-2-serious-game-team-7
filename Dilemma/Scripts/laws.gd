@@ -119,17 +119,17 @@ func _on_accept_pressed(index):
 	var temperature_change = float(csv_data[index + 1][2])
 	
 	# Update global variables
-	GlobalVariables.currentMoney += money_change
-	GlobalVariables.currentTemperature += temperature_change
+	GlobalVariables.thisTurnMoney += money_change
+	GlobalVariables.thisTurnTemperature += temperature_change
 	
 	# Clamp values to avoid exceeding limits
-	GlobalVariables.currentMoney = clamp(GlobalVariables.currentMoney, 0, 100)
-	GlobalVariables.currentTemperature = clamp(GlobalVariables.currentTemperature, -50, 50)
+	GlobalVariables.thisTurnMoney = clamp(GlobalVariables.thisTurnMoney, 0, 100)
+	GlobalVariables.thisTurnTemperature = clamp(GlobalVariables.thisTurnTemperature, -50, 50)
 	
 	# Print confirmation
 	print("Accepted law:", law_name)
-	print("Money change:", money_change, "-> Current Money:", GlobalVariables.currentMoney)
-	print("Temperature change:", temperature_change, "-> Current Temperature:", GlobalVariables.currentTemperature)
+	print("Money change:", money_change, "-> Current Money:", GlobalVariables.thisTurnMoney)
+	print("Temperature change:", temperature_change, "-> Current Temperature:", GlobalVariables.thisTurnTemperature)
 
 func get_stored_variable():
 	return stored_variable
