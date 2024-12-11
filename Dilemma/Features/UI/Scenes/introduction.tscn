@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://c24omgumsw541"]
+
+[ext_resource type="VideoStream" path="res://Resources/IntroVideo.ogv" id="1_takwd"]
+
+[node name="Introduction" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.996457, 0.996457)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_takwd")
+autoplay = true
+expand = true

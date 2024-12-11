@@ -15,18 +15,21 @@ public partial class Navigation : Sprite2D
 	private static Node _activePopupInstance = null;
 	private static string _activePopupScenePath = "";
 	
-	private bool _escapeButtonPressed = false;
-
 	public override void _Ready()
 	{
 		// Save the original position of the sprite
 		_originalPosition = Position;
+		
+		//_resumePanel = GetNode<Control>("Resume");
+		//_resumePanel.Hide();
 
 		// Resolve the background node
 		if (!string.IsNullOrEmpty(BackgroundNodePath))
 		{
 			_backgroundNode = GetNode<CanvasItem>(BackgroundNodePath);
 		}
+		
+		
 	}
 
 	public override void _Input(InputEvent @event)
@@ -44,17 +47,6 @@ public partial class Navigation : Sprite2D
 			}
 		}
 		
-		else if(@event is InputEventKey EscapeKey && _escapeButtonPressed == false)
-		{	
-			// Check if the key is pressed and is not an echo
-			if (EscapeKey.Pressed && !EscapeKey.Echo)
-			{
-				EscapeKey.Echo = true;
-				_escapeButtonPressed = true;
-				GD.Print("ESCAPE");				
-			}
-					
-		}
 	}
 
 	private void MoveButtonDown()
@@ -127,4 +119,6 @@ public partial class Navigation : Sprite2D
 			_backgroundNode.Modulate = TargetColor;
 		}
 	}
+	
+	
 }

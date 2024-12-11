@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqjwl1kjmwhm6"]
+
+[ext_resource type="Script" path="res://Core/ResumeManager.cs" id="1_odm5q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eq3lw"]
+bg_color = Color(0.143083, 0.472506, 0.803926, 1)
+
+[node name="stopMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Pause" type="ColorRect" parent="."]
+process_mode = 2
+layout_mode = 0
+offset_right = 304.0
+offset_bottom = 223.0
+color = Color(0.629675, 0.629675, 0.629675, 1)
+script = ExtResource("1_odm5q")
+
+[node name="Resume" type="Button" parent="Pause"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 40.0
+offset_right = 253.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_eq3lw")
+text = "RESUME
+"
+
+[node name="Quit" type="Button" parent="Pause"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 124.0
+offset_right = 252.0
+offset_bottom = 171.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_eq3lw")
+text = "QUIT
+"

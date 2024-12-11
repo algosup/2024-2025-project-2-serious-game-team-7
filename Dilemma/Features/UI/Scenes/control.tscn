@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://d3w2qq428a7y7" path="res://Resources/Images/Environments/kheqbvfd-removebg-preview (2).png" id="12_8dmyp"]
 [ext_resource type="Script" path="res://Features/UI/Scripts/Buttons.gd" id="13_0lndd"]
 [ext_resource type="Texture2D" uid="uid://bpkmov12h1mjd" path="res://Resources/Images/Environments/Meter.png" id="14_2bf76"]
-[ext_resource type="PackedScene" uid="uid://bqjwl1kjmwhm6" path="res://Features/UI/Scenes/resume.tscn" id="15_g3aw0"]
+[ext_resource type="PackedScene" uid="uid://bqjwl1kjmwhm6" path="res://Features/UI/Scenes/stopMenu.tscn" id="15_g3aw0"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -117,4 +117,8 @@ offset_bottom = 365.0
 texture_under = ExtResource("14_2bf76")
 texture_progress = ExtResource("14_2bf76")
 
-[node name="Resume" parent="." instance=ExtResource("15_g3aw0")]
+[node name="stopMenu" parent="." instance=ExtResource("15_g3aw0")]
+offset_left = 426.0
+offset_top = 205.0
+offset_right = 426.0
+offset_bottom = 205.0
