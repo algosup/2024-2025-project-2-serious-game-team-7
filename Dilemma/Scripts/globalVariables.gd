@@ -7,6 +7,7 @@ var currentTemperature: int = 15
 # Resources gained or lost in the current turn
 var thisTurnMoney: int = 50
 var thisTurnTemperature: int = 15
+var rndMoney: int = 0
 
 # Current turn
 var currentTurn: int = 0

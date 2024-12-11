@@ -80,13 +80,18 @@ func move_cursor_to(x_position, slider):
 	
 	# Calculate and update percentage
 	var cursor_value = (new_x - slider["line_start"].x) / slider["line_length"]
-	var percentage = round(cursor_value * 100)  # Round to nearest integer
-	slider["label"].text = "%d%%" % percentage
-	
-	print_all_cursor_positions()
-	save_slider_positions()  # Save after each move
+	var percentage = round(cursor_value * 10)  # Scale to 0-10
+	slider["label"].text = "%d" % percentage  # No percentage symbol
 
-	GlobalVariables.thisTurnMoney = round(cursor_value * 100)  # Map 0-1 to 0-100
+	GlobalVariables.rndMoney = 0
+	for slider_data in cursor_positions:
+		var slider_value = (slider_data["cursor"].position.x - slider_data["line_start"].x) / slider_data["line_length"]
+		GlobalVariables.rndMoney += round(slider_value * 10)  # Scale to 0-10
+
+	print("RnD Money: %d" % GlobalVariables.rndMoney)
+	
+	# print_all_cursor_positions()
+	save_slider_positions()  # Save after each move
 
 func is_point_on_line(point, slider):
 	var margin = 10.0  # Adjust this value to increase/decrease click tolerance
