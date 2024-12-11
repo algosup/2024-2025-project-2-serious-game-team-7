@@ -143,6 +143,19 @@ func _on_accept_pressed(index):
 	print("Accepting law at index: ", index)  
 	var csv_row = csv_data[index + 1]
 	var law_name = csv_row[0]
+	
+	var money_change = int(csv_data[index + 1][1])  # Money change
+	var temperature_change = float(csv_data[index + 1][2])  # Temperature change	
+	# Update GlobalVariables
+	GlobalVariables.currentMoney += money_change
+	GlobalVariables.currentTemperature += temperature_change	
+	# Clamp values to avoid exceeding limits
+	GlobalVariables.currentMoney = clamp(GlobalVariables.currentMoney, 0, 100)
+	GlobalVariables.currentTemperature = clamp(GlobalVariables.currentTemperature, -50, 50)	
+	# Print confirmation
+	print("Accepted law:", law_name)
+	print("Money change:", money_change, "-> Current Money:", GlobalVariables.currentMoney)
+	print("Temperature change:", temperature_change, "-> Current Temperature:", GlobalVariables.currentTemperature)
 
 	# Remove the active rectangle if it exists
 	if active_rectangle:

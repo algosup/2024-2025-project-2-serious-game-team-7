@@ -115,9 +115,9 @@ position = Vector2(574, 629)
 scale = Vector2(1.31035, 1.07692)
 texture = ExtResource("12_1iby2")
 script = ExtResource("6_oh7ks")
+background_node = NodePath("../Background")
 target_color = Color(1, 0, 0, 1)
 next_turn_button = true
-background_node = NodePath("../Background")
 
 [node name="Money" type="TextureProgressBar" parent="."]
 layout_mode = 0
