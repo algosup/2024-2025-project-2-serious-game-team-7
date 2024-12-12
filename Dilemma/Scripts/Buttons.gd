@@ -81,10 +81,8 @@ func upgrade_level():
 		if GlobalVariables.rndLevels[i] < GlobalVariables.MAX_RND_LEVEL:
 			# Normalize cursor position to range 0.0 to 1.0
 			var cursor_value = GlobalVariables.rndCursors[i]
-			# Map normalized position to a percentage for comparison
-			var chance = cursor_value * 10  # Scale to 0-10 range
 			# Random chance to upgrade
-			if randf() * 10 < chance:
+			if randf() * 10 < cursor_value:
 				GlobalVariables.rndLevels[i] += 1
 				print("Slider %d upgraded to level %d" % [i, GlobalVariables.rndLevels[i]])
 			else:
