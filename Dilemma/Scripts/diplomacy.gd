@@ -10,7 +10,7 @@ var vertical_offset = 0.13  # Vertical position for starting rectangles
 var accepted_deal = []  # List of accepted diplomatic deal for display
 
 
-const CSV_FILE_PATH = "res://data/LawsNodes.csv"
+const CSV_FILE_PATH = "res://data/DiploNodes.csv"
 
 # Called when the scene is ready
 func _ready():
