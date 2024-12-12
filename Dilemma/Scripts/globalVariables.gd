@@ -22,12 +22,12 @@ var rndCursors: Array = [0, 0, 0, 0, 0, 0]  # Cursor positions for all sliders
 var isDead: bool = false
 
 func _process(delta: float) -> void:
-    # Check if the player is dead
-    if currentMoney <= 0 or currentTemperature >= 30:
-        isDead = true
-        print("Game Over!")
-        # Show game over screen
-        get_tree().change_scene_to_file("res://Scenes/mainMenu.tscn")
-        isDead = false
-        currentMoney = 50
-        currentTemperature = 15
+	# Check if the player is dead
+	if currentMoney <= 0 or currentTemperature >= 30:
+		isDead = true
+		print("Game Over!")
+		# Show game over screen
+		get_tree().change_scene_to_file("res://Scenes/mainMenu.tscn")
+		isDead = false
+		currentMoney = 50
+		currentTemperature = 15
