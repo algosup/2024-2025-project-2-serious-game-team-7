@@ -16,21 +16,16 @@ const STAR_COLOR_INACTIVE = Color.WHITE
 
 # Array to store the number of active stars for each label
 var star_array = []
+var previous_star_array = []
 
 func _ready():
 	# Load star_array dynamically
 	load_star_array()
+	previous_star_array = star_array.duplicate()
 	print("Loaded star_array: ", star_array)
 	
-	# Get the index of the current label based on its name
-	var label_index = get_label_index()
-	print("Label name: ", name, ", Index: ", label_index)
-	
-	# Generate stars under the label and color them based on the array
-	if label_index >= 0 and label_index < star_array.size():
-		generate_stars(star_array[label_index])
-	else:
-		push_error("Invalid label index or star_array not loaded properly.")
+	# Generate stars based on the current label
+	update_stars()
 
 func load_star_array():
 	# Directly access the rndLevels array from GlobalVariables autoload
@@ -38,13 +33,24 @@ func load_star_array():
 		push_error("rndLevels in GlobalVariables.gd is invalid or empty.")
 		star_array = [0, 0, 0, 0, 0, 0]  # Fallback array
 	else:
-		star_array = GlobalVariables.rndLevels
+		star_array = GlobalVariables.rndLevels.duplicate()
 
 # Function to map label names to indices
 func get_label_index() -> int:
 	var labels = ["Solar", "Fusion", "Fision", "Hydro", "Duo", "Wind"]
-	var index = labels.find(name)
-	return index
+	return labels.find(name)
+
+# Function to update stars based on current label index
+func update_stars():
+	var label_index = get_label_index()
+	if label_index >= 0 and label_index < star_array.size():
+		# Clear previous stars
+		for child in get_children():
+			child.queue_free()
+		# Generate new stars
+		generate_stars(star_array[label_index])
+	else:
+		push_error("Invalid label index or star_array not loaded properly.")
 
 # Function to generate stars with color based on star_array value
 func generate_stars(active_count: int):
@@ -75,5 +81,11 @@ func create_star(outer_radius: float, inner_radius: float, points: int, color: C
 		vertices.append(Vector2(x, y))
 
 	polygon.polygon = vertices
-	polygon.color = color  # Set the initial star color
+	polygon.color = color
 	return polygon
+
+func _process(delta):
+	if GlobalVariables.rndLevels != previous_star_array:
+		load_star_array()
+		previous_star_array = star_array.duplicate()
+		update_stars()
