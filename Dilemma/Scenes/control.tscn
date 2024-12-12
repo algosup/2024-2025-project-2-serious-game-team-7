@@ -132,7 +132,7 @@ offset_bottom = 363.0
 fill_mode = 3
 texture_under = ExtResource("14_hghu1")
 texture_progress = ExtResource("14_hghu1")
-tint_progress = Color(1, 0, 0, 0.996078)
+tint_progress = Color(0, 1, 0, 0.996078)
 script = SubResource("CSharpScript_5kdd1")
 
 [node name="Temperature" type="TextureProgressBar" parent="."]
@@ -145,7 +145,7 @@ max_value = 30.0
 fill_mode = 3
 texture_under = ExtResource("14_hghu1")
 texture_progress = ExtResource("14_hghu1")
-tint_progress = Color(0, 1, 0, 1)
+tint_progress = Color(1, 0, 0, 1)
 
 [node name="TurnCount" type="Label" parent="."]
 layout_mode = 0
