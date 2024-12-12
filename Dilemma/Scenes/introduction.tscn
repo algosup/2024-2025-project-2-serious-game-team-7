@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://byehsqyyjeyv"]
+
+[ext_resource type="VideoStream" path="res://Resources/Video/IntroVideo.ogv" id="1_wywml"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yh36k"]
+bg_color = Color(0.143083, 0.472506, 0.803926, 1)
+
+[node name="Introduction" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.996457, 0.996457)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_wywml")
+autoplay = true
+expand = true
+
+[node name="Continue" type="Button" parent="VideoStreamPlayer"]
+layout_mode = 0
+offset_left = 919.257
+offset_top = 567.009
+offset_right = 1131.26
+offset_bottom = 614.009
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_yh36k")
+text = "CONTINUE
+"
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="VideoStreamPlayer/Continue" to="." method="_on_continue_pressed"]
