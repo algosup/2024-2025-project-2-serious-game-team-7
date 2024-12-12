@@ -14,17 +14,22 @@ public partial class Navigation : Sprite2D
 	// Static references to track the active popup
 	private static Node _activePopupInstance = null;
 	private static string _activePopupScenePath = "";
-
+	
 	public override void _Ready()
 	{
 		// Save the original position of the sprite
 		_originalPosition = Position;
+		
+		//_resumePanel = GetNode<Control>("Resume");
+		//_resumePanel.Hide();
 
 		// Resolve the background node
 		if (!string.IsNullOrEmpty(BackgroundNodePath))
 		{
 			_backgroundNode = GetNode<CanvasItem>(BackgroundNodePath);
 		}
+		
+		
 	}
 
 	public override void _Input(InputEvent @event)
@@ -41,6 +46,7 @@ public partial class Navigation : Sprite2D
 				ResetButtonPosition();
 			}
 		}
+		
 	}
 
 	private void MoveButtonDown()
@@ -113,4 +119,6 @@ public partial class Navigation : Sprite2D
 			_backgroundNode.Modulate = TargetColor;
 		}
 	}
+	
+	
 }
