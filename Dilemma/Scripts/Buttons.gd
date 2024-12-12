@@ -75,10 +75,27 @@ func change_background_color():
 		print("%s color changed to: %s" % [background_node.name, target_color])
 	else:
 		print("Background node not set or invalid.")
+
+func upgrade_level():
+	for i in range(GlobalVariables.rndCursors.size()):
+		if GlobalVariables.rndLevels[i] < GlobalVariables.MAX_RND_LEVEL:
+			# Normalize cursor position to range 0.0 to 1.0
+			var cursor_value = GlobalVariables.rndCursors[i]
+			# Map normalized position to a percentage for comparison
+			var chance = cursor_value * 10  # Scale to 0-10 range
+			# Random chance to upgrade
+			if randf() * 10 < chance:
+				GlobalVariables.rndLevels[i] += 1
+				print("Slider %d upgraded to level %d" % [i, GlobalVariables.rndLevels[i]])
+			else:
+				print("Slider %d upgrade failed" % i)
+
 	
 func trigger_next_turn():
 	var label: Label
 	label = get_node("/root/Control/TurnCount")
+
+	upgrade_level()
 	
 	GlobalVariables.thisTurnMoney += GlobalVariables.rndMoney
 	GlobalVariables.currentMoney = GlobalVariables.thisTurnMoney
