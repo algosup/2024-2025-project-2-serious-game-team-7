@@ -9,13 +9,14 @@ var csv_data = []  # Data loaded from CSV
 var vertical_offset = 0.13  # Vertical position for starting rectangles
 var accepted_laws = []  # List of accepted laws for display
 
-const CSV_FILE_PATH = "res://data/LawsNodes.csv"
+const CSV_FILE_PATH = "res://data/laws.csv"
 
 # Called when the scene is ready
 func _ready():
 	load_and_assign_csv_data()
 	create_rectangles()
 	get_viewport().size_changed.connect(adjust_positions)  # Handle window resizing
+
 
 # Create rectangles based on the CSV file
 func create_rectangles():
