@@ -80,6 +80,7 @@ func trigger_next_turn():
 	var label: Label
 	label = get_node("/root/Control/TurnCount")
 	
+	GlobalVariables.thisTurnMoney += GlobalVariables.rndMoney
 	GlobalVariables.currentMoney = GlobalVariables.thisTurnMoney
 	GlobalVariables.currentTemperature = GlobalVariables.thisTurnTemperature
 	GlobalVariables.currentTurn += 1

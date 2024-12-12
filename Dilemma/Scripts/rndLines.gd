@@ -86,12 +86,14 @@ func move_cursor_to(x_position, slider):
 	GlobalVariables.rndMoney = 0
 	for slider_data in cursor_positions:
 		var slider_value = (slider_data["cursor"].position.x - slider_data["line_start"].x) / slider_data["line_length"]
-		GlobalVariables.rndMoney += round(slider_value * 10)  # Scale to 0-10
+		GlobalVariables.rndMoney -= round(slider_value * 10)  # Scale to 0-10
 
 	print("RnD Money: %d" % GlobalVariables.rndMoney)
 	
 	# print_all_cursor_positions()
 	save_slider_positions()  # Save after each move
+
+	upgrade_level()
 
 func is_point_on_line(point, slider):
 	var margin = 10.0  # Adjust this value to increase/decrease click tolerance
@@ -127,3 +129,17 @@ func load_slider_positions():
 		var slider = cursor_positions[i]
 		var new_x = slider["line_start"].x + save_data[i] * slider["line_length"]
 		move_cursor_to(new_x, slider)
+
+func upgrade_level():
+	for i in range(cursor_positions.size()):
+		if GlobalVariables.rndLevels[i] < GlobalVariables.MAX_RND_LEVEL:
+			# Normalize cursor position to range 0.0 to 1.0
+			var cursor_value = (cursor_positions[i]["cursor"].position.x - cursor_positions[i]["line_start"].x) / cursor_positions[i]["line_length"]
+			# Map normalized position to a percentage for comparison
+			var chance = cursor_value * 10  # Scale to 0-10 range
+			# Random chance to upgrade
+			if randf() * 10 < chance:
+				GlobalVariables.rndLevels[i] += 1
+				print("Slider %d upgraded to level %d" % [i, GlobalVariables.rndLevels[i]])
+			else:
+				print("Slider %d upgrade failed" % i)

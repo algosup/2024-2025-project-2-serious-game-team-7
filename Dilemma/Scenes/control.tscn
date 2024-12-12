@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://0b77mfc58hk1"]
+[gd_scene load_steps=18 format=3 uid="uid://0b77mfc58hk1"]
 
 [ext_resource type="Texture2D" uid="uid://4sgahldinw3q" path="res://Images/photo-1704910059653-041d5a17717e.jpeg" id="1_quq0f"]
 [ext_resource type="Script" path="res://Scripts/control.gd" id="1_yog32"]
 [ext_resource type="Texture2D" uid="uid://dxefscnam7d7f" path="res://Images/dall.png" id="2_kavk5"]
+[ext_resource type="PackedScene" uid="uid://dwjh8u704qub3" path="res://Scenes/rnd.tscn" id="2_lc5qp"]
 [ext_resource type="Texture2D" uid="uid://cl8tyaf6y4256" path="res://Images/pylon.png" id="3_p7k8r"]
 [ext_resource type="Texture2D" uid="uid://bok2m2hbrnqf6" path="res://Images/DeskHD_Symetrical.png" id="4_jaiep"]
 [ext_resource type="Texture2D" uid="uid://dn2msmrgdi18t" path="res://Images/Screenshot_2024-11-19_at_10.27.13-removebg-preview.png" id="5_dsl8g"]
@@ -46,6 +47,8 @@ offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_yog32")
+rnd_lines_scene_path = ExtResource("2_lc5qp")
+buttons_scene_path = null
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(578, 263)
@@ -115,9 +118,12 @@ position = Vector2(574, 629)
 scale = Vector2(1.31035, 1.07692)
 texture = ExtResource("12_1iby2")
 script = ExtResource("6_oh7ks")
+popup_scene_path = null
+move_down_distance = null
 background_node = NodePath("../Background")
 target_color = Color(1, 0, 0, 1)
 next_turn_button = true
+rnd_lines_node_path = null
 
 [node name="Money" type="TextureProgressBar" parent="."]
 layout_mode = 0
