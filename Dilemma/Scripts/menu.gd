@@ -1,7 +1,7 @@
 extends Button
 
 # Path to the scene for New Game
-@export var scene_to_load: String = "res://Scenes/control.tscn"
+@export var scene_to_load: String = "res://Scenes/introduction.tscn"
 
 func _ready() -> void:
 	print("Menu script _ready method running...")
