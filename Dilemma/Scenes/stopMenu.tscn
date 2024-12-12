@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqjwl1kjmwhm6"]
+
+[ext_resource type="Script" path="res://Scripts/stopMenu.gd" id="1_dxx3w"]
+[ext_resource type="Shader" path="res://Tools/Shaders/stopMenu.gdshader" id="2_071cv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xf5ai"]
+shader = ExtResource("2_071cv")
+shader_parameter/amount = 3.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eq3lw"]
+bg_color = Color(0.143083, 0.472506, 0.803926, 1)
+
+[node name="stopMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_dxx3w")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_xf5ai")
+layout_mode = 0
+offset_left = -6158.0
+offset_top = -3963.0
+offset_right = 6338.0
+offset_bottom = 4090.0
+
+[node name="Pause" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 304.0
+offset_bottom = 223.0
+color = Color(0.631373, 0.631373, 0.631373, 0)
+
+[node name="Resume" type="Button" parent="Pause"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 40.0
+offset_right = 253.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_eq3lw")
+text = "RESUME
+"
+
+[node name="Quit" type="Button" parent="Pause"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 124.0
+offset_right = 252.0
+offset_bottom = 171.0
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_eq3lw")
+text = "MENU
+"
+
+[connection signal="pressed" from="Pause/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Pause/Quit" to="." method="_on_quit_pressed"]
