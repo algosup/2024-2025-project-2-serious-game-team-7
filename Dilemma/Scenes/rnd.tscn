@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwjh8u704qub3"]
 
 [ext_resource type="Script" path="res://Scripts/rndLines.gd" id="1_rkv8x"]
-[ext_resource type="Texture2D" uid="uid://c6yb720fb83dm" path="res://Images/star.png" id="2_hjq1w"]
+[ext_resource type="Script" path="res://Scripts/rndStars.gd" id="2_wu0tl"]
 
 [node name="Rnd" type="Node2D"]
 script = ExtResource("1_rkv8x")
@@ -26,44 +26,23 @@ offset_bottom = 448.0
 color = Color(0, 0.0980392, 0.92549, 0.392157)
 metadata/_edit_use_anchors_ = true
 
-[node name="Hydro" type="Label" parent="."]
+[node name="Solar" type="Label" parent="."]
 offset_left = 128.0
-offset_top = 248.0
-offset_right = 236.0
-offset_bottom = 271.0
-text = "Hydro Electric
-"
+offset_top = 80.0
+offset_right = 215.0
+offset_bottom = 103.0
+text = "Solar Panel"
+script = ExtResource("2_wu0tl")
 metadata/_edit_use_anchors_ = true
 
-[node name="Polygon2D" type="Polygon2D" parent="Hydro"]
-position = Vector2(-8, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D2" type="Polygon2D" parent="Hydro"]
-position = Vector2(24, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D5" type="Polygon2D" parent="Hydro"]
-position = Vector2(56, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D4" type="Polygon2D" parent="Hydro"]
-position = Vector2(88, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D3" type="Polygon2D" parent="Hydro"]
-position = Vector2(120, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
+[node name="Fusion" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 136.0
+offset_right = 243.0
+offset_bottom = 159.0
+text = "Fusion Reactor"
+script = ExtResource("2_wu0tl")
+metadata/_edit_use_anchors_ = true
 
 [node name="Fision" type="Label" parent="."]
 offset_left = 128.0
@@ -72,37 +51,18 @@ offset_right = 237.0
 offset_bottom = 215.0
 text = "Fision Reactor
 "
+script = ExtResource("2_wu0tl")
 metadata/_edit_use_anchors_ = true
 
-[node name="Polygon2D" type="Polygon2D" parent="Fision"]
-position = Vector2(-8, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D2" type="Polygon2D" parent="Fision"]
-position = Vector2(24, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D5" type="Polygon2D" parent="Fision"]
-position = Vector2(56, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D4" type="Polygon2D" parent="Fision"]
-position = Vector2(88, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D3" type="Polygon2D" parent="Fision"]
-position = Vector2(120, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
+[node name="Hydro" type="Label" parent="."]
+offset_left = 128.0
+offset_top = 248.0
+offset_right = 236.0
+offset_bottom = 271.0
+text = "Hydro Electric
+"
+script = ExtResource("2_wu0tl")
+metadata/_edit_use_anchors_ = true
 
 [node name="Duo" type="Label" parent="."]
 offset_left = 128.0
@@ -111,37 +71,8 @@ offset_right = 238.0
 offset_bottom = 327.0
 text = "Duo Thermale
 "
+script = ExtResource("2_wu0tl")
 metadata/_edit_use_anchors_ = true
-
-[node name="Polygon2D" type="Polygon2D" parent="Duo"]
-position = Vector2(-8, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D2" type="Polygon2D" parent="Duo"]
-position = Vector2(24, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D5" type="Polygon2D" parent="Duo"]
-position = Vector2(56, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D4" type="Polygon2D" parent="Duo"]
-position = Vector2(88, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D3" type="Polygon2D" parent="Duo"]
-position = Vector2(120, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
 
 [node name="Wind" type="Label" parent="."]
 offset_left = 128.0
@@ -149,113 +80,8 @@ offset_top = 360.0
 offset_right = 238.0
 offset_bottom = 384.0
 text = "Wind Turbine"
+script = ExtResource("2_wu0tl")
 metadata/_edit_use_anchors_ = true
-
-[node name="Polygon2D" type="Polygon2D" parent="Wind"]
-position = Vector2(-8, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D2" type="Polygon2D" parent="Wind"]
-position = Vector2(24, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D5" type="Polygon2D" parent="Wind"]
-position = Vector2(56, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D4" type="Polygon2D" parent="Wind"]
-position = Vector2(88, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D3" type="Polygon2D" parent="Wind"]
-position = Vector2(120, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Fusion" type="Label" parent="."]
-offset_left = 128.0
-offset_top = 136.0
-offset_right = 243.0
-offset_bottom = 159.0
-text = "Fusion Reactor"
-metadata/_edit_use_anchors_ = true
-
-[node name="Polygon2D" type="Polygon2D" parent="Fusion"]
-position = Vector2(-8, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D2" type="Polygon2D" parent="Fusion"]
-position = Vector2(24, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D5" type="Polygon2D" parent="Fusion"]
-position = Vector2(56, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D4" type="Polygon2D" parent="Fusion"]
-position = Vector2(88, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D3" type="Polygon2D" parent="Fusion"]
-position = Vector2(120, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Solar" type="Label" parent="."]
-offset_left = 128.0
-offset_top = 80.0
-offset_right = 215.0
-offset_bottom = 103.0
-text = "Solar Panel"
-metadata/_edit_use_anchors_ = true
-
-[node name="Polygon2D" type="Polygon2D" parent="Solar"]
-position = Vector2(-8, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D2" type="Polygon2D" parent="Solar"]
-position = Vector2(24, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D5" type="Polygon2D" parent="Solar"]
-position = Vector2(56, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D4" type="Polygon2D" parent="Solar"]
-position = Vector2(88, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
-
-[node name="Polygon2D3" type="Polygon2D" parent="Solar"]
-position = Vector2(120, -16)
-scale = Vector2(2, 2)
-color = Color(0.433659, 0.639228, 0.382614, 0.784314)
-polygon = PackedVector2Array(8, 24, 16, 24, 16, 32, 8, 32)
 
 [node name="RND" type="Label" parent="."]
 offset_left = 352.0
@@ -269,55 +95,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="pourcentages" type="Label" parent="RND"]
-visible = false
-layout_mode = 0
-offset_left = 576.0
-offset_top = 8.0
-offset_right = 672.0
-offset_bottom = 64.0
-theme_override_colors/font_shadow_color = Color(0.403922, 0.705882, 0.870588, 0.737255)
-theme_override_font_sizes/font_size = 30
-text = "100 %"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="Middle" type="Line2D" parent="."]
 position = Vector2(223.5, 64.8871)
 scale = Vector2(0.5, 0.887097)
 points = PackedVector2Array(257, 17.0364, 257, 422.855)
 width = 3.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-
-[node name="Sprite2D4" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(38.3704, 115.111)
-scale = Vector2(0.000771605, 0.000771605)
-texture = ExtResource("2_hjq1w")
-
-[node name="Sprite2D3" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(52, 116)
-scale = Vector2(0.0222222, 0.0222222)
-texture = ExtResource("2_hjq1w")
-
-[node name="Sprite2D2" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(24, 80)
-scale = Vector2(0.0277778, 0.0277778)
-texture = ExtResource("2_hjq1w")
-
-[node name="Sprite2D" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(72, 16)
-scale = Vector2(0.166667, 0.166667)
-texture = ExtResource("2_hjq1w")
-
-[node name="Sprite2D5" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(32, 176)
-scale = Vector2(0.166667, 0.166667)
-texture = ExtResource("2_hjq1w")

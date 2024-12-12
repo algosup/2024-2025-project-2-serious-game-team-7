@@ -83,14 +83,20 @@ func move_cursor_to(x_position, slider):
 	var percentage = round(cursor_value * 10)  # Scale to 0-10
 	slider["label"].text = "%d" % percentage  # No percentage symbol
 
+	# Update rndCursors in GlobalVariables
+	var index = cursor_positions.find(slider)  # Find the index of the slider
+	if index != -1:
+		GlobalVariables.rndCursors[index] = percentage  # Update rndCursors with the current value
+
 	GlobalVariables.rndMoney = 0
 	for slider_data in cursor_positions:
 		var slider_value = (slider_data["cursor"].position.x - slider_data["line_start"].x) / slider_data["line_length"]
-		GlobalVariables.rndMoney += round(slider_value * 10)  # Scale to 0-10
+		GlobalVariables.rndMoney -= round(slider_value * 10)  # Scale to 0-10
 
-	print("RnD Money: %d" % GlobalVariables.rndMoney)
+	# print("RnD Money: %d" % GlobalVariables.rndMoney)
+	for i in range(GlobalVariables.rndLevels.size()):
+		print("Slider %d: %d" % [i, GlobalVariables.rndCursors[i]])
 	
-	# print_all_cursor_positions()
 	save_slider_positions()  # Save after each move
 
 func is_point_on_line(point, slider):

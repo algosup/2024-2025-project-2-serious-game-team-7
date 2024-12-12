@@ -7,9 +7,9 @@ var active_index = -1  # Index of the active rectangle
 var stored_variable = -1  # Debugging
 var csv_data = []  # Data loaded from CSV
 var vertical_offset = 0.13  # Vertical position for starting rectangles
-var accepted_laws = []  # List of accepted laws for display
+var accepted_deal = []  # List of accepted diplomatic deal for display
 
-const CSV_FILE_PATH = "res://data/LawsNodes.csv"
+const CSV_FILE_PATH = "res://data/DiploNodes.csv"
 
 # Called when the scene is ready
 func _ready():
@@ -87,7 +87,7 @@ func _on_rectangle_clicked(event, index):
 		print("Clicked rectangle index: ", index)
 
 
-# Create a detailed rectangle showing law information
+# Create a detailed rectangle showing deal information
 func create_new_rectangle(index):
 	if index >= 0 and index < rectangles.size():
 		# Create a rectangle for the detail view
@@ -102,18 +102,18 @@ func create_new_rectangle(index):
 		vbox.add_theme_constant_override("separation", 10)
 		new_rect.add_child(vbox)
 
-		# Display the law name from the CSV
+		# Display the deal name from the CSV
 		var csv_row = csv_data[index + 1]
 
 		var name_label = Label.new()
-		name_label.text = csv_row[0]  # Law name
+		name_label.text = csv_row[0]  # deal name
 		name_label.add_theme_font_size_override("font_size", 20)
 		name_label.set_autowrap_mode(TextServer.AUTOWRAP_WORD_SMART)
 		name_label.add_theme_color_override("font_color", Color.BLACK)
 		name_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		vbox.add_child(name_label)
 
-		# Display the law description from the CSV
+		# Display the deal description from the CSV
 		var description_label = Label.new()
 		description_label.text = csv_row[3]
 		description_label.set_autowrap_mode(TextServer.AUTOWRAP_WORD_SMART)
@@ -137,11 +137,11 @@ func create_new_rectangle(index):
 		return new_rect
 
 
-# Handle acceptance of a law
+# Handle acceptance of a deal
 func _on_accept_pressed(index):
-	print("Accepting law at index: ", index)  
+	print("Accepting deal at index: ", index)  
 	var csv_row = csv_data[index + 1]
-	var law_name = csv_row[0]
+	var deal_name = csv_row[0]
 	
 	var money_change = int(csv_data[index + 1][1])  # Money change
 	var temperature_change = float(csv_data[index + 1][2])  # Temperature change	
@@ -152,7 +152,7 @@ func _on_accept_pressed(index):
 	GlobalVariables.currentMoney = clamp(GlobalVariables.currentMoney, 0, 100)
 	GlobalVariables.currentTemperature = clamp(GlobalVariables.currentTemperature, -50, 50)	
 	# Print confirmation
-	print("Accepted law:", law_name)
+	print("Accepted deal:", deal_name)
 	print("Money change:", money_change, "-> Current Money:", GlobalVariables.currentMoney)
 	print("Temperature change:", temperature_change, "-> Current Temperature:", GlobalVariables.currentTemperature)
 
@@ -163,7 +163,7 @@ func _on_accept_pressed(index):
 
 	# Remove the selected rectangle from the list
 	remove_rectangle(index)
-	create_accepted_law_rectangle(law_name)
+	create_accepted_deal_rectangle(deal_name)
 	adjust_positions()
 
 
@@ -183,30 +183,30 @@ func remove_rectangle(index):
 			rectangles[i].gui_input.connect(_on_rectangle_clicked.bind(i))
 
 
-# Create a rectangle showing the accepted law
-func create_accepted_law_rectangle(law_name):
+# Create a rectangle showing the accepted deal
+func create_accepted_deal_rectangle(deal_name):
 	var new_rect = ColorRect.new()
 	new_rect.custom_minimum_size = Vector2(160, 25)
 	new_rect.color = Color(0.8, 0.8, 0.8, 0.9)
 
 	var label = Label.new()
-	label.text = law_name
+	label.text = deal_name
 	label.add_theme_color_override("font_color", Color.BLACK)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	label.add_theme_font_size_override("font_size", 10)
 
 	new_rect.add_child(label)
-	accepted_laws.append(new_rect)
+	accepted_deal.append(new_rect)
 	add_child(new_rect)
-	adjust_accepted_law_positions()
+	adjust_accepted_deal_positions()
 
 
-# Adjust accepted law positions
-func adjust_accepted_law_positions():
-	for i in range(accepted_laws.size()):
-		var law_rect = accepted_laws[i]
-		law_rect.position = Vector2(145, 87 + i * 30)
+# Adjust accepted deal positions
+func adjust_accepted_deal_positions():
+	for i in range(accepted_deal.size()):
+		var deal_rect = accepted_deal[i]
+		deal_rect.position = Vector2(145, 87 + i * 30)
 
 
 # CSV DATA MANAGEMENT
