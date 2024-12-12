@@ -137,6 +137,7 @@ offset_left = 1057.0
 offset_top = 13.0
 offset_right = 1107.0
 offset_bottom = 363.0
+max_value = 30.0
 fill_mode = 3
 texture_under = ExtResource("14_hghu1")
 texture_progress = ExtResource("14_hghu1")
