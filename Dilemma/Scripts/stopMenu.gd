@@ -1,10 +1,6 @@
 extends Control
 
-@onready var control = $"../"
-
 @export var menuScene_to_load: String = "res://Scenes/mainMenu.tscn"
-
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,7 +19,3 @@ func _on_quit_pressed() -> void:
 		get_tree().change_scene_to_file(menuScene_to_load)
 	else:
 		print("Error: Scene %s does not exist." % menuScene_to_load)
-
-
-func _on_resume_pressed() -> void:
-	control.pauseMenu() # Replace with function body.
