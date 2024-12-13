@@ -155,6 +155,14 @@ background_node = NodePath("../Background")
 target_color = Color(1, 0, 0, 1)
 next_turn_button = true
 
+[node name="PassButtonLight" type="PointLight2D" parent="PassButton"]
+position = Vector2(-3.81578, -1.85712)
+scale = Vector2(3.47188, -0.293861)
+color = Color(0.985974, 0.213187, 0.265958, 1)
+energy = 21.6
+texture = SubResource("GradientTexture2D_b3d2u")
+height = 300.0
+
 [node name="Money" type="TextureProgressBar" parent="."]
 material = SubResource("ShaderMaterial_btb4x")
 layout_mode = 0
