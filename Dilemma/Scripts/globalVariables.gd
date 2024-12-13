@@ -10,7 +10,7 @@ var thisTurnTemperature: int = 15
 var rndMoney: int = 0
 
 # Current turn
-var currentTurn: int = 0
+var currentTurn: int = 2024
 
 # RnD levels
 const MAX_RND_LEVEL = 5
