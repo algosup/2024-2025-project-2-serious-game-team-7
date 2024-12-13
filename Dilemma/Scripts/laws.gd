@@ -1,46 +1,42 @@
 extends Node2D
 
 const RECTANGLE_COUNT = 4
-const CSV_FILE_PATH = "res://data/LawsNodes.csv"
-const SAVE_FILE_PATH = "res://saves/accepted_laws.cfg"
-
 var rectangles = []
 var active_rectangle = null
 var active_index = -1
 var csv_data = []
 var vertical_offset = 0.13
 var accepted_law = []
-var accepted_law_names = []
+
+const CSV_FILE_PATH = "res://data/DiploNodes.csv"
+const SAVE_FILE_PATH = "res://saves/accepted_laws.cfg" # Added for saving logic
 
 var total_choice_sets = 0
 var last_processed_turn = -1
 var current_choices = []
 
+# New array to store the names of accepted laws
+var accepted_law_names = []
+
 func _ready():
 	load_and_assign_csv_data()
-	load_accepted_laws()
-	update_current_choices_randomly()  # Initial load of choices
+	load_accepted_laws() # Load previously accepted laws if any
+	update_current_choices()
 	create_rectangles()
-	create_accepted_law_rectangles()
+	create_accepted_law_rectangles() # Recreate accepted law rectangles after load
 	get_viewport().size_changed.connect(adjust_positions)
-
-	# Record the current turn so that no changes happen until it actually changes
 	last_processed_turn = GlobalVariables.currentTurn
 
 func _process(delta):
-	# Update only if the turn has actually changed
 	if GlobalVariables.currentTurn != last_processed_turn:
-		update_current_choices_randomly()
+		update_current_choices()
 		create_rectangles()
 		last_processed_turn = GlobalVariables.currentTurn
 
-
-
 func load_and_assign_csv_data():
 	csv_data = load_csv(CSV_FILE_PATH)
-	# Subtract 1 to exclude the header row
-	total_choice_sets = csv_data.size() - 1
-	print("Total laws: ", total_choice_sets)
+	total_choice_sets = (csv_data.size() - 1) / RECTANGLE_COUNT
+	print("Total choice sets: ", total_choice_sets)
 
 func load_csv(file_path: String) -> Array:
 	var file = FileAccess.open(file_path, FileAccess.READ)
@@ -57,36 +53,17 @@ func load_csv(file_path: String) -> Array:
 		print("Failed to open file: ", file_path)
 		return []
 
-func load_accepted_laws():
-	var config = ConfigFile.new()
-	var err = config.load(SAVE_FILE_PATH)
-	if err == OK:
-		accepted_law_names = config.get_value("laws", "accepted", [])
-	else:
-		print("No previous accepted laws found or error loading save file.")
-
-func save_accepted_laws():
-	var config = ConfigFile.new()
-	config.set_value("laws", "accepted", accepted_law_names)
-	config.save(SAVE_FILE_PATH)
-
-func update_current_choices_randomly():
-	# Clear previous choices
+func update_current_choices():
 	current_choices.clear()
-	
-	# Create a list of available laws (not yet accepted)
-	var available_laws = []
-	for i in range(1, csv_data.size()):  # Start from 1 to skip header
-		var law = csv_data[i]
-		if not law[0] in accepted_law_names:
-			available_laws.append(law)
-	
-	# Randomize the available laws
-	available_laws.shuffle()
-	
-	# Select up to 4 laws
-	for i in range(min(RECTANGLE_COUNT, available_laws.size())):
-		current_choices.append(available_laws[i])
+	var effective_turn = GlobalVariables.currentTurn % total_choice_sets
+	var start_index = effective_turn * RECTANGLE_COUNT + 1
+	for i in range(RECTANGLE_COUNT):
+		var index = start_index + i
+		if index < csv_data.size():
+			# Only add if not already accepted
+			var law_name = csv_data[index][0]
+			if law_name not in accepted_law_names:
+				current_choices.append(csv_data[index])
 
 func create_rectangles():
 	clear_existing_rectangles()
@@ -206,19 +183,23 @@ func _on_accept_pressed(index):
 	print("Money change:", money_change, "-> Current Money:", GlobalVariables.currentMoney)
 	print("Temperature change:", temperature_change, "-> Current Temperature:", GlobalVariables.currentTemperature)
 
-	# Add the law to accepted laws list
-	accepted_law_names.append(law_name)
-	save_accepted_laws()
-
 	if active_rectangle:
 		active_rectangle.queue_free()
 		active_rectangle = null
 		active_index = -1
 
-	#update_current_choices_randomly()
-	#create_rectangles()
+	# Add law to accepted laws list and save
+	accepted_law_names.append(law_name)
+	save_accepted_laws()
+
+	remove_choice(index)
 	create_accepted_law_rectangle(law_name)
 	adjust_positions()
+
+func remove_choice(index):
+	if index >= 0 and index < current_choices.size():
+		current_choices.remove_at(index)
+		create_rectangles()  # Recreate rectangles to reflect the removed choice
 
 func create_accepted_law_rectangle(law_name):
 	var new_rect = ColorRect.new()
@@ -242,12 +223,29 @@ func create_accepted_law_rectangle(law_name):
 	add_child(new_rect)
 	adjust_accepted_law_positions()
 
-func create_accepted_law_rectangles():
-	# Recreate rectangles for previously accepted laws
-	for law_name in accepted_law_names:
-		create_accepted_law_rectangle(law_name)
-
 func adjust_accepted_law_positions():
 	for i in range(accepted_law.size()):
 		var law_rect = accepted_law[i]
 		law_rect.position = Vector2(145, 87 + i * 30)
+
+####################################################
+# Saving and Loading State (added logic)
+####################################################
+
+func load_accepted_laws():
+	var config = ConfigFile.new()
+	var err = config.load(SAVE_FILE_PATH)
+	if err == OK:
+		accepted_law_names = config.get_value("laws", "accepted", [])
+	else:
+		print("No previous accepted laws found or error loading save file.")
+
+func save_accepted_laws():
+	var config = ConfigFile.new()
+	config.set_value("laws", "accepted", accepted_law_names)
+	config.save(SAVE_FILE_PATH)
+
+func create_accepted_law_rectangles():
+	# Recreate rectangles for previously accepted laws
+	for law_name in accepted_law_names:
+		create_accepted_law_rectangle(law_name)

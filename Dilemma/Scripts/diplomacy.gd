@@ -9,14 +9,21 @@ var vertical_offset = 0.13
 var accepted_deal = []
 
 const CSV_FILE_PATH = "res://data/DiploNodes.csv"
+const SAVE_FILE_PATH = "res://saves/accepted_deals.cfg" # Added for saving logic
+
 var total_choice_sets = 0
 var last_processed_turn = -1
 var current_choices = []
 
+# New array to store the names of accepted deals
+var accepted_deal_names = []
+
 func _ready():
 	load_and_assign_csv_data()
+	load_accepted_deals() # Load previously accepted deals if any
 	update_current_choices()
 	create_rectangles()
+	create_accepted_deal_rectangles() # Recreate accepted deal rectangles after load
 	get_viewport().size_changed.connect(adjust_positions)
 	last_processed_turn = GlobalVariables.currentTurn
 
@@ -53,7 +60,10 @@ func update_current_choices():
 	for i in range(RECTANGLE_COUNT):
 		var index = start_index + i
 		if index < csv_data.size():
-			current_choices.append(csv_data[index])
+			# Only add if not already accepted
+			var deal_name = csv_data[index][0]
+			if deal_name not in accepted_deal_names:
+				current_choices.append(csv_data[index])
 
 func create_rectangles():
 	clear_existing_rectangles()
@@ -178,6 +188,10 @@ func _on_accept_pressed(index):
 		active_rectangle = null
 		active_index = -1
 
+	# Add deal to accepted deals list and save
+	accepted_deal_names.append(deal_name)
+	save_accepted_deals()
+
 	remove_choice(index)
 	create_accepted_deal_rectangle(deal_name)
 	adjust_positions()
@@ -213,3 +227,25 @@ func adjust_accepted_deal_positions():
 	for i in range(accepted_deal.size()):
 		var deal_rect = accepted_deal[i]
 		deal_rect.position = Vector2(145, 87 + i * 30)
+
+####################################################
+# Saving and Loading State (added logic)
+####################################################
+
+func load_accepted_deals():
+	var config = ConfigFile.new()
+	var err = config.load(SAVE_FILE_PATH)
+	if err == OK:
+		accepted_deal_names = config.get_value("deals", "accepted", [])
+	else:
+		print("No previous accepted deals found or error loading save file.")
+
+func save_accepted_deals():
+	var config = ConfigFile.new()
+	config.set_value("deals", "accepted", accepted_deal_names)
+	config.save(SAVE_FILE_PATH)
+
+func create_accepted_deal_rectangles():
+	# Recreate rectangles for previously accepted deals
+	for deal_name in accepted_deal_names:
+		create_accepted_deal_rectangle(deal_name)
