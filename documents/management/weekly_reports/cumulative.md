@@ -237,7 +237,7 @@ While this week presented challenges related to team motivation and project prog
 
 ### Overview
 
-This week was impacted by limited project time, with only two session available for collaborative work. This constraint made it difficult to effectively track and align the work of all team members. Despite these challenges, we successfully delivered the test plan as scheduled. To address delays in the coding tasks, the team made the strategic decision to reduce the scope of the game by limiting the number of choices in each category and reducing the total number of turns from 50 to 20.
+This week was impacted by limited project time, with only two session available for collaborative work. This constraint made it difficult to effectively track and align the work of all team members. Despite these challenges, we successfully delivered the test plan as scheduled. To address delays in the coding tasks, the team made the strategic decision to reduce the scope of the game by limiting the number of choices in each category and reducing the total number of turns from 50 to 10.
 
 ### Accomplishments
 1.	**Test Plan**
@@ -245,7 +245,7 @@ This week was impacted by limited project time, with only two session available 
 	- Successfully delivered the test plan, outlining the QA strategies and ensuring a structured approach to testing.
 2.	**Scope Adjustment**
 
-	- Reduced the number of choices in each category (Diplomacy, Laws, Research) and scaled down the total number of turns to 20. This adjustment ensures a more realistic timeline for completing the code base.
+	- Reduced the number of choices in each category (Diplomacy, Laws, Research) and scaled down the total number of turns to 10. This adjustment ensures a more realistic timeline for completing the code base.
 3.	**Data Structures Setup**
 
 	- Established data structures to facilitate software engineering tasks, improving organization and enhancing collaborative work among developers.
