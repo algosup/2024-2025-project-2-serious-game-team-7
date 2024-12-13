@@ -8,7 +8,7 @@ var csv_data = []
 var vertical_offset = 0.13
 var accepted_law = []
 
-const CSV_FILE_PATH = "res://data/DiploNodes.csv"
+const CSV_FILE_PATH = "res://data/LawsNodes.csv"
 const SAVE_FILE_PATH = "res://saves/accepted_laws.cfg" # Added for saving logic
 
 var total_choice_sets = 0
