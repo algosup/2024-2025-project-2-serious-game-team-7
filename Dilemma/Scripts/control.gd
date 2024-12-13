@@ -34,4 +34,5 @@ func pauseMenu():
 	else:
 		pause_menu.show()
 		Engine.time_scale = 1
+		print(pause_menu.get_z_index())
 	paused = !paused
