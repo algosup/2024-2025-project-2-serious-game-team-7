@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dr61qlfb5guom"
+path="res://.godot/imported/Collapse of the Sound.mp3-740ceb5470ae2486ef0cd728e76b3f68.mp3str"
+
+[deps]
+
+source_file="res://Resources/Music/Collapse of the Sound.mp3"
+dest_files=["res://.godot/imported/Collapse of the Sound.mp3-740ceb5470ae2486ef0cd728e76b3f68.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

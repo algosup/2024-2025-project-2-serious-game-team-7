@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkovdggdfa1xa"]
+
+[ext_resource type="Script" path="res://Scripts/ending.gd" id="1_oauni"]
+[ext_resource type="VideoStream" path="res://Resources/Video/Frozen.ogv" id="2_nu0kj"]
+[ext_resource type="AudioStream" uid="uid://ctgr8afhu2c6p" path="res://Resources/Music/BadEnd.mp3" id="3_scnbe"]
+
+[node name="Frozen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.996457, 0.996457)
+script = ExtResource("1_oauni")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_nu0kj")
+autoplay = true
+expand = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_scnbe")
+autoplay = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
