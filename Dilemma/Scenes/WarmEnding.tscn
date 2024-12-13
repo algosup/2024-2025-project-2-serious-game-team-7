@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqcxfjdrfmfy6"]
+[gd_scene load_steps=4 format=3 uid="uid://crdm0rm6sajof"]
 
 [ext_resource type="Script" path="res://Scripts/ending.gd" id="1_h1omn"]
 [ext_resource type="VideoStream" path="res://Resources/Video/Warm.ogv" id="2_5g3c2"]
+[ext_resource type="AudioStream" uid="uid://ctgr8afhu2c6p" path="res://Resources/Music/BadEnd.mp3" id="3_mkm0m"]
 
 [node name="Warm" type="Control"]
 layout_mode = 3
@@ -25,5 +26,9 @@ grow_vertical = 2
 stream = ExtResource("2_5g3c2")
 autoplay = true
 expand = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mkm0m")
+autoplay = true
 
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

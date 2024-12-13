@@ -119,14 +119,14 @@ func save_slider_positions():
 		var cursor_value = (slider["cursor"].position.x - slider["line_start"].x) / slider["line_length"]
 		save_data.append(cursor_value)
 	
-	var save_file = FileAccess.open("user://slider_positions.save", FileAccess.WRITE)
+	var save_file = FileAccess.open("res://saves/slider_positions.save", FileAccess.WRITE)
 	save_file.store_var(save_data)
 
 func load_slider_positions():
-	if not FileAccess.file_exists("user://slider_positions.save"):
+	if not FileAccess.file_exists("res://saves/slider_positions.save"):
 		return  # No save file exists
 	
-	var save_file = FileAccess.open("user://slider_positions.save", FileAccess.READ)
+	var save_file = FileAccess.open("res://saves/slider_positions.save", FileAccess.READ)
 	var save_data = save_file.get_var()
 	
 	for i in range(min(save_data.size(), cursor_positions.size())):

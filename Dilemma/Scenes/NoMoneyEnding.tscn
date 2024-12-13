@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3v2nluqpgfko"]
+[gd_scene load_steps=4 format=3 uid="uid://dcaphnqpjup7g"]
 
 [ext_resource type="Script" path="res://Scripts/ending.gd" id="1_wr0cs"]
 [ext_resource type="VideoStream" path="res://Resources/Video/No-money.ogv" id="2_jutqm"]
+[ext_resource type="AudioStream" uid="uid://34so13c2quud" path="res://Resources/Music/NoMoney.mp3" id="3_ld62f"]
 
 [node name="NoMoney" type="Control"]
 layout_mode = 3
@@ -25,5 +26,9 @@ grow_vertical = 2
 stream = ExtResource("2_jutqm")
 autoplay = true
 expand = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ld62f")
+autoplay = true
 
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
