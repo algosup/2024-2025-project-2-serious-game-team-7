@@ -7,28 +7,50 @@ public partial class Navigation : Sprite2D
 	[Export] public float MoveDownDistance { get; set; } = 3.0f;  // Distance to move down when pressed
 	[Export] public NodePath BackgroundNodePath { get; set; } = "";  // Path to the background node
 	[Export] public Color TargetColor { get; set; } = new Color(0.6f, 0.9f, 0.6f, 1.0f);  // Default is green
+	[Export] public Color HaloColor { get; set; } = new Color(0.93f, 0.855f, 0.3f, 1.0f);  
 
 	private Vector2 _originalPosition;  // Store the original position to reset later
 	private CanvasItem _backgroundNode;  // Resolved reference to the background node
+	private Color _originalColor; // Color reference of the buttons
 
 	// Static references to track the active popup
 	private static Node _activePopupInstance = null;
 	private static string _activePopupScenePath = "";
+	
+	private Timer lightTimer;
+	private PointLight2D _buttonLight;
 	
 	public override void _Ready()
 	{
 		// Save the original position of the sprite
 		_originalPosition = Position;
 		
+		_buttonLight = GetNode<PointLight2D>("ButtonLight");
+		_buttonLight.Hide();
+		
 		//_resumePanel = GetNode<Control>("Resume");
 		//_resumePanel.Hide();
+		
 
 		// Resolve the background node
 		if (!string.IsNullOrEmpty(BackgroundNodePath))
 		{
 			_backgroundNode = GetNode<CanvasItem>(BackgroundNodePath);
 		}
-		
+		// Create a new Timer node
+		lightTimer = new Timer();
+
+		// Set the timer's wait time to 1 second
+		lightTimer.WaitTime = 1.0f;
+
+		// Connect the timeout signal to a custom method
+		lightTimer.Timeout += OnTimerTimeout;
+
+		// Add the Timer as a child of the current node
+		AddChild(lightTimer);
+
+		// Start the timer
+		lightTimer.Start();
 		
 	}
 
@@ -118,6 +140,11 @@ public partial class Navigation : Sprite2D
 			// Change the background node's color to the target color
 			_backgroundNode.Modulate = TargetColor;
 		}
+	}
+	
+	private void OnTimerTimeout()
+	{
+		_buttonLight.Visible = !_buttonLight.Visible;
 	}
 	
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://0b77mfc58hk1"]
+[gd_scene load_steps=21 format=3 uid="uid://0b77mfc58hk1"]
 
 [ext_resource type="Texture2D" uid="uid://4sgahldinw3q" path="res://Images/photo-1704910059653-041d5a17717e.jpeg" id="1_quq0f"]
 [ext_resource type="Script" path="res://Scripts/control.gd" id="1_yog32"]
@@ -16,6 +16,15 @@
 [ext_resource type="Texture2D" uid="uid://d3w2qq428a7y7" path="res://Images/kheqbvfd-removebg-preview (2).png" id="12_1iby2"]
 [ext_resource type="Texture2D" uid="uid://b3c6htiqn2ie6" path="res://Images/Meter.png" id="14_hghu1"]
 [ext_resource type="PackedScene" uid="uid://bqjwl1kjmwhm6" path="res://Scenes/stopMenu.tscn" id="16_73mww"]
+
+[sub_resource type="Gradient" id="Gradient_clg7r"]
+offsets = PackedFloat32Array(0, 0.695238)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_b3d2u"]
+gradient = SubResource("Gradient_clg7r")
+fill = 1
+fill_from = Vector2(0.5, 0.512821)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_btb4x"]
 
@@ -78,7 +87,15 @@ texture = ExtResource("5_dsl8g")
 script = ExtResource("6_0og6m")
 PopupScenePath = "res://Scenes/rnd.tscn"
 BackgroundNodePath = NodePath("../RightScreen")
-TargetColor = Color(0.690196, 0.745098, 0.772549, 1)
+TargetColor = Color(0.666573, 0.725511, 0.754858, 1)
+
+[node name="ButtonLight" type="PointLight2D" parent="Desk/RightButton"]
+position = Vector2(-2.15584, -14.4902)
+scale = Vector2(2.04744, -1.05158)
+color = Color(0.311928, 0.561339, 0.257879, 1)
+energy = 21.6
+texture = SubResource("GradientTexture2D_b3d2u")
+height = 300.0
 
 [node name="MiddleButton" type="Sprite2D" parent="Desk"]
 position = Vector2(4.95911e-05, 760.667)
@@ -89,6 +106,14 @@ PopupScenePath = "res://Scenes/diplomacy.tscn"
 BackgroundNodePath = NodePath("../MiddleScreen")
 TargetColor = Color(0.690196, 0.745098, 0.772549, 1)
 
+[node name="ButtonLight" type="PointLight2D" parent="Desk/MiddleButton"]
+position = Vector2(2.39398, 0.000267029)
+scale = Vector2(2.27273, -1.17463)
+color = Color(0.311928, 0.561339, 0.257879, 1)
+energy = 21.6
+texture = SubResource("GradientTexture2D_b3d2u")
+height = 300.0
+
 [node name="LeftButton" type="Sprite2D" parent="Desk"]
 position = Vector2(-873.517, 738.028)
 scale = Vector2(1.24371, 1.16934)
@@ -97,6 +122,14 @@ script = ExtResource("6_0og6m")
 PopupScenePath = "res://Scenes/laws.tscn"
 BackgroundNodePath = NodePath("../LeftScreen")
 TargetColor = Color(0.690196, 0.745098, 0.772549, 1)
+
+[node name="ButtonLight" type="PointLight2D" parent="Desk/LeftButton"]
+position = Vector2(1.20751, -14.1971)
+scale = Vector2(2.29532, -1.12399)
+color = Color(0.311928, 0.561339, 0.257879, 1)
+energy = 21.6
+texture = SubResource("GradientTexture2D_b3d2u")
+height = 300.0
 
 [node name="MiddleScreen" type="Sprite2D" parent="Desk"]
 position = Vector2(1.50376, 514.657)
