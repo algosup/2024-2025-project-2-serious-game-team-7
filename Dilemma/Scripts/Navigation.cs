@@ -7,7 +7,6 @@ public partial class Navigation : Sprite2D
 	[Export] public float MoveDownDistance { get; set; } = 3.0f;  // Distance to move down when pressed
 	[Export] public NodePath BackgroundNodePath { get; set; } = "";  // Path to the background node
 	[Export] public Color TargetColor { get; set; } = new Color(0.6f, 0.9f, 0.6f, 1.0f);  // Default is green
-	[Export] public Color HaloColor { get; set; } = new Color(0.93f, 0.855f, 0.3f, 1.0f);  
 
 	private Vector2 _originalPosition;  // Store the original position to reset later
 	private CanvasItem _backgroundNode;  // Resolved reference to the background node
@@ -16,23 +15,10 @@ public partial class Navigation : Sprite2D
 	private static Node _activePopupInstance = null;
 	private static string _activePopupScenePath = "";
 	
-	private Timer lightTimer;
-	private PointLight2D _buttonLight;
-	private PointLight2D _passButtonLight;
-	private int _actualTurn;
-	
 	public override void _Ready()
 	{
-		// Access the node with the .gd script
-		
 		// Save the original position of the sprite
 		_originalPosition = Position;
-		
-		_buttonLight = GetNode<PointLight2D>("ButtonLight");
-		_buttonLight.Hide();
-		
-		_passButtonLight = GetNode<PointLight2D>("../../PassButton/PassButtonLight");
-		_passButtonLight.Hide();
 		
 		//_resumePanel = GetNode<Control>("Resume");
 		//_resumePanel.Hide();
@@ -42,19 +28,6 @@ public partial class Navigation : Sprite2D
 		{
 			_backgroundNode = GetNode<CanvasItem>(BackgroundNodePath);
 		}
-		
-		// Create a new Timer node
-		lightTimer = new Timer();
-		// Set the timer's wait time to 1 second
-		lightTimer.WaitTime = 1.0f;
-		// Connect the timeout signal to a custom method
-		lightTimer.Timeout += OnTimerTimeout;
-		// Add the Timer as a child of the current node
-		AddChild(lightTimer);
-		// Start the timer
-		lightTimer.Start();
-		
-		_actualTurn = (int)GetTree().Root.GetNode("GlobalVariables").Get("currentTurn");
 		
 		
 	}
@@ -75,12 +48,6 @@ public partial class Navigation : Sprite2D
 		}
 		
 	}
-	
-	public override void _Process(double delta)
-	{
-		_actualTurn = (int)GetTree().Root.GetNode("GlobalVariables").Get("currentTurn");
-	}
-	
 
 	private void MoveButtonDown()
 	{
@@ -150,19 +117,6 @@ public partial class Navigation : Sprite2D
 		{
 			// Change the background node's color to the target color
 			_backgroundNode.Modulate = TargetColor;
-		}
-	}
-	
-	private void OnTimerTimeout()
-	{	if (_actualTurn < 1)
-		{
-			_buttonLight.Visible = !_buttonLight.Visible;
-			_passButtonLight.Visible = !_passButtonLight.Visible;
-		}
-		else
-		{
-			_buttonLight.Visible = false;
-			_passButtonLight.Visible = false;
 		}
 	}
 	
