@@ -88,17 +88,27 @@ func upgrade_level():
 			else:
 				print("Slider %d upgrade failed" % i)
 
+
+func update_temp_rnd():
+	for i in range(GlobalVariables.rndLevels.size()):
+		GlobalVariables.thisTurnTemperature -= GlobalVariables.rndLevels[i]
+
+func increase_temp():
+	GlobalVariables.thisTurnTemperature += 2
+
 	
 func trigger_next_turn():
 	var label: Label
 	label = get_node("/root/Control/TurnCount")
 
+	update_temp_rnd()
+	increase_temp()
 	upgrade_level()
 	
 	GlobalVariables.thisTurnMoney += GlobalVariables.rndMoney
 	GlobalVariables.currentMoney = GlobalVariables.thisTurnMoney
 	GlobalVariables.currentTemperature = GlobalVariables.thisTurnTemperature
 	GlobalVariables.currentTurn += 1
-	
+		
 	label.text = str(GlobalVariables.currentTurn)
 	print('next turn : ', GlobalVariables.currentTurn)
