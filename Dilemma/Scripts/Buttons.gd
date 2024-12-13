@@ -58,7 +58,7 @@ func open_popup_scene():
 		if popup_scene:
 			print("Popup scene loaded successfully!")
 			get_tree().root.add_child(popup_scene)  # Add popup to the root
-			popup_scene.z_index = 100  # Ensure the popup is on top
+			popup_scene.z_index = 50  # Ensure the popup is on top
 
 			# Update the static variables
 			active_popup_instance = popup_scene
