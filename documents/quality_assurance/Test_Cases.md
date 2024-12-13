@@ -99,8 +99,8 @@ The following
 |     2.9      |  Save Game Button   |  The user can see the Save Game button correctly   |    --     |          The Save Game button is displayed correctly          |      --       | &#x2610; |
 |     2.10     |  Load Game Button   |  The user can see the Load Game button correctly   |    --     |          The Load Game button is displayed correctly          |      --       | &#x2610; |
 |     2.11     |  Quit Game Button   |  The user can see the Quit Game button correctly   |    --     |          The Quit Game button is displayed correctly          |      Same as expected | &#x2611; |
-|     2.12     |  Game Over Screen   |  The user can see the Game Over screen correctly   |    --     |          The Game Over screen is displayed correctly          |      --       | &#x2610; |
-|     2.13     |   Game Won Screen   |   The user can see the Game Won screen correctly   |    --     |          The Game Won screen is displayed correctly           |      --       | &#x2610; |
+|     2.12     |  Game Over Screen   |  The user can see the Game Over screen correctly   |    --     |          The Game Over screen is displayed correctly          |      Same as expected | &#x2611; |
+|     2.13     |   Game Won Screen   |   The user can see the Game Won screen correctly   |    --     |          The Game Won screen is displayed correctly           |      Same as expected | &#x2611; |
 
 
 
@@ -136,7 +136,7 @@ The following table contains the accessibility test cases for the Dilemma projec
 
 | Test Case ID | Test Case Name |               Test Case Description                | Test Data |                   Expected Result                   | Actual Result |  Tested  |
 |:------------:|:--------------:|:--------------------------------------------------:|:---------:|:---------------------------------------------------:|:-------------:|:--------:|
-|     4.1      | Colorblindness | Use a colorblindness simulator to check the colors |    --     | The colors are distinguishable for colorblind users |      --       | &#x2610; |
+|     4.1      | Colorblindness | Use a colorblindness simulator to check the colors |    --     | The colors are distinguishable for colorblind users |      Same as expected       | &#x2611; |
 
 
 
