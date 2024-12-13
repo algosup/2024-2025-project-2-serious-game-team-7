@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://0b77mfc58hk1"]
+[gd_scene load_steps=21 format=3 uid="uid://0b77mfc58hk1"]
 
 [ext_resource type="Texture2D" uid="uid://4sgahldinw3q" path="res://Images/photo-1704910059653-041d5a17717e.jpeg" id="1_quq0f"]
 [ext_resource type="Script" path="res://Scripts/control.gd" id="1_yog32"]
 [ext_resource type="Texture2D" uid="uid://dxefscnam7d7f" path="res://Images/dall.png" id="2_kavk5"]
 [ext_resource type="Texture2D" uid="uid://cl8tyaf6y4256" path="res://Images/pylon.png" id="3_p7k8r"]
 [ext_resource type="Texture2D" uid="uid://bok2m2hbrnqf6" path="res://Images/DeskHD_Symetrical.png" id="4_jaiep"]
+[ext_resource type="Texture2D" uid="uid://dmqhaxj60mv5c" path="res://Images/map.png" id="5_a63gp"]
 [ext_resource type="Texture2D" uid="uid://dn2msmrgdi18t" path="res://Images/Screenshot_2024-11-19_at_10.27.13-removebg-preview.png" id="5_dsl8g"]
 [ext_resource type="Script" path="res://Scripts/Navigation.cs" id="6_0og6m"]
 [ext_resource type="Script" path="res://Scripts/Buttons.gd" id="6_oh7ks"]
@@ -66,6 +67,12 @@ texture = ExtResource("2_kavk5")
 position = Vector2(1088, 275)
 scale = Vector2(1.314, 1.488)
 texture = ExtResource("3_p7k8r")
+
+[node name="Map" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 1, 0.431373)
+position = Vector2(573, 177)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_a63gp")
 
 [node name="Desk" type="Sprite2D" parent="."]
 position = Vector2(574, 319)
@@ -152,11 +159,13 @@ tint_progress = Color(1, 0, 0, 1)
 
 [node name="TurnCount" type="Label" parent="."]
 layout_mode = 0
-offset_left = 936.0
-offset_top = 4.0
-offset_right = 1002.0
-offset_bottom = 50.0
-text = "0"
+offset_left = 460.0
+offset_top = 295.0
+offset_right = 688.0
+offset_bottom = 432.0
+theme_override_font_sizes/font_size = 30
+text = "2024
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 

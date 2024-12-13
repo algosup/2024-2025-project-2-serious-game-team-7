@@ -5,7 +5,9 @@ var currentTemperature: int = 15
 var thisTurnMoney: int = 50
 var thisTurnTemperature: int = 15
 var rndMoney: int = 0
-var currentTurn: int = 0
+
+# Current turn
+var currentTurn: int = 2024
 
 const MAX_RND_LEVEL = 5
 var rndLevels: Array = [0, 0, 0, 0, 0, 0]
