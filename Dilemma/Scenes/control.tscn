@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://0b77mfc58hk1"]
+[gd_scene load_steps=23 format=3 uid="uid://0b77mfc58hk1"]
 
 [ext_resource type="Texture2D" uid="uid://4sgahldinw3q" path="res://Images/photo-1704910059653-041d5a17717e.jpeg" id="1_quq0f"]
 [ext_resource type="Script" path="res://Scripts/control.gd" id="1_yog32"]
@@ -16,8 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://vpt0j2btwbha" path="res://Images/left.png" id="11_tofxr"]
 [ext_resource type="Texture2D" uid="uid://d3w2qq428a7y7" path="res://Images/kheqbvfd-removebg-preview (2).png" id="12_1iby2"]
 [ext_resource type="Texture2D" uid="uid://b3c6htiqn2ie6" path="res://Images/Meter.png" id="14_hghu1"]
-[ext_resource type="PackedScene" uid="uid://bqjwl1kjmwhm6" path="res://Scenes/stopMenu.tscn" id="16_73mww"]
+[ext_resource type="PackedScene" path="res://Scenes/stopMenu.tscn" id="16_73mww"]
 [ext_resource type="AudioStream" uid="uid://h3r56r26j5ff" path="res://Resources/Music/mainTheme.mp3" id="17_im1kl"]
+[ext_resource type="Script" path="res://Scripts/newTurn.gd" id="18_gvnxh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_btb4x"]
 
@@ -38,6 +39,9 @@ public partial class Money : TextureProgressBar
 	}
 }
 "
+
+[sub_resource type="Theme" id="Theme_wywe5"]
+default_font_size = 60
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -126,8 +130,6 @@ position = Vector2(574, 629)
 scale = Vector2(1.31035, 1.07692)
 texture = ExtResource("12_1iby2")
 script = ExtResource("6_oh7ks")
-popup_scene_path = null
-move_down_distance = null
 background_node = NodePath("../Background")
 target_color = Color(1, 0, 0, 1)
 next_turn_button = true
@@ -179,3 +181,19 @@ offset_bottom = 192.0
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("17_im1kl")
 autoplay = true
+
+[node name="lastTurn" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 369.0
+offset_top = 71.0
+offset_right = 926.0
+offset_bottom = 326.0
+scale = Vector2(0.76, 0.76)
+theme = SubResource("Theme_wywe5")
+text = "Last Turn changes :
+money +1
+temperature -1"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("18_gvnxh")

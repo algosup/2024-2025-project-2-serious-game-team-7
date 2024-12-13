@@ -106,9 +106,18 @@ func trigger_next_turn():
 	upgrade_level()
 	
 	GlobalVariables.thisTurnMoney += GlobalVariables.rndMoney
+	var lastTurnMoney = GlobalVariables.thisTurnMoney - GlobalVariables.currentMoney
 	GlobalVariables.currentMoney = GlobalVariables.thisTurnMoney
+	
+	var lastTurnTemp = GlobalVariables.thisTurnTemperature - GlobalVariables.currentTemperature 
 	GlobalVariables.currentTemperature = GlobalVariables.thisTurnTemperature
 	GlobalVariables.currentTurn += 1
 		
 	label.text = str(GlobalVariables.currentTurn)
+	
+	var lastTurn: Label
+	lastTurn = get_node("../lastTurn")
+	lastTurn.visible = true
+	lastTurn.text = "Last Turn changes :\n money " + str(lastTurnMoney) + "\ntemperature " +  str(lastTurnTemp)
+	
 	print('next turn : ', GlobalVariables.currentTurn)
