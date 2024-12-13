@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://vpt0j2btwbha" path="res://Images/left.png" id="11_tofxr"]
 [ext_resource type="Texture2D" uid="uid://d3w2qq428a7y7" path="res://Images/kheqbvfd-removebg-preview (2).png" id="12_1iby2"]
 [ext_resource type="Texture2D" uid="uid://b3c6htiqn2ie6" path="res://Images/Meter.png" id="14_hghu1"]
-[ext_resource type="PackedScene" path="res://Scenes/stopMenu.tscn" id="16_73mww"]
+[ext_resource type="PackedScene" uid="uid://bqjwl1kjmwhm6" path="res://Scenes/stopMenu.tscn" id="16_73mww"]
 [ext_resource type="AudioStream" uid="uid://h3r56r26j5ff" path="res://Resources/Music/mainTheme.mp3" id="17_im1kl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_btb4x"]

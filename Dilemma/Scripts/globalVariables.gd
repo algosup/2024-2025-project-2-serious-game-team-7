@@ -23,7 +23,9 @@ var isDead: bool = false
 # Overlay scene and paths
 var overlay_scene: Node = null
 var gameOverScenePath = "res://Scenes/mainMenu.tscn"
-var save_file_path = "user://slider_positions.save"
+var save_file_path = "res://saves/slider_positions.save"
+var save_laws = "res://saves/accepted_laws.cfg"
+var save_diplomacy = "res://saves/accepted_deals.cfg"
 
 func _process(delta: float) -> void:
 	if isDead:
@@ -45,7 +47,7 @@ func _process(delta: float) -> void:
 
 func end():
 	close_overlay_scene()
-	delete_save_file()
+	delete_save_file()  
 	reset_game_state()
 	cleanup_lingering_scenes()
 	open_overlay_scene()
@@ -92,16 +94,37 @@ func reset_game_state():
 	print("Game state reset.")
 
 func delete_save_file():
-	# Deletes the save file, if it exists
-	var dir = DirAccess.open("user://")
+	# Deletes the save files if they exist
+	var dir = DirAccess.open("res://saves/")
 	if dir:
+		# Delete slider positions save file
 		if dir.file_exists(save_file_path):
 			var error = dir.remove(save_file_path)
 			if error == OK:
-				print("Save file deleted successfully.")
+				print("Slider positions save file deleted successfully.")
 			else:
-				print("Error deleting save file: ", error)
+				print("Error deleting slider positions save file: ", error)
 		else:
-			print("Save file does not exist.")
+			print("Slider positions save file does not exist.")
+
+		# Delete diplomacy save file
+		if dir.file_exists(save_diplomacy):
+			var error = dir.remove(save_diplomacy)
+			if error == OK:
+				print("Accepted deals save file deleted successfully.")
+			else:
+				print("Error deleting accepted deals save file: ", error)
+		else:
+			print("Accepted deals save file does not exist.")
+		
+		# Delete diplomacy save file
+		if dir.file_exists(save_laws):
+			var error = dir.remove(save_laws)
+			if error == OK:
+				print("Accepted deals save file deleted successfully.")
+			else:
+				print("Error deleting accepted deals save file: ", error)
+		else:
+			print("Accepted deals save file does not exist.")
 	else:
-		print("Unable to access user directory.")
+		print("Unable to access saves directory.")
