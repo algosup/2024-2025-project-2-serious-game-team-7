@@ -291,7 +291,7 @@ When the game starts, a .json file is generated for a game object. At the start 
 
 ### 3.3. Programming Language
 
-First of all, we have decided to use C# as the main programming language of our game. Using the ### version, we chose this high-level programming language over the built-in language GDScript because it allows a faster runtime of our scripts, and most of our team members are familiar with it.
+First of all, we have decided to use C# as the main programming language of our game. Indeed, we chose this high-level programming language over the built-in language GDScript because it allows a faster runtime of our scripts, and most of our team members are familiar with it.
 
 In addition, some game elements like countries or game states would require interfaces, abstract classes, and properties, and C# would provide a more structured code for this complex project.
 
